@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
-import Content from "./components/Content";
 import Footer from "./components/Footer";
+import UserContainer from "./components/UserContainer";
+import LandingPage from "./components/LandingPage";
 
 const rootUrl = "http://localhost:3000/api/v1/";
 
@@ -50,10 +52,17 @@ class App extends Component {
   render() {
     console.log(this.state);
     return (
+      // TODO
       <div>
         <Header logged_in={this.state.logged_in} />
-        <Content />
+        {/* If logged in, show usercontainer, else show landingpage */}
+        {this.state.logged_in ? (
+          <Route path="/profile" component={UserContainer} />
+        ) : (
+          <LandingPage />
+        )}
         <Footer />
+        {/* <Link to="/profile">Click me to go to the user container</Link> */}
       </div>
     );
   }

@@ -6,6 +6,10 @@ import Search from "./Search";
 
 export default class UserContainer extends Component {
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <h1>Hi i am the user container</h1>
+      </div>
+    );
   }
 }
