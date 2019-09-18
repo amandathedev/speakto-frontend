@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import RatingModal from "./RatingModal";
 
 export default class LessonsList extends Component {
   render() {

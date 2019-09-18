@@ -1,4 +1,5 @@
 import React from "react";
+import UserContainer from "./UserContainer";
 
 // Function component. Use props, not this.props
 const Content = props => {

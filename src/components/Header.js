@@ -1,4 +1,5 @@
 import React from "react";
+import LoginModal from "./LoginModal";
 
 // Function component. Use props, not this.props
 const Header = props => {
