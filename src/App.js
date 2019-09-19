@@ -54,12 +54,15 @@ class App extends Component {
     return (
       // TODO
       <div>
+        {/* SOURCE https://reacttraining.com/react-router/web/guides/quick-start */}
         <Header logged_in={this.state.logged_in} />
         {/* If logged in, show usercontainer, else show landingpage */}
         {this.state.logged_in ? (
-          <Route path="/profile" component={UserContainer} />
+          <Route exact path="/profile" component={UserContainer} />
         ) : (
-          <LandingPage />
+          <Route exact path="/" component={LandingPage} />
+          // Login
+          // Nested ternary
         )}
         <Footer />
         {/* <Link to="/profile">Click me to go to the user container</Link> */}

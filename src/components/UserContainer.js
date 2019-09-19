@@ -9,6 +9,7 @@ export default class UserContainer extends Component {
     return (
       <div>
         <h1>Hi i am the user container</h1>
+        <h1>Hi i am the user container</h1>
       </div>
     );
   }

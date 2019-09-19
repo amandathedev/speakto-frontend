@@ -6,8 +6,8 @@ const Header = props => {
   return (
     <div>
       {/* Logo: https://icons8.com/icons/set/translate */}
-      <nav class="navbar transparent fixed-top navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+      <nav className="navbar transparent fixed-top navbar-light bg-light">
+        <a className="navbar-brand" href="#">
           <img
             src="https://img.icons8.com/cotton/64/000000/translation--v2.png"
             width="30"
@@ -17,7 +17,7 @@ const Header = props => {
           NativeSpeak
         </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNav"
@@ -25,22 +25,23 @@ const Header = props => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
-                Learn More <span class="sr-only"></span>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item active">
+              {/* Change to link to */}
+              <a className="nav-link" href="#">
+                Learn More <span className="sr-only"></span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
                 Login
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
                 Register
               </a>
             </li>
