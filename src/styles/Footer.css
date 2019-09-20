@@ -1,0 +1,34 @@
+.footer {
+  background: #061d25;
+  padding: 10px 0;
+}
+.footer a {
+  color: #70726f;
+  font-size: 20px;
+  padding: 10px;
+  border-right: 1px solid #70726f;
+  transition: all 0.5s ease;
+}
+.footer a:first-child {
+  border-left: 1px solid #70726f;
+}
+
+.fa-facebook:hover {
+  color: #3b5998;
+}
+
+.fa-twitter:hover {
+  color: #4099ff;
+}
+
+.fa-instagram:hover {
+  color: #f56040;
+}
+
+.fa-envelope:hover {
+  color: #f2a60c;
+}
+
+.fa-skype:hover {
+  color: #00aff0;
+}

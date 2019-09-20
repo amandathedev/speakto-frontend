@@ -5,17 +5,7 @@ export default class LandingPage extends Component {
   render() {
     return (
       <div>
-        <div className="landing-parallax"></div>
         <div className="landing">
-          {/* TODO */}
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-secondary">
-              I'm a student
-            </button>
-            <button type="button" class="btn btn-secondary">
-              I'm a teacher
-            </button>
-          </div>
           <br></br>
           <h2 className="landing-h1">How It Works</h2>
           {/* How it works */}

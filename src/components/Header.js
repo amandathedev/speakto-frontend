@@ -1,12 +1,24 @@
 import React from "react";
 import LoginModal from "./LoginModal";
+import "../styles/Header.css";
 
 // Function component. Use props, not this.props
 const Header = props => {
   return (
     <div>
+      <div className="landing-parallax">
+        <h1 className="h1-title">Hello</h1>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-secondary">
+          I'm a student
+        </button>
+        <button type="button" class="btn btn-secondary">
+          I'm a teacher
+        </button>
+      </div>
       {/* Logo: https://icons8.com/icons/set/translate */}
-      <nav className="navbar transparent fixed-top navbar-light bg-light">
+      <nav className="navbar transparent fixed-top navbar-light">
         <a className="navbar-brand" href="#">
           <img
             src="https://img.icons8.com/cotton/64/000000/translation--v2.png"
