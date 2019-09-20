@@ -26,7 +26,7 @@
 /* https://bootsnipp.com/snippets/QXe5g */
 
 .landing-parallax {
-  min-height: 600px;
+  min-height: 250px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -45,3 +45,7 @@
 /* .navbar-toggler-icon {
   color:
 } */
+
+.nav-link {
+  cursor: pointer;
+}

@@ -1,12 +1,33 @@
 import React, { Component } from "react";
-import Confirmation from "./Confirmation";
-import "../styles/Registration.css";
+
+import "../../styles/Registration.css";
 
 export default class Registration extends Component {
   render() {
     return (
       <div className="form-div">
+        <h1>TEACHER TEACHER TEACHER</h1>
         <form>
+          <div className="form-row">
+            <div className="form-group col-md-6">
+              <label for="inputEmail4">Full Name</label>
+              <input
+                type="text"
+                className="form-control"
+                id="input-fullname"
+                placeholder="Full Name"
+              />
+            </div>
+            <div className="form-group col-md-6">
+              <label for="inputPassword4">Password</label>
+              <input
+                type="password"
+                className="form-control"
+                id="inputPassword4"
+                placeholder="Password"
+              />
+            </div>
+          </div>
           <div className="form-row">
             <div className="form-group col-md-6">
               <label for="inputEmail4">Email</label>
@@ -69,13 +90,14 @@ export default class Registration extends Component {
                 type="checkbox"
                 id="gridCheck"
               />
+              {/* TODO */}
               <label className="form-check-label" for="gridCheck">
-                Check me out
+                I agree to the Terms & Conditions
               </label>
             </div>
           </div>
           <button type="submit" className="btn btn-primary">
-            Sign in
+            Sign up
           </button>
         </form>
       </div>

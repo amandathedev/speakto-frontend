@@ -16,14 +16,14 @@ class App extends Component {
     this.state = {
       logged_in: false,
       teachers: [],
-      students: [],
-      displayOption: ""
+      // students: [],
+      displayOption: "landing"
     };
   }
 
   componentDidMount() {
     this.fetchTeachers();
-    this.fetchStudents();
+    // this.fetchStudents();
   }
 
   // Fetch teachers from the database
@@ -39,21 +39,40 @@ class App extends Component {
       .catch(alert);
   };
 
-  fetchStudents = () => {
-    fetch(`${rootUrl}students`)
-      .then(resp => resp.json())
-      .then(students => {
-        this.setState({
-          students
-        });
-      })
-      .catch(alert);
+  // fetchStudents = () => {
+  //   fetch(`${rootUrl}students`)
+  //     .then(resp => resp.json())
+  //     .then(students => {
+  //       this.setState({
+  //         students
+  //       });
+  //     })
+  //     .catch(alert);
+  // };
+
+  handleRegisterStudent = () => {
+    console.log("got student");
+    this.setState({
+      displayOption: "registerstudent"
+    });
   };
 
-  handleRegisterClick = () => {
-    // console.log("got here");
+  handleRegisterTeacher = () => {
+    console.log("got teacher");
     this.setState({
-      displayOption: "register"
+      displayOption: "registerteacher"
+    });
+  };
+
+  handleLearnMoreClick = () => {
+    this.setState({
+      displayOption: "learnmore"
+    });
+  };
+
+  handleHomeClick = () => {
+    this.setState({
+      displayOption: "landing"
     });
   };
 
@@ -64,12 +83,16 @@ class App extends Component {
       <div>
         {/* SOURCE https://reacttraining.com/react-router/web/guides/quick-start */}
         <Header
-          handleRegisterClick={this.handleRegisterClick}
+          handleRegisterStudent={this.handleRegisterStudent}
+          handleRegisterTeacher={this.handleRegisterTeacher}
+          handleLearnMoreClick={this.handleLearnMoreClick}
+          handleHomeClick={this.handleHomeClick}
           logged_in={this.state.logged_in}
         />
         {/* If logged in, show usercontainer, else show landingpage */}
-        <UserContainer displayOption={this.state.displayOption} />
-        {/* {this.state.logged_in ? (
+        {/* <LandingPage /> */}
+        {/* <UserContainer displayOption={this.state.displayOption} /> */}
+        {/* {this.state.logged_in === true ? (
           <Route
             exact
             path="/profile"
@@ -78,9 +101,26 @@ class App extends Component {
           />
         ) : (
           <Route exact path="/" component={LandingPage} />
-          // TODO Login
-          // TODO Nested ternary
-        )} */}
+          // <UserContainer displayOption={this.state.displayOption} />
+        )
+        // TODO Login
+        // TODO Nested ternary
+        } */}
+        {this.state.logged_in === true ? (
+          <Route
+            exact
+            path="/profile"
+            // render={props => <About {...props} extra={someVariable} />}
+            render={props => (
+              <UserContainer
+                {...props}
+                displayOption={this.state.displayOption}
+              />
+            )}
+          />
+        ) : (
+          <LandingPage displayOption={this.state.displayOption} />
+        )}
         <Footer />
         {/* <Link to="/profile">Click me to go to the user container</Link> */}
       </div>

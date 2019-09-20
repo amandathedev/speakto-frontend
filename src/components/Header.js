@@ -7,20 +7,26 @@ const Header = props => {
   // console.log(props);
   return (
     <div>
-      <div className="landing-parallax">
-        {/* <h1 className="h1-title">Hello</h1> */}
-      </div>
+      <div className="landing-parallax"></div>
       {/* TODO */}
-      {/* <div className="btn-group" role="group">
-        <button type="button" className="btn btn-secondary">
-          I'm a student
+      <div className="btn-group" role="group">
+        <button
+          type="button"
+          onClick={props.handleRegisterStudent}
+          className="btn btn-secondary"
+        >
+          Register as a student
         </button>
-        <button type="button" className="btn btn-secondary">
-          I'm a teacher
+        <button
+          type="button"
+          onClick={props.handleRegisterTeacher}
+          className="btn btn-secondary"
+        >
+          Register as a teacher
         </button>
-      </div> */}
+      </div>
       <nav className="navbar transparent fixed-top navbar-light">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" onClick={props.handleHomeClick} href="#">
           <img
             src="https://img.icons8.com/cotton/64/000000/translation--v2.png"
             width="30"
@@ -42,10 +48,10 @@ const Header = props => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            <li className="nav-item active">
+            <li className="nav-item">
               {/* TODO Change to link to */}
-              <a className="nav-link" href="#">
-                Learn More <span className="sr-only"></span>
+              <a className="nav-link" onClick={props.handleLearnMoreClick}>
+                Learn More
               </a>
             </li>
             <li className="nav-item">
@@ -53,15 +59,11 @@ const Header = props => {
                 Login
               </a>
             </li>
-            <li className="nav-item">
-              <a
-                className="nav-link"
-                onClick={props.handleRegisterClick}
-                href="#"
-              >
+            {/* <li className="nav-item">
+              <a className="nav-link" onClick={props.handleRegisterClick}>
                 Register
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>
