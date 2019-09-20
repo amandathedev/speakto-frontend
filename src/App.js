@@ -16,7 +16,8 @@ class App extends Component {
     this.state = {
       logged_in: false,
       teachers: [],
-      students: []
+      students: [],
+      displayOption: ""
     };
   }
 
@@ -49,21 +50,37 @@ class App extends Component {
       .catch(alert);
   };
 
+  handleRegisterClick = () => {
+    // console.log("got here");
+    this.setState({
+      displayOption: "register"
+    });
+  };
+
   render() {
-    console.log(this.state);
+    // console.log("display option:" + this.state.displayOption);
     return (
       // TODO
       <div>
         {/* SOURCE https://reacttraining.com/react-router/web/guides/quick-start */}
-        <Header logged_in={this.state.logged_in} />
+        <Header
+          handleRegisterClick={this.handleRegisterClick}
+          logged_in={this.state.logged_in}
+        />
         {/* If logged in, show usercontainer, else show landingpage */}
-        {this.state.logged_in ? (
-          <Route exact path="/profile" component={UserContainer} />
+        <UserContainer displayOption={this.state.displayOption} />
+        {/* {this.state.logged_in ? (
+          <Route
+            exact
+            path="/profile"
+            component={UserContainer}
+            displayOption={this.state.displayOption}
+          />
         ) : (
           <Route exact path="/" component={LandingPage} />
-          // Login
-          // Nested ternary
-        )}
+          // TODO Login
+          // TODO Nested ternary
+        )} */}
         <Footer />
         {/* <Link to="/profile">Click me to go to the user container</Link> */}
       </div>

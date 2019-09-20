@@ -158,10 +158,7 @@ export default class LandingPage extends Component {
               <h2>FEATURED TEACHERS</h2>
               <div className="row">
                 <div className="col-xs-12 col-sm-6 col-md-4">
-                  <div
-                    className="image-flip"
-                    ontouchstart="this.className.toggle('hover');"
-                  >
+                  <div className="image-flip">
                     <div className="mainflip">
                       <div className="frontside">
                         <div className="card">
@@ -194,10 +191,7 @@ export default class LandingPage extends Component {
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-4">
-                  <div
-                    className="image-flip"
-                    ontouchstart="this.className.toggle('hover');"
-                  >
+                  <div className="image-flip">
                     <div className="mainflip">
                       <div className="frontside">
                         <div className="card">
@@ -230,10 +224,7 @@ export default class LandingPage extends Component {
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-4">
-                  <div
-                    className="image-flip"
-                    ontouchstart="this.className.toggle('hover');"
-                  >
+                  <div className="image-flip">
                     <div className="mainflip">
                       <div className="frontside">
                         <div className="card">

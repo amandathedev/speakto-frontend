@@ -8,7 +8,7 @@ const Footer = props => {
     //   <h1>I am the footer</h1>
     // </div>
     // 	SOURCE https://stackoverflow.com/questions/33517524/how-to-add-the-footer-with-social-icons-in-bootstrap/33518069
-    <footer className="footer">
+    <footer className="footer fixed-bottom">
       <div className="container text-center">
         <a href="#">
           <i className="fa fa-facebook"></i>
@@ -17,10 +17,10 @@ const Footer = props => {
           <i className="fa fa-twitter"></i>
         </a>
         <a href="#">
-          <i class="far fa-envelope"></i>
+          <i className="far fa-envelope"></i>
         </a>
         <a href="#">
-          <i class="fab fa-instagram"></i>
+          <i className="fab fa-instagram"></i>
         </a>
         <a href="#">
           <i className="fa fa-skype"></i>

@@ -3,6 +3,10 @@ import Student from "./Student";
 
 export default class StudentContainer extends Component {
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <h1>hello from the student container</h1>
+      </div>
+    );
   }
 }
