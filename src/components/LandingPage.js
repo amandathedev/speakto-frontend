@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "../styles/LandingPage.css";
 import TeacherRegistration from "./TeacherComponents/TeacherRegistration";
 import StudentRegistration from "./StudentComponents/StudentRegistration";
-import LearnMore from "./LearnMore";
 import LandingContent from "./LandingContent";
 
 export default class LandingPage extends Component {
@@ -13,9 +12,15 @@ export default class LandingPage extends Component {
       case "registerteacher":
         return <TeacherRegistration />;
       case "landing":
-        return <LandingContent teachers={this.props.teachers} />;
-      case "learnmore":
-        return <LearnMore />;
+        return (
+          <LandingContent
+            handleRegisterStudent={this.props.handleRegisterStudent}
+            handleRegisterTeacher={this.props.handleRegisterTeacher}
+            handleHomeClick={this.props.handleHomeClick}
+            logged_in={this.props.logged_in}
+            teachers={this.props.teachers}
+          />
+        );
     }
   };
 

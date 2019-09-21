@@ -6,9 +6,100 @@ export default class LandingContent extends Component {
   render() {
     return (
       <div>
+        <h1 className="h1-title">NativeSpeak</h1>
+        <h5 className="h5-intro">
+          Chat with native speakers and learn to speak like a native speaker.
+        </h5>
+        {/* <div
+          id="tab"
+          className="btn-group col-md-6"
+          data-toggle="buttons-radio"
+        >
+          <a className="btn btn-large btn-1">Login</a>
+          <a className="btn btn-large btn-2">Learn More</a>
+          <a
+            className="btn btn-large btn-1"
+            onClick={this.props.handleRegisterTeacher}
+          >
+            Sign up as a teacher
+          </a>
+          <a
+            className="btn btn-large btn-2"
+            onClick={this.props.handleRegisterStudent}
+          >
+            Sign up as a student
+          </a>
+        </div> */}
+        {/* Buttons */}
+        <div id="home_quicklinks">
+          <a class="quicklink link1" href="#">
+            <span class="ql_caption">
+              <span class="outer">
+                <span class="inner">
+                  <h2>Sign in to my account</h2>
+                </span>
+              </span>
+            </span>
+            <span class="ql_top"></span>
+            <span class="ql_bottom"></span>
+          </a>
+
+          <a
+            onClick={this.props.handleRegisterStudent}
+            class="quicklink link2"
+            href="#"
+          >
+            <span class="ql_caption">
+              <span class="outer">
+                <span class="inner">
+                  <h2>Register as a new student</h2>
+                </span>
+              </span>
+            </span>
+            <span class="ql_top"></span>
+            <span class="ql_bottom"></span>
+          </a>
+
+          <a
+            onClick={this.props.handleRegisterTeacher}
+            class="quicklink link3"
+            href="#"
+          >
+            <span class="ql_caption">
+              <span class="outer">
+                <span class="inner">
+                  <h2>Register as a new teacher</h2>
+                </span>
+              </span>
+            </span>
+            <span class="ql_top"></span>
+            <span class="ql_bottom"></span>
+          </a>
+
+          <div class="clear"></div>
+        </div>
+        {/* <div className="btn-group-vertical">
+          <button type="button" className="btn btn-secondary">
+            Login
+          </button>
+          <button
+            type="button"
+            onClick={this.props.handleRegisterStudent}
+            className="btn btn-secondary"
+          >
+            Register as a student
+          </button>
+          <button
+            type="button"
+            onClick={this.props.handleRegisterTeacher}
+            className="btn btn-secondary"
+          >
+            Register as a teacher
+          </button>
+        </div> */}
         <div className="landing">
           <br></br>
-          <h2 className="landing-h1">How It Works</h2>
+          <h2 className="underline">How It Works</h2>
           {/* How it works */}
           <div className="div-block-19">
             <div className="div-block-22 w-clearfix">
@@ -61,7 +152,7 @@ export default class LandingContent extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-8 col-center m-auto">
-                <h2>Testimonials</h2>
+                <h2 className="underline">Testimonials</h2>
                 <div
                   id="myCarousel"
                   className="carousel slide"

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 // import TeacherContainer from "./TeacherComponents/TeacherContainer";
 // import StudentContainer from "./StudentComponents/StudentContainer";
-// import LearnMore from "./LearnMore";
 import Search from "./Search";
 
 export default class UserContainer extends Component {

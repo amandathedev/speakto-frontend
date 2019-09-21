@@ -49,12 +49,6 @@ class App extends Component {
     });
   };
 
-  handleLearnMoreClick = () => {
-    this.setState({
-      displayOption: "learnmore"
-    });
-  };
-
   handleHomeClick = () => {
     this.setState({
       displayOption: "landing"
@@ -66,18 +60,16 @@ class App extends Component {
     return (
       <div>
         {/* SOURCE https://reacttraining.com/react-router/web/guides/quick-start */}
-        <Header
-          handleRegisterStudent={this.handleRegisterStudent}
-          handleRegisterTeacher={this.handleRegisterTeacher}
-          handleLearnMoreClick={this.handleLearnMoreClick}
-          handleHomeClick={this.handleHomeClick}
-          logged_in={this.state.logged_in}
-        />
+        <Header />
         {/* If logged in, show usercontainer, else show landingpage */}
         {this.state.logged_in === false ? (
           <UserContainer displayOption={this.state.displayOption} />
         ) : (
           <LandingPage
+            handleRegisterStudent={this.handleRegisterStudent}
+            handleRegisterTeacher={this.handleRegisterTeacher}
+            handleHomeClick={this.handleHomeClick}
+            logged_in={this.state.logged_in}
             teachers={this.state.teachers}
             displayOption={this.state.displayOption}
           />

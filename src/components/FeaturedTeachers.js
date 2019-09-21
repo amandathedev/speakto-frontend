@@ -26,8 +26,8 @@ export default class FeaturedTeachers extends Component {
         {/* Meet the teachers */}
         {/* SOURCE https://bootsnipp.com/snippets/92xNm */}
         <section id="team" className="pb-5">
-          <div className="container">
-            <h2>FEATURED TEACHERS</h2>
+          <div className="container featured">
+            <h2 className="underline">FEATURED TEACHERS</h2>
             <div className="row">
               <div className="col-xs-12 col-sm-6 col-md-4">
                 <div className="card">
