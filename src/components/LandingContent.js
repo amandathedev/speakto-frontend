@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../styles/LandingPage.css";
+import FeaturedTeachers from "./FeaturedTeachers";
 
 export default class LandingContent extends Component {
   render() {
@@ -84,14 +85,14 @@ export default class LandingContent extends Component {
                         />
                       </div>
                       <p className="testimonial">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nam eu sem tempor, varius quam at, luctus dui. Mauris
-                        magna metus, dapibus nec turpis vel, semper malesuada
-                        ante. Idac bibendum scelerisque non non purus.
-                        Suspendisse varius nibh non aliquet.
+                        I achieved 108 points on the TOEFL test, thanks to the
+                        NativeSpeak lessons! I recommended NativeSpeak to my
+                        peers who are also trying to get into business school,
+                        though I was reluctant to recommend it to my
+                        competition.
                       </p>
                       <p className="overview">
-                        <b>Paula Wilson</b>, Media Analyst
+                        <b>Michael Holz</b>, Media Analyst
                       </p>
                     </div>
                     <div className="item carousel-item">
@@ -102,14 +103,13 @@ export default class LandingContent extends Component {
                         />
                       </div>
                       <p className="testimonial">
-                        Vestibulum quis quam ut magna consequat faucibus.
-                        Pellentesque eget nisi a mi suscipit tincidunt. Utmtc
-                        tempus dictum risus. Pellentesque viverra sagittis quam
-                        at mattis. Suspendisse potenti. Aliquam sit amet gravida
-                        nibh, facilisis gravida odio.
+                        I have regular business meetings with native English
+                        speakers. Through practice on NativeSpeak, I am now able
+                        to speak with them confidently, which was not easy
+                        before.
                       </p>
                       <p className="overview">
-                        <b>Antonio Moreno</b>, Web Developer
+                        <b>Anita Moreno</b>, Web Developer
                       </p>
                     </div>
                     <div className="item carousel-item">
@@ -120,14 +120,13 @@ export default class LandingContent extends Component {
                         />
                       </div>
                       <p className="testimonial">
-                        Phasellus vitae suscipit justo. Mauris pharetra feugiat
-                        ante id lacinia. Etiam faucibus mauris id tempor
-                        egestas. Duis luctus turpis at accumsan tincidunt.
-                        Phasellus risus risus, volutpat vel tellus ac, tincidunt
-                        fringilla massa. Etiam hendrerit dolor eget rutrum.
+                        It's a very unique opportunity for people like me who
+                        want to study abroad and to talk with a student who
+                        actually goes to the school I want to attend. Video chat
+                        is good because it was like a live face-to-face session.
                       </p>
                       <p className="overview">
-                        <b>Michael Holz</b>, Seo Analyst
+                        <b>Paula Wilson</b>, Seo Analyst
                       </p>
                     </div>
                   </div>
@@ -150,116 +149,11 @@ export default class LandingContent extends Component {
             </div>
           </div>
           {/* End testimonials */}
-          {/* Meet the teachers */}
-          {/* SOURCE https://bootsnipp.com/snippets/92xNm */}
-          <section id="team" className="pb-5">
-            <div className="container">
-              <h2>FEATURED TEACHERS</h2>
-              <div className="row">
-                <div className="col-xs-12 col-sm-6 col-md-4">
-                  <div className="image-flip">
-                    <div className="mainflip">
-                      <div className="frontside">
-                        <div className="card">
-                          <div className="card-body text-center">
-                            <p>
-                              <img
-                                className=" img-fluid"
-                                src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_04.jpg"
-                                alt="card image"
-                              />
-                            </p>
-                            <h4 className="card-title">teacher.name</h4>
-                            <p className="card-text">Teacher.intro text</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="backside">
-                        <div className="card">
-                          <div className="card-body text-center mt-4">
-                            <h4 className="card-title">teacher.name</h4>
-                            <p className="card-text">
-                              Teacher.intro text Lorem ipsum dolor sit amet,
-                              consectetur adipiscing elit, sed do eiusmod tempor
-                              incididunt ut labore et dolore magna aliqua.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xs-12 col-sm-6 col-md-4">
-                  <div className="image-flip">
-                    <div className="mainflip">
-                      <div className="frontside">
-                        <div className="card">
-                          <div className="card-body text-center">
-                            <p>
-                              <img
-                                className=" img-fluid"
-                                src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_05.png"
-                                alt="card image"
-                              />
-                            </p>
-                            <h4 className="card-title">teacher.name</h4>
-                            <p className="card-text">Teacher.intro text</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="backside">
-                        <div className="card">
-                          <div className="card-body text-center mt-4">
-                            <h4 className="card-title">teacher.name</h4>
-                            <p className="card-text">
-                              Teacher.intro text Lorem ipsum dolor sit amet,
-                              consectetur adipiscing elit, sed do eiusmod tempor
-                              incididunt ut labore et dolore magna aliqua.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xs-12 col-sm-6 col-md-4">
-                  <div className="image-flip">
-                    <div className="mainflip">
-                      <div className="frontside">
-                        <div className="card">
-                          <div className="card-body text-center">
-                            <p>
-                              <img
-                                className=" img-fluid"
-                                src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg"
-                                alt="card image"
-                              />
-                            </p>
-                            <h4 className="card-title">teacher.name</h4>
-                            <p className="card-text">Teacher.intro text</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="backside">
-                        <div className="card">
-                          <div className="card-body text-center mt-4">
-                            <h4 className="card-title">teacher.name</h4>
-                            <p className="card-text">
-                              Teacher.intro text Lorem ipsum dolor sit amet,
-                              consectetur adipiscing elit, sed do eiusmod tempor
-                              incididunt ut labore et dolore magna aliqua.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          {/* </div> */}
-          {/* End meet the teachers */}
+          {/* {this.props.teachers.map(teacher => {
+            return <FeaturedTeachers key={teacher.id} teacher={teacher} />;
+          })} */}
+
+          <FeaturedTeachers teachers={this.props.teachers} />
         </div>
       </div>
     );

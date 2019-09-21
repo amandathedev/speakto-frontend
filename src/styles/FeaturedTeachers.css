@@ -1,0 +1,38 @@
+/* Meet the team */
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+#team {
+  background: #eee !important;
+}
+
+section {
+  padding: 60px 0;
+}
+
+section .section-title {
+  text-align: center;
+  color: #007b5e;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+#team .card {
+  border: none;
+  background: #ffffff;
+  position: relative;
+
+  z-index: 2;
+  margin-bottom: 30px;
+  min-height: 312px;
+}
+
+.card .card-title,
+.card .card-title {
+  color: #007b5e !important;
+}
+
+.card .card-body img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+/* End meet the team */

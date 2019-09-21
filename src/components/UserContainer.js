@@ -5,22 +5,6 @@ import React, { Component } from "react";
 import Search from "./Search";
 
 export default class UserContainer extends Component {
-  // Use parent state to conditionally render these components
-  // renderSwitch = option => {
-  //   switch (option) {
-  //     case "registerstudent":
-  //       return <StudentContainer />;
-  //     case "registerteacher":
-  //       return <TeacherContainer />;
-  //     case "teacher":
-  //       return <TeacherContainer />;
-  //     case "student":
-  //       return <StudentContainer />;
-  //     case "learnmore":
-  //       return <LearnMore />;
-  //   }
-  // };
-
   render() {
     console.log(this.props);
     return (

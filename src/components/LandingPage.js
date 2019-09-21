@@ -13,17 +13,14 @@ export default class LandingPage extends Component {
       case "registerteacher":
         return <TeacherRegistration />;
       case "landing":
-        return <LandingContent />;
-      // case "teacher":
-      //   return <TeacherContainer />;
-      // case "student":
-      //   return <StudentContainer />;
+        return <LandingContent teachers={this.props.teachers} />;
       case "learnmore":
         return <LearnMore />;
     }
   };
 
   render() {
+    // console.log(this.props);
     return <div>{this.renderSwitch(this.props.displayOption)}</div>;
   }
 }

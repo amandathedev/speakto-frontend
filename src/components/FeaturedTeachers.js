@@ -1,0 +1,93 @@
+import React, { Component } from "react";
+import "../styles/FeaturedTeachers.css";
+
+export default class FeaturedTeachers extends Component {
+  // returnThree = () => {
+  //   let threeTeachers = this.props.teachers.slice(0, 3);
+  //   return threeTeachers.map(teacher => (
+  //     <h3>{teacher.name}</h3>
+  //   ))
+  // };
+  render() {
+    // console.log(this.props.teachers.slice(0, 3));
+    // console.log(threeTeachers);
+    // threeTeachers.forEach(renderTeachers);
+    // renderTeachers = () => {
+    //   return {}
+    // };
+
+    // <h2>FEATURED TEACHERS</h2>
+    // {this.state.threeTeachers.map(teacher => (
+    //   <FeaturedCard teacher={teacher} />
+    // ))}
+
+    return (
+      <div>
+        {/* Meet the teachers */}
+        {/* SOURCE https://bootsnipp.com/snippets/92xNm */}
+        <section id="team" className="pb-5">
+          <div className="container">
+            <h2>FEATURED TEACHERS</h2>
+            <div className="row">
+              <div className="col-xs-12 col-sm-6 col-md-4">
+                <div className="card">
+                  <div className="card-body text-center">
+                    <p>
+                      <img
+                        className=" img-fluid"
+                        src="https://static2.comicvine.com/uploads/original/11131/111318414/5778427-jim%20halpert.jpg"
+                        alt="card image"
+                      />
+                    </p>
+                    <h4 className="card-title">Jim Halpert</h4>
+                    <p className="card-text">
+                      You can practice your English while we talk about sports.
+                      Whatever kind of spots you want.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-xs-12 col-sm-6 col-md-4">
+                <div className="card">
+                  <div className="card-body text-center">
+                    <p>
+                      <img
+                        className=" img-fluid"
+                        src="https://media1.popsugar-assets.com/files/thumbor/eOF2Umn-mqNGnohxrtjeurwWDmI/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2018/08/20/677/n/1922283/1118a12c5b7adb1e342de9.55515725_/i/Michael-Scott-Misquotations-Office-Video.jpg"
+                        alt="card image"
+                      />
+                    </p>
+                    <h4 className="card-title">Michael Scott</h4>
+                    <p className="card-text">
+                      You miss 100% of the shots you don't take.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-xs-12 col-sm-6 col-md-4">
+                <div className="card">
+                  <div className="card-body text-center">
+                    <p>
+                      <img
+                        className=" img-fluid"
+                        src="https://media1.popsugar-assets.com/files/thumbor/eXDFklp6xdWXLyvn9BcH5p-b_rk/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2016/06/21/951/n/1922283/05e3e789_edit_img_image_41730517_1466542783_kelly-th/i/Kelly-Kapoor-GIFs-From-Office.jpg"
+                        alt="card image"
+                      />
+                    </p>
+                    <h4 className="card-title">Kelly Kapoor</h4>
+                    <p className="card-text">
+                      Let's talk about pop culture and gossip. It'll mostly be
+                      me talking but maybe you'll learn something.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* </div> */}
+        {/* End meet the teachers */}
+      </div>
+    );
+  }
+}

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import "../../styles/Registration.css";
 
 export default class Registration extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       name: "",
@@ -17,6 +17,20 @@ export default class Registration extends Component {
     };
   }
 
+  // validateForm() {
+  //   return (
+  //     this.state.name.length > 5 &&
+  //     this.state.username.length > 4 &&
+  //     this.state.password_digest.length > 5 &&
+  //     this.state.email.length > 6 &&
+  //     this.state.password_digest.length > 5 &&
+  //     this.state.skype_id.length > 4 &&
+  //     this.state.photo_url.length > 7 &&
+  //     this.state.intro_text.length > 20 &&
+  //     this.state.native_language.length > 3
+  //   );
+  // }
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -26,6 +40,8 @@ export default class Registration extends Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log(this.state);
+    // TO DO
+    // fetch()
   };
 
   render() {

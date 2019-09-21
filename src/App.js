@@ -14,16 +14,14 @@ class App extends Component {
     super();
 
     this.state = {
-      logged_in: false,
+      logged_in: true,
       teachers: [],
-      // students: [],
       displayOption: "landing"
     };
   }
 
   componentDidMount() {
     this.fetchTeachers();
-    // this.fetchStudents();
   }
 
   // Fetch teachers from the database
@@ -39,26 +37,13 @@ class App extends Component {
       .catch(alert);
   };
 
-  // fetchStudents = () => {
-  //   fetch(`${rootUrl}students`)
-  //     .then(resp => resp.json())
-  //     .then(students => {
-  //       this.setState({
-  //         students
-  //       });
-  //     })
-  //     .catch(alert);
-  // };
-
   handleRegisterStudent = () => {
-    console.log("got student");
     this.setState({
       displayOption: "registerstudent"
     });
   };
 
   handleRegisterTeacher = () => {
-    console.log("got teacher");
     this.setState({
       displayOption: "registerteacher"
     });
@@ -77,9 +62,8 @@ class App extends Component {
   };
 
   render() {
-    // console.log("display option:" + this.state.displayOption);
+    // console.log(this.state.teachers);
     return (
-      // TODO
       <div>
         {/* SOURCE https://reacttraining.com/react-router/web/guides/quick-start */}
         <Header
@@ -90,27 +74,17 @@ class App extends Component {
           logged_in={this.state.logged_in}
         />
         {/* If logged in, show usercontainer, else show landingpage */}
-        {/* <LandingPage /> */}
-        {/* <UserContainer displayOption={this.state.displayOption} /> */}
-        {/* {this.state.logged_in === true ? (
-          <Route
-            exact
-            path="/profile"
-            component={UserContainer}
+        {this.state.logged_in === false ? (
+          <UserContainer displayOption={this.state.displayOption} />
+        ) : (
+          <LandingPage
+            teachers={this.state.teachers}
             displayOption={this.state.displayOption}
           />
-        ) : (
-          <Route exact path="/" component={LandingPage} />
-          // <UserContainer displayOption={this.state.displayOption} />
-        )
-        // TODO Login
-        // TODO Nested ternary
-        } */}
-        {this.state.logged_in === true ? (
+        )}
+        {/* {this.state.logged_in === true ? (
           <Route
-            exact
             path="/profile"
-            // render={props => <About {...props} extra={someVariable} />}
             render={props => (
               <UserContainer
                 {...props}
@@ -119,10 +93,22 @@ class App extends Component {
             )}
           />
         ) : (
-          <LandingPage displayOption={this.state.displayOption} />
-        )}
+          <Route
+            path="/"
+            render={props => (
+              <LandingPage
+                {...props}
+                teachers={this.state.teachers}
+                displayOption={this.state.displayOption}
+              />
+            )}
+          />
+          <LandingPage
+            teachers={this.state.teachers}
+            displayOption={this.state.displayOption}
+          />
+        )} */}
         <Footer />
-        {/* <Link to="/profile">Click me to go to the user container</Link> */}
       </div>
     );
   }
