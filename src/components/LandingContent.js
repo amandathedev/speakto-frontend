@@ -32,51 +32,55 @@ export default class LandingContent extends Component {
         </div> */}
         {/* Buttons */}
         <div id="home_quicklinks">
-          <a class="quicklink link1" href="#">
-            <span class="ql_caption">
-              <span class="outer">
-                <span class="inner">
+          <a
+            className="quicklink link1"
+            href="#"
+            onClick={this.props.handleLoginClick}
+          >
+            <span className="ql_caption">
+              <span className="outer">
+                <span className="inner">
                   <h2>Sign in to my account</h2>
                 </span>
               </span>
             </span>
-            <span class="ql_top"></span>
-            <span class="ql_bottom"></span>
+            <span className="ql_top"></span>
+            <span className="ql_bottom"></span>
           </a>
 
           <a
-            onClick={this.props.handleRegisterStudent}
-            class="quicklink link2"
+            className="quicklink link2"
             href="#"
+            onClick={this.props.handleRegisterStudent}
           >
-            <span class="ql_caption">
-              <span class="outer">
-                <span class="inner">
+            <span className="ql_caption">
+              <span className="outer">
+                <span className="inner">
                   <h2>Register as a new student</h2>
                 </span>
               </span>
             </span>
-            <span class="ql_top"></span>
-            <span class="ql_bottom"></span>
+            <span className="ql_top"></span>
+            <span className="ql_bottom"></span>
           </a>
 
           <a
             onClick={this.props.handleRegisterTeacher}
-            class="quicklink link3"
+            className="quicklink link3"
             href="#"
           >
-            <span class="ql_caption">
-              <span class="outer">
-                <span class="inner">
+            <span className="ql_caption">
+              <span className="outer">
+                <span className="inner">
                   <h2>Register as a new teacher</h2>
                 </span>
               </span>
             </span>
-            <span class="ql_top"></span>
-            <span class="ql_bottom"></span>
+            <span className="ql_top"></span>
+            <span className="ql_bottom"></span>
           </a>
 
-          <div class="clear"></div>
+          <div className="clear"></div>
         </div>
         {/* <div className="btn-group-vertical">
           <button type="button" className="btn btn-secondary">

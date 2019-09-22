@@ -38,6 +38,7 @@ class App extends Component {
   };
 
   handleRegisterStudent = () => {
+    console.log("got here");
     this.setState({
       displayOption: "registerstudent"
     });
@@ -55,12 +56,18 @@ class App extends Component {
     });
   };
 
+  handleLoginClick = () => {
+    this.setState({
+      displayOption: "login"
+    });
+  };
+
   render() {
     // console.log(this.state.teachers);
     return (
       <div>
         {/* SOURCE https://reacttraining.com/react-router/web/guides/quick-start */}
-        <Header />
+        <Header handleHomeClick={this.handleHomeClick} />
         {/* If logged in, show usercontainer, else show landingpage */}
         {this.state.logged_in === false ? (
           <UserContainer displayOption={this.state.displayOption} />
@@ -69,6 +76,7 @@ class App extends Component {
             handleRegisterStudent={this.handleRegisterStudent}
             handleRegisterTeacher={this.handleRegisterTeacher}
             handleHomeClick={this.handleHomeClick}
+            handleLoginClick={this.handleLoginClick}
             logged_in={this.state.logged_in}
             teachers={this.state.teachers}
             displayOption={this.state.displayOption}

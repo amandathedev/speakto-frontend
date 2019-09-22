@@ -115,7 +115,6 @@ export default class Registration extends Component {
               <textarea
                 rows="4"
                 cols="50"
-                // type="textarea"
                 className="form-control"
                 placeholder=""
                 value={this.state.intro_text}
@@ -124,6 +123,13 @@ export default class Registration extends Component {
               />
             </div>
           </div>
+          <button
+            type="submit"
+            className="btn btn-secondary"
+            onClick={this.props.handleHomeClick}
+          >
+            Cancel
+          </button>
           <button type="submit" className="btn btn-secondary">
             Sign up
           </button>

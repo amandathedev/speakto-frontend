@@ -149,6 +149,13 @@ export default class Registration extends Component {
               />
             </div>
           </div>
+          <button
+            type="submit"
+            className="btn btn-secondary"
+            onClick={this.props.handleHomeClick}
+          >
+            Cancel
+          </button>
           <button type="submit" className="btn btn-secondary">
             Sign up
           </button>
