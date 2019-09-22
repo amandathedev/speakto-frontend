@@ -17,6 +17,9 @@ export default class Registration extends Component {
     };
   }
 
+  rootUrl = "http://localhost:3000/api/v1/";
+  studentsUrl = `${this.rootUrl}students`;
+
   // validateForm() {
   //   return (
   //     this.state.name.length > 5 &&
@@ -39,9 +42,27 @@ export default class Registration extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
-    // TO DO
-    // fetch()
+    fetch(this.studentsUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        name: this.state.name,
+        username: this.state.username,
+        email: this.state.email,
+        password_digest: this.state.password_digest,
+        skype_id: this.state.skype_id,
+        photo_url: this.state.photo_url,
+        intro_text: this.state.intro_text,
+        lessons_completed: 0,
+        native_language: this.state.native_language,
+        lesson_credits: 5
+      })
+    })
+      .then(resp => resp.json())
+      .then(this.props.handleStudentSignup);
   };
 
   render() {
@@ -52,7 +73,7 @@ export default class Registration extends Component {
           Ready to start learning? Please complete this registration form to get
           started today!
         </h5>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={event => this.handleSubmit(event)}>
           <div className="form-row">
             <div className="form-group col-md-6">
               <label>Full Name</label>

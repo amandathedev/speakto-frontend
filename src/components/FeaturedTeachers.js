@@ -36,7 +36,7 @@ export default class FeaturedTeachers extends Component {
                       <img
                         className=" img-fluid"
                         src="https://static2.comicvine.com/uploads/original/11131/111318414/5778427-jim%20halpert.jpg"
-                        alt="card image"
+                        alt="teacher 1"
                       />
                     </p>
                     <h4 className="card-title">Jim Halpert</h4>
@@ -54,7 +54,7 @@ export default class FeaturedTeachers extends Component {
                       <img
                         className=" img-fluid"
                         src="https://media1.popsugar-assets.com/files/thumbor/eOF2Umn-mqNGnohxrtjeurwWDmI/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2018/08/20/677/n/1922283/1118a12c5b7adb1e342de9.55515725_/i/Michael-Scott-Misquotations-Office-Video.jpg"
-                        alt="card image"
+                        alt="teacher 2"
                       />
                     </p>
                     <h4 className="card-title">Michael Scott</h4>
@@ -71,7 +71,7 @@ export default class FeaturedTeachers extends Component {
                       <img
                         className=" img-fluid"
                         src="https://media1.popsugar-assets.com/files/thumbor/eXDFklp6xdWXLyvn9BcH5p-b_rk/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2016/06/21/951/n/1922283/05e3e789_edit_img_image_41730517_1466542783_kelly-th/i/Kelly-Kapoor-GIFs-From-Office.jpg"
-                        alt="card image"
+                        alt="teacher 3"
                       />
                     </p>
                     <h4 className="card-title">Kelly Kapoor</h4>
