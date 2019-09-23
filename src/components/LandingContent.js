@@ -1,46 +1,37 @@
 import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 import "../styles/LandingPage.css";
 import FeaturedTeachers from "./FeaturedTeachers";
 
 export default class LandingContent extends Component {
+  handleStudentRedirect = () => {
+    this.props.history.push("/newstudent");
+  };
+
+  handleTeacherRedirect = () => {
+    this.props.history.push("/newteacher");
+  };
+
+  handleLoginRedirect = () => {
+    this.props.history.push("/login");
+  };
+
   render() {
     return (
       <div>
         <h1 className="h1-title">NativeSpeak</h1>
-        <button>Teacher login test</button>
-        <button onClick={this.props.handleStudentLogin}>
-          Student login test
-        </button>
         <h5 className="h5-intro">
           Chat with native speakers and learn to speak like a native speaker.
         </h5>
-        {/* <div
-          id="tab"
-          className="btn-group col-md-6"
-          data-toggle="buttons-radio"
-        >
-          <a className="btn btn-large btn-1">Login</a>
-          <a className="btn btn-large btn-2">Learn More</a>
-          <a
-            className="btn btn-large btn-1"
-            onClick={this.props.handleRegisterTeacher}
-          >
-            Sign up as a teacher
-          </a>
-          <a
-            className="btn btn-large btn-2"
-            onClick={this.props.handleRegisterStudent}
-          >
-            Sign up as a student
-          </a>
-        </div> */}
         {/* Buttons */}
         <div id="home_quicklinks">
-          <a
-            className="quicklink link1"
-            href="#"
-            onClick={this.props.handleLoginClick}
-          >
+          <a className="quicklink link1" onClick={this.handleLoginRedirect}>
             <span className="ql_caption">
               <span className="outer">
                 <span className="inner">
@@ -52,11 +43,7 @@ export default class LandingContent extends Component {
             <span className="ql_bottom"></span>
           </a>
 
-          <a
-            className="quicklink link2"
-            href="#"
-            onClick={this.props.handleRegisterStudent}
-          >
+          <a className="quicklink link2" onClick={this.handleStudentRedirect}>
             <span className="ql_caption">
               <span className="outer">
                 <span className="inner">
@@ -68,11 +55,7 @@ export default class LandingContent extends Component {
             <span className="ql_bottom"></span>
           </a>
 
-          <a
-            onClick={this.props.handleRegisterTeacher}
-            className="quicklink link3"
-            href="#"
-          >
+          <a onClick={this.handleTeacherRedirect} className="quicklink link3">
             <span className="ql_caption">
               <span className="outer">
                 <span className="inner">
@@ -86,25 +69,6 @@ export default class LandingContent extends Component {
 
           <div className="clear"></div>
         </div>
-        {/* <div className="btn-group-vertical">
-          <button type="button" className="btn btn-secondary">
-            Login
-          </button>
-          <button
-            type="button"
-            onClick={this.props.handleRegisterStudent}
-            className="btn btn-secondary"
-          >
-            Register as a student
-          </button>
-          <button
-            type="button"
-            onClick={this.props.handleRegisterTeacher}
-            className="btn btn-secondary"
-          >
-            Register as a teacher
-          </button>
-        </div> */}
         <div className="landing">
           <br></br>
           <h2 className="underline">How It Works</h2>

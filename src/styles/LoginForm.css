@@ -130,8 +130,7 @@
   letter-spacing: 1px;
 }
 
-.login__input:hover,
-.login__input:focus {
+.login__input:hover {
   color: #4f8f69;
   border: 2px solid rgba(79, 143, 105, 0.3);
   background-color: transparent;

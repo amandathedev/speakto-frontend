@@ -7,13 +7,13 @@ export default class StudentProfile extends Component {
     return (
       <div>
         <h1>Welcome, student.name!</h1>
-        <a href="#" class="menu">
+        <a href="#" className="menu">
           Hello
         </a>
-        <a href="#" class="menu">
+        <a href="#" className="menu">
           Hello
         </a>
-        <a href="#" class="menu">
+        <a href="#" className="menu">
           Hello
         </a>
         {/* <div id="home_quicklinks">

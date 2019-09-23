@@ -42,14 +42,16 @@ export default class LoginForm extends Component {
           {
             current_user: data.student
           },
-          localStorage.setItem("current_user", data.jwt)
+          () => {
+            localStorage.setItem("current_user", data.jwt);
+            window.location.href = "/profile";
+          }
         )
       );
   };
 
   render() {
     console.log(this.state.current_user);
-    // console;
     return (
       <div>
         <div className="login-container">
