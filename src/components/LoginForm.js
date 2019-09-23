@@ -8,7 +8,8 @@ export default class LoginForm extends Component {
 
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      current_user: ""
     };
   }
 
@@ -36,11 +37,19 @@ export default class LoginForm extends Component {
       })
     })
       .then(resp => resp.json())
-      .then(user => console.log(user));
+      .then(data =>
+        this.setState(
+          {
+            current_user: data.student
+          },
+          localStorage.setItem("current_user", data.jwt)
+        )
+      );
   };
 
   render() {
-    // console.log(this.state);
+    console.log(this.state.current_user);
+    // console;
     return (
       <div>
         <div className="login-container">
