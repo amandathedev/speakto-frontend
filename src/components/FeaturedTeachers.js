@@ -59,7 +59,7 @@ export default class FeaturedTeachers extends Component {
                     </p>
                     <h4 className="card-title">Michael Scott</h4>
                     <p className="card-text">
-                      You miss 100% of the shots you don't take.
+                      "You miss 100% of the shots you don't take."
                     </p>
                   </div>
                 </div>

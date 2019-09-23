@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import UserContainer from "./components/UserContainer";
 import LandingPage from "./components/LandingPage";
 
 const rootUrl = "http://localhost:3000/api/v1/";
@@ -14,8 +13,7 @@ class App extends Component {
 
     this.state = {
       logged_in: true,
-      teachers: [],
-      displayOption: "landing"
+      teachers: []
     };
   }
 
@@ -34,58 +32,11 @@ class App extends Component {
       .catch(alert);
   };
 
-  handleRegisterStudent = () => {
-    this.setState({
-      displayOption: "registerstudent"
-    });
-  };
-
-  handleRegisterTeacher = () => {
-    this.setState({
-      displayOption: "registerteacher"
-    });
-  };
-
-  handleHomeClick = () => {
-    this.setState({
-      displayOption: "landing"
-    });
-  };
-
-  handleLoginClick = () => {
-    this.setState({
-      displayOption: "login"
-    });
-  };
-
-  handleStudentSignup = () => {
-    this.setState({
-      displayOption: "studentsignup"
-    });
-  };
-
-  handleStudentLogin = () => {
-    this.setState({
-      displayOption: "usercontainer"
-    });
-  };
-
   render() {
     return (
       <div>
-        <Header handleHomeClick={this.handleHomeClick} />
-        <LandingPage
-          handleRegisterStudent={this.handleRegisterStudent}
-          handleRegisterTeacher={this.handleRegisterTeacher}
-          handleHomeClick={this.handleHomeClick}
-          handleLoginClick={this.handleLoginClick}
-          handleStudentSignup={this.handleStudentSignup}
-          handleTeacherLogin={this.handleTeacherLogin}
-          handleStudentLogin={this.handleStudentLogin}
-          logged_in={this.state.logged_in}
-          teachers={this.state.teachers}
-          displayOption={this.state.displayOption}
-        />
+        <Header />
+        <LandingPage />
         <Footer />
         {/* SOURCE https://reacttraining.com/react-router/web/guides/quick-start */}
         {/* {this.state.logged_in === true ? (

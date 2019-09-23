@@ -115,7 +115,6 @@ export default class LandingContent extends Component {
                   needs.
                 </p>
               </div>
-              {/* </div> */}
             </div>
           </div>
           {/* End how it works */}

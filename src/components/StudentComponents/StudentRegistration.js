@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import "../../styles/Registration.css";
 
 export default class Registration extends Component {
+  handleHomeClick = () => {
+    this.props.history.push("/");
+  };
+
   constructor(props) {
     super(props);
 
@@ -174,7 +178,7 @@ export default class Registration extends Component {
           <button
             type="submit"
             className="btn btn-secondary"
-            onClick={this.props.handleHomeClick}
+            onClick={this.handleHomeClick}
           >
             Cancel
           </button>

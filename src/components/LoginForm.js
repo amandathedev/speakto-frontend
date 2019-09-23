@@ -3,6 +3,10 @@ import "../styles/LoginForm.css";
 
 // SOURCE https://codepen.io/brianmontanaweb/pen/ZQojEd
 export default class LoginForm extends Component {
+  handleHomeClick = () => {
+    this.props.history.push("/");
+  };
+
   constructor() {
     super();
 
@@ -44,7 +48,8 @@ export default class LoginForm extends Component {
           },
           () => {
             localStorage.setItem("current_user", data.jwt);
-            window.location.href = "/profile";
+            // window.location.href = "/profile";
+            this.props.history.push("/profile");
           }
         )
       );
@@ -61,12 +66,10 @@ export default class LoginForm extends Component {
           >
             <ul className="login-nav">
               <li className="login-nav__item active">
-                <a href="#">Sign In</a>
+                <a>Sign In</a>
               </li>
               <li className="login-nav__item">
-                <a href="#" onClick={this.props.handleHomeClick}>
-                  Sign Up
-                </a>
+                <a onClick={this.handleHomeClick}>Sign Up</a>
               </li>
             </ul>
             <label className="login__label">Username</label>
@@ -102,9 +105,8 @@ export default class LoginForm extends Component {
               Sign in
             </button>
           </form>
-          <a href="#" className="login__forgot">
-            Forgot Password?
-          </a>
+          {/* TODO */}
+          <a className="login__forgot">Forgot Password?</a>
         </div>
       </div>
     );
