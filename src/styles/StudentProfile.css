@@ -1,0 +1,17 @@
+.menu {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  font-size: 20px;
+  color: #fff;
+  line-height: 100px;
+  text-align: center;
+  text-decoration: none;
+  background: #000;
+}
+.menu:hover {
+  color: #ccc;
+  text-decoration: none;
+  background: #333;
+}

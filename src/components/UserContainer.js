@@ -8,7 +8,12 @@ export default class UserContainer extends Component {
     console.log(this.props);
     return (
       <div>
-        {this.props.displayOption === "studentsignup" ? (
+        {/* {this.props.displayOption === "studentsignup" ? (
+          <StudentProfile />
+        ) : (
+          <TeacherContainer />
+        )} */}
+        {this.props.displayOption === "studentprofile" ? (
           <StudentProfile />
         ) : (
           <TeacherContainer />

@@ -62,7 +62,8 @@ export default class Registration extends Component {
       })
     })
       .then(resp => resp.json())
-      .then(this.props.handleStudentSignup);
+      .then(student => console.log(student));
+    // .then(this.props.handleStudentSignup);
   };
 
   render() {

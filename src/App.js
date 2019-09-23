@@ -68,6 +68,12 @@ class App extends Component {
     });
   };
 
+  handleStudentLogin = () => {
+    this.setState({
+      displayOption: "studentprofile"
+    });
+  };
+
   render() {
     // console.log(this.state.teachers);
     return (
@@ -84,6 +90,8 @@ class App extends Component {
             handleHomeClick={this.handleHomeClick}
             handleLoginClick={this.handleLoginClick}
             handleStudentSignup={this.handleStudentSignup}
+            handleTeacherLogin={this.handleTeacherLogin}
+            handleStudentLogin={this.handleStudentLogin}
             logged_in={this.state.logged_in}
             teachers={this.state.teachers}
             displayOption={this.state.displayOption}

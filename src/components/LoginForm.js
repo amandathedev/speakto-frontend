@@ -12,11 +12,42 @@ export default class LoginForm extends Component {
     };
   }
 
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
+  handleSubmit = event => {
+    console.log("1");
+    event.preventDefault();
+    fetch("http://localhost:3000/api/v1/login", {
+      method: "POST",
+      headers: {
+        // Authorization: `Bearer <token>`,
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        student:
+          // username: this.state.username,
+          // password: this.state.password
+          this.state
+      })
+    })
+      .then(resp => resp.json())
+      .then(user => console.log(user));
+  };
+
   render() {
+    // console.log(this.state);
     return (
       <div>
         <div className="login-container">
-          <form action="" className="form-login">
+          <form
+            onSubmit={event => this.handleSubmit(event)}
+            className="form-login"
+          >
             <ul className="login-nav">
               <li className="login-nav__item active">
                 <a href="#">Sign In</a>
@@ -28,11 +59,21 @@ export default class LoginForm extends Component {
               </li>
             </ul>
             <label className="login__label">Username</label>
-            <input id="login-input-user" className="login__input" type="text" />
+            <input
+              id="login-input-user"
+              value={this.state.username}
+              className="login__input"
+              name="username"
+              onChange={this.handleChange}
+              type="text"
+            />
             <label className="login__label">Password</label>
             <input
               id="login-input-password"
+              value={this.state.password}
               className="login__input"
+              name="password"
+              onChange={this.handleChange}
               type="password"
             />
             <label className="login__label--checkbox">
@@ -43,7 +84,10 @@ export default class LoginForm extends Component {
               />
               Remember me
             </label>
-            <button className="login__submit" disabled>
+            <button
+              onClick={event => this.handleSubmit(event)}
+              className="login__submit"
+            >
               Sign in
             </button>
           </form>

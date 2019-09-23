@@ -7,6 +7,10 @@ export default class LandingContent extends Component {
     return (
       <div>
         <h1 className="h1-title">NativeSpeak</h1>
+        <button>Teacher login test</button>
+        <button onClick={this.props.handleStudentLogin}>
+          Student login test
+        </button>
         <h5 className="h5-intro">
           Chat with native speakers and learn to speak like a native speaker.
         </h5>
