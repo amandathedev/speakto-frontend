@@ -2,6 +2,10 @@ body {
   height: 100%;
 }
 
+* {
+  font-family: "Libre Franklin", sans-serif;
+}
+
 a {
   cursor: pointer;
 }
