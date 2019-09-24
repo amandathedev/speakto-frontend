@@ -19,32 +19,29 @@ class App extends Component {
     };
   }
 
-  // token = localStorage.getItem('current_user')
-
   componentDidMount() {
     this.fetchTeachers();
     this.setUser();
   }
 
-  setUser = () => {
-    fetch("http://localhost:3000/api/v1/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        user: this.state
-      })
-    })
-      .then(resp => resp.json())
-      .then(data => {
-        this.setState({
-          current_user: data["user"]
-          // user_type: data["user"]["type"]
-        });
-      })
-      .then(console.log(this.state));
+  setUser = (user, type) => {
+    let token = localStorage.getItem("current_user");
+    if (token) {
+      // TODO fetch student#profile or teacher#profile /profile and send token
+      // TODO Authorize the user
+      // TODO setstate with current user similar to login/signup
+      // TODO finish logout
+      // fetch(`rootUrl${profile}`)
+      // .then(resp => resp.json())
+      // .then();
+      this.setState({
+        logged_in: true,
+        current_user: user,
+        user_type: type
+      });
+    } else {
+      localStorage.removeItem("current_user");
+    }
   };
 
   fetchTeachers = () => {
@@ -58,39 +55,24 @@ class App extends Component {
       .catch(alert);
   };
 
+  logout = () => {
+    this.setState({
+      logged_in: false,
+      current_user: null,
+      user_type: null
+    });
+  };
+
   render() {
     return (
       <div>
-        <Header />
-        <LandingPage />
+        <Header logged_in={this.state.logged_in} logout={this.logout} />
+        <LandingPage
+          logged_in={this.state.logged_in}
+          user_type={this.state.user_type}
+          setUser={this.setUser}
+        />
         <Footer />
-        {/* SOURCE https://reacttraining.com/react-router/web/guides/quick-start */}
-        {/* {this.state.logged_in === true ? (
-          <Route
-            path="/profile"
-            render={props => (
-              <UserContainer
-                {...props}
-                displayOption={this.state.displayOption}
-              />
-            )}
-          />
-        ) : (
-          <Route
-            path="/"
-            render={props => (
-              <LandingPage
-                {...props}
-                teachers={this.state.teachers}
-                displayOption={this.state.displayOption}
-              />
-            )}
-          />
-          <LandingPage
-            teachers={this.state.teachers}
-            displayOption={this.state.displayOption}
-          />
-        )} */}
       </div>
     );
   }

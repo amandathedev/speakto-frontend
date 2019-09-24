@@ -13,6 +13,12 @@ export default class Header extends Component {
     window.location.href = "/";
   };
 
+  logout = () => {
+    localStorage.clear();
+    this.props.logout();
+    window.location.href = "/";
+  };
+
   render() {
     return (
       <div>
@@ -27,6 +33,9 @@ export default class Header extends Component {
               />
               <strong> NativeSpeak</strong>
             </a>
+            {this.props.logged_in && (
+              <button onClick={this.logout}>logout</button>
+            )}
             {/* <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">

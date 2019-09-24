@@ -66,8 +66,16 @@ export default class Registration extends Component {
       })
     })
       .then(resp => resp.json())
-      .then(student => console.log(student));
-    // .then(this.props.handleStudentSignup);
+      .then(student => this.loginStudent(student));
+  };
+
+  loginStudent = student => {
+    localStorage.setItem("current_user", student["jwt"]);
+    this.props.setUser(student, "student");
+    this.props.history.push({
+      pathname: "/profile",
+      userType: "student"
+    });
   };
 
   render() {

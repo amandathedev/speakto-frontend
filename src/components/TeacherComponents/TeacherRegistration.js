@@ -21,6 +21,9 @@ export default class Registration extends Component {
     };
   }
 
+  rootUrl = "http://localhost:3000/api/v1/";
+  teachersUrl = `${this.rootUrl}teachers`;
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -29,7 +32,41 @@ export default class Registration extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
+    fetch(this.teachersUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        name: this.state.name,
+        username: this.state.username,
+        email: this.state.email,
+        password_digest: this.state.password_digest,
+        skype_id: this.state.skype_id,
+        photo_url: this.state.photo_url,
+        lessons_completed: 0,
+        intro_text: this.state.intro_text,
+        volunteer_points: 0,
+        income_balance: 0
+      })
+    })
+      .then(resp => resp.json())
+      .then(teacher => this.loginTeacher(teacher))
+      .catch(alert);
+  };
+
+  loginTeacher = teacher => {
+    if (teacher.error) {
+      alert(teacher.error);
+    } else {
+      localStorage.setItem("current_user", teacher["jwt"]);
+      this.props.setUser(teacher, "teacher");
+      this.props.history.push({
+        pathname: "/profile",
+        userType: "teacher"
+      });
+    }
   };
 
   render() {

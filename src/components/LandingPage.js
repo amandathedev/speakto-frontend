@@ -8,64 +8,41 @@ import LoginForm from "./LoginForm";
 import UserContainer from "./UserContainer";
 // import { PrivateRoute } from "../helpers/PrivateRoute";
 export default class LandingPage extends Component {
-  // renderSwitch = option => {
-  //   switch (option) {
-  //     case "registerstudent":
-  //       return (
-  //         <StudentRegistration
-  //           handleHomeClick={this.props.handleHomeClick}
-  //           handleStudentSignup={this.props.handleStudentSignup}
-  //         />
-  //       );
-  //     case "registerteacher":
-  //       return (
-  //         <TeacherRegistration handleHomeClick={this.props.handleHomeClick} />
-  //       );
-  //     case "login":
-  //       return <LoginForm handleHomeClick={this.props.handleHomeClick} />;
-  //     case "landing":
-  //       return (
-  //         <LandingContent
-  //           handleRegisterStudent={this.props.handleRegisterStudent}
-  //           handleRegisterTeacher={this.props.handleRegisterTeacher}
-  //           handleHomeClick={this.props.handleHomeClick}
-  //           handleLoginClick={this.props.handleLoginClick}
-  //           handleStudentLogin={this.props.handleStudentLogin}
-  //           logged_in={this.props.logged_in}
-  //           teachers={this.props.teachers}
-  //         />
-  //       );
-  //     case "studentsignup":
-  //       return <UserContainer displayOption={this.props.displayOption} />;
-  //     default:
-  //       return (
-  //         <LandingContent
-  //           handleRegisterStudent={this.props.handleRegisterStudent}
-  //           handleRegisterTeacher={this.props.handleRegisterTeacher}
-  //           handleHomeClick={this.props.handleHomeClick}
-  //           handleLoginClick={this.props.handleLoginClick}
-  //           handleStudentLogin={this.props.handleStudentLogin}
-  //           logged_in={this.props.logged_in}
-  //           teachers={this.props.teachers}
-  //         />
-  //       );
-  //   }
-  // };
-
   render() {
-    // return <div>{this.renderSwitch(this.props.displayOption)}</div>;
     return (
       <div className="landing-page">
         <Switch>
-          <Route exact path="/" component={LandingContent} />
-          <Route path="/login" component={LoginForm} />
-          <Route path="/newteacher" component={TeacherRegistration} />
-          <Route
-            path="/newstudent"
-            render={props => <StudentRegistration {...props} />}
-          />
-          <Route path="/profile" component={UserContainer} />
-          {/* <PrivateRoute path="/home" component={UserContainer} /> */}
+          {this.props.logged_in ? (
+            <Route exact path="/" component={UserContainer} />
+          ) : (
+            <Switch>
+              <Route exact path="/" component={LandingContent} />
+              <Route
+                path="/login"
+                render={props => (
+                  <LoginForm {...props} setUser={this.props.setUser} />
+                )}
+              />
+              <Route
+                path="/newteacher"
+                render={props => (
+                  <TeacherRegistration
+                    {...props}
+                    setUser={this.props.setUser}
+                  />
+                )}
+              />
+              <Route
+                path="/newstudent"
+                render={props => (
+                  <StudentRegistration
+                    {...props}
+                    setUser={this.props.setUser}
+                  />
+                )}
+              />
+            </Switch>
+          )}
         </Switch>
       </div>
     );

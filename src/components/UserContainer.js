@@ -5,7 +5,6 @@ import Search from "./Search";
 
 export default class UserContainer extends Component {
   render() {
-    // console.log(this.props.location.userType);
     return (
       <div>
         <h1>logged in</h1>
