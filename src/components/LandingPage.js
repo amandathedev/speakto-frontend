@@ -13,7 +13,7 @@ export default class LandingPage extends Component {
       <div className="landing-page">
         <Switch>
           {this.props.logged_in ? (
-            <Route exact path="/" component={UserContainer} />
+            <Route path="/profile" component={UserContainer} />
           ) : (
             <Switch>
               <Route exact path="/" component={LandingContent} />

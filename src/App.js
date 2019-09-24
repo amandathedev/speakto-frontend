@@ -21,28 +21,50 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchTeachers();
-    this.setUser();
+    // this.setUser();
   }
 
   setUser = (user, type) => {
-    let token = localStorage.getItem("current_user");
-    if (token) {
-      // TODO fetch student#profile or teacher#profile /profile and send token
-      // TODO Authorize the user
-      // TODO setstate with current user similar to login/signup
-      // TODO finish logout
-      // fetch(`rootUrl${profile}`)
-      // .then(resp => resp.json())
-      // .then();
-      this.setState({
-        logged_in: true,
-        current_user: user,
-        user_type: type
-      });
-    } else {
-      localStorage.removeItem("current_user");
-    }
+    this.setState({
+      logged_in: true,
+      current_user: user,
+      user_type: type
+    });
   };
+
+  // setUser = (user, type) => {
+  //   let token = localStorage.getItem("current_user");
+  //   if (token) {
+  //     // TODO fetch student#profile or teacher#profile /profile and send token
+  //     // TODO authorization bearer token
+  //     // TODO Authorize the user
+  //     // TODO setstate with current user
+  //     fetch("http://localhost:3000/api/v1/profile", {
+  //       method: "GET",
+  //       headers: {
+  //         Authorization: `Bearer <token>`
+  //       }
+  //     })
+  //       .then(resp => resp.json())
+  //       .then(data => {
+  //         this.setState(
+  //           {
+  //             current_user: data["user"]
+  //           },
+  //           () => {
+  //             localStorage.setItem("current_user", data["jwt"]);
+  //             this.props.setUser(data["user"], Object.keys(data["user"])[0]);
+  //             this.props.history.push({
+  //               pathname: "/profile",
+  //               userType: Object.keys(data["user"])[0]
+  //             });
+  //           }
+  //         );
+  //       });
+  //   } else {
+  //     localStorage.removeItem("current_user");
+  //   }
+  // };
 
   fetchTeachers = () => {
     fetch(`${rootUrl}teachers`)
