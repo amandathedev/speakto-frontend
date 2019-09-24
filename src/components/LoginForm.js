@@ -33,7 +33,10 @@ export default class LoginForm extends Component {
         Accept: "application/json"
       },
       body: JSON.stringify({
-        user: this.state
+        user: {
+          username: this.state.username,
+          password: this.state.password
+        }
       })
     })
       .then(resp => resp.json())
@@ -43,6 +46,7 @@ export default class LoginForm extends Component {
             current_user: data["user"]
           },
           () => {
+            // debugger;
             localStorage.setItem("current_user", data["jwt"]);
             this.props.setUser(data["user"], Object.keys(data["user"])[0]);
             this.props.history.push({

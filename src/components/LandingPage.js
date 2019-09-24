@@ -6,6 +6,8 @@ import StudentRegistration from "./StudentComponents/StudentRegistration";
 import LandingContent from "./LandingContent";
 import LoginForm from "./LoginForm";
 import UserContainer from "./UserContainer";
+import TeacherList from "./TeacherComponents/TeacherList";
+import BuyCredits from "./StudentComponents/BuyCredits";
 // import { PrivateRoute } from "../helpers/PrivateRoute";
 export default class LandingPage extends Component {
   render() {
@@ -13,7 +15,11 @@ export default class LandingPage extends Component {
       <div className="landing-page">
         <Switch>
           {this.props.logged_in ? (
-            <Route path="/profile" component={UserContainer} />
+            <Switch>
+              <Route path="/profile" component={UserContainer} />
+              <Route path="/teachers" component={TeacherList} />
+              <Route path="/buycredits" component={BuyCredits} />
+            </Switch>
           ) : (
             <Switch>
               <Route exact path="/" component={LandingContent} />

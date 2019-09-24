@@ -25,6 +25,7 @@ class App extends Component {
   }
 
   setUser = (user, type) => {
+    // debugger;
     this.setState({
       logged_in: true,
       current_user: user,
