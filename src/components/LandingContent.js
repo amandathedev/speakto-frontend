@@ -66,9 +66,8 @@ export default class LandingContent extends Component {
             <span className="ql_top"></span>
             <span className="ql_bottom"></span>
           </a>
-
-          <div className="clear"></div>
         </div>
+        {/* End buttons */}
         <div className="landing">
           <br></br>
           <h2 className="underline">How It Works</h2>

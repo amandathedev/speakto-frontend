@@ -12,14 +12,40 @@ class App extends Component {
     super();
 
     this.state = {
-      logged_in: true,
-      teachers: []
+      logged_in: false,
+      teachers: [],
+      current_user: "",
+      user_type: ""
     };
   }
 
+  // token = localStorage.getItem('current_user')
+
   componentDidMount() {
     this.fetchTeachers();
+    this.setUser();
   }
+
+  setUser = () => {
+    fetch("http://localhost:3000/api/v1/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        user: this.state
+      })
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({
+          current_user: data["user"]
+          // user_type: data["user"]["type"]
+        });
+      })
+      .then(console.log(this.state));
+  };
 
   fetchTeachers = () => {
     fetch(`${rootUrl}teachers`)

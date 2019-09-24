@@ -22,41 +22,38 @@ export default class LoginForm extends Component {
       [event.target.name]: event.target.value
     });
   };
+  // Authorization: `Bearer <token>`,
 
   handleSubmit = event => {
-    console.log("1");
     event.preventDefault();
     fetch("http://localhost:3000/api/v1/login", {
       method: "POST",
       headers: {
-        // Authorization: `Bearer <token>`,
         "Content-Type": "application/json",
         Accept: "application/json"
       },
       body: JSON.stringify({
-        student:
-          // username: this.state.username,
-          // password: this.state.password
-          this.state
+        user: this.state
       })
     })
       .then(resp => resp.json())
-      .then(data =>
+      .then(data => {
         this.setState(
           {
-            current_user: data.student
+            current_user: data["user"]
           },
           () => {
-            localStorage.setItem("current_user", data.jwt);
-            // window.location.href = "/profile";
-            this.props.history.push("/profile");
+            localStorage.setItem("current_user", data["jwt"]);
+            this.props.history.push({
+              pathname: "/profile",
+              userType: Object.keys(data["user"])[0]
+            });
           }
-        )
-      );
+        );
+      });
   };
 
   render() {
-    console.log(this.state.current_user);
     return (
       <div>
         <div className="login-container">

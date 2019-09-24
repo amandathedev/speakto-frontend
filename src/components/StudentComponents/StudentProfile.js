@@ -7,24 +7,13 @@ export default class StudentProfile extends Component {
     return (
       <div>
         <h1>Welcome, student.name!</h1>
-        <a href="#" className="menu">
-          Hello
-        </a>
-        <a href="#" className="menu">
-          Hello
-        </a>
-        <a href="#" className="menu">
-          Hello
-        </a>
-        {/* <div id="home_quicklinks">
-          <a
-            className="quicklink link1"
-            href="#"
-          >
+        {/* Buttons */}
+        <div id="home_quicklinks">
+          <a className="quicklink link1" onClick={this.handleLoginRedirect}>
             <span className="ql_caption">
               <span className="outer">
                 <span className="inner">
-                  <h2>Browse teachers</h2>
+                  <h2>Book a lesson</h2>
                 </span>
               </span>
             </span>
@@ -32,10 +21,7 @@ export default class StudentProfile extends Component {
             <span className="ql_bottom"></span>
           </a>
 
-          <a
-            className="quicklink link2"
-            href="#"
-          >
+          <a className="quicklink link2" onClick={this.handleStudentRedirect}>
             <span className="ql_caption">
               <span className="outer">
                 <span className="inner">
@@ -47,10 +33,7 @@ export default class StudentProfile extends Component {
             <span className="ql_bottom"></span>
           </a>
 
-          <a
-            className="quicklink link3"
-            href="#"
-          >
+          <a onClick={this.handleTeacherRedirect} className="quicklink link3">
             <span className="ql_caption">
               <span className="outer">
                 <span className="inner">
@@ -61,9 +44,8 @@ export default class StudentProfile extends Component {
             <span className="ql_top"></span>
             <span className="ql_bottom"></span>
           </a>
-
-          <div className="clear"></div>
-        </div> */}
+        </div>
+        {/* End buttons */}
       </div>
     );
   }

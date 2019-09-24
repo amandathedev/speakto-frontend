@@ -1,17 +1,99 @@
-.menu {
-  display: block;
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  font-size: 20px;
-  color: #fff;
-  line-height: 100px;
+/* Buttons */
+#home_quicklinks {
+  padding: 20px 0;
   text-align: center;
-  text-decoration: none;
-  background: #000;
+  margin-bottom: 10em;
 }
-.menu:hover {
-  color: #ccc;
-  text-decoration: none;
-  background: #333;
+a.quicklink.link1 {
+  background: #58866b;
 }
+a.quicklink {
+  display: inline-block;
+  width: 302px;
+  height: 173px;
+  position: relative;
+  margin: 90px 30px;
+}
+a.quicklink .ql_caption {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.outer {
+  display: table;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  border-spacing: 0px;
+  padding: 0px;
+}
+.inner {
+  display: table-cell;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  border-spacing: 0px;
+  padding: 0px;
+}
+a.quicklink .ql_caption h2 {
+  margin: 0px;
+  padding: 0px;
+  text-transform: uppercase;
+  line-height: 1.46em;
+  color: #fff;
+  font-size: 0.7em;
+}
+a.quicklink.link1 .ql_top {
+  border-bottom-color: #58866b;
+}
+a.quicklink.link1 .ql_bottom {
+  border-top-color: #58866b;
+}
+
+.ql_top {
+  bottom: 173px;
+  border-bottom: 89px solid #ccc;
+}
+.ql_bottom {
+  top: 173px;
+  border-top: 89px solid #ccc;
+}
+.ql_top,
+.ql_bottom {
+  position: absolute;
+  left: 0px;
+  width: 0px;
+  border-left: 151px solid transparent;
+  border-right: 151px solid transparent;
+}
+
+a.quicklink.link2 {
+  background: #e2b588;
+}
+a.quicklink.link2 .ql_top {
+  border-bottom-color: #e2b588;
+}
+a.quicklink.link2 .ql_bottom {
+  border-top-color: #e2b588;
+}
+
+a.quicklink.link3 .ql_top {
+  border-bottom-color: #3ea066;
+}
+a.quicklink.link3 .ql_bottom {
+  border-top-color: #3ea066;
+}
+a.quicklink.link3 {
+  background: #3ea066;
+}
+a.quicklink {
+  font-size: 36px;
+  font-weight: 500;
+  text-decoration: none;
+}
+/* End buttons */

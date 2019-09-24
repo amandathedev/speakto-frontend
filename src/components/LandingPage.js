@@ -64,6 +64,7 @@ export default class LandingPage extends Component {
             path="/newstudent"
             render={props => <StudentRegistration {...props} />}
           />
+          <Route path="/profile" component={UserContainer} />
           {/* <PrivateRoute path="/home" component={UserContainer} /> */}
         </Switch>
       </div>

@@ -5,11 +5,11 @@ import Search from "./Search";
 
 export default class UserContainer extends Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props.location.userType);
     return (
       <div>
         <h1>logged in</h1>
-        {this.props.displayOption === "studentprofile" ? (
+        {this.props.location.userType === "student" ? (
           <StudentProfile />
         ) : (
           <TeacherContainer />
