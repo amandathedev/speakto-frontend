@@ -4,11 +4,12 @@ import {
   Switch,
   Route,
   Link,
+  withRouter,
   Redirect
 } from "react-router-dom";
 import "../styles/Header.css";
 
-export default class Header extends Component {
+class Header extends Component {
   handleHomeClick = () => {
     {
       this.props.logged_in
@@ -38,7 +39,13 @@ export default class Header extends Component {
               <strong> NativeSpeak</strong>
             </a>
             {this.props.logged_in && (
-              <button onClick={this.logout}>logout</button>
+              <a
+                onClick={this.logout}
+                href="#"
+                className="btn btn-danger btn-sm"
+              >
+                <i className="fas fa-sign-out-alt"></i> Log out
+              </a>
             )}
             {/* <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -56,3 +63,5 @@ export default class Header extends Component {
     );
   }
 }
+
+export default withRouter(Header);

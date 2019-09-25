@@ -1,26 +1,29 @@
 import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  withRouter,
+  Redirect
+} from "react-router-dom";
 import LessonsList from "./LessonsList";
 import BuyCredits from "./BuyCredits";
 // import "../App.css";
 import "../../styles/StudentProfile.css";
 
-export default class StudentProfile extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+class StudentProfile extends Component {
   handleLessonRedirect = () => {
-    // this.props.history.push("/teachers");
+    this.props.history.push("/teachers");
   };
 
   handleCreditsRedirect = () => {
-    // this.props.history.push("/buycredits");
+    this.props.history.push("/buycredits");
   };
 
   render() {
+    let studentName = this.props.current_user.student.name;
     return (
       <div>
-        <h1>Welcome, student.name!</h1>
+        <br></br>
+        <h1>Welcome back, {studentName}!</h1>
         {/* Buttons */}
         <div id="home_quicklinks">
           <a className="quicklink link1" onClick={this.handleLessonRedirect}>
@@ -64,3 +67,5 @@ export default class StudentProfile extends Component {
     );
   }
 }
+
+export default withRouter(StudentProfile);

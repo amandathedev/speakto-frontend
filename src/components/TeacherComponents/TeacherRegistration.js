@@ -55,8 +55,10 @@ export default class Registration extends Component {
       })
     })
       .then(resp => resp.json())
-      .then(teacher => this.loginTeacher(teacher))
-      .catch(alert);
+      .then(teacher => {
+        teacher.error ? alert(teacher.error) : this.loginTeacher(teacher);
+      });
+    // .catch(alert);
   };
 
   loginTeacher = teacher => {

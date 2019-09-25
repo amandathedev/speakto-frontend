@@ -62,7 +62,6 @@ export default class Registration extends Component {
           photo_url:
             this.state.photo_url ||
             "https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png",
-          intro_text: this.state.intro_text,
           lessons_completed: 0,
           native_language: this.state.native_language,
           lesson_credits: 5
@@ -70,7 +69,9 @@ export default class Registration extends Component {
       })
     })
       .then(resp => resp.json())
-      .then(student => this.loginStudent(student));
+      .then(student => {
+        student.error ? alert(student.error) : this.loginStudent(student);
+      });
   };
 
   loginStudent = student => {
@@ -176,7 +177,7 @@ export default class Registration extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div className="form-group col-md-9">
+            {/* <div className="form-group col-md-9">
               <label>Tell us something about you</label>
               <input
                 type="text"
@@ -186,7 +187,7 @@ export default class Registration extends Component {
                 name="intro_text"
                 onChange={this.handleChange}
               />
-            </div>
+            </div> */}
           </div>
           <button
             type="submit"

@@ -8,7 +8,7 @@ import LoginForm from "./LoginForm";
 import UserContainer from "./UserContainer";
 import TeacherList from "./TeacherComponents/TeacherList";
 import BuyCredits from "./StudentComponents/BuyCredits";
-// import { PrivateRoute } from "../helpers/PrivateRoute";
+
 export default class LandingPage extends Component {
   render() {
     return (
@@ -16,7 +16,15 @@ export default class LandingPage extends Component {
         <Switch>
           {this.props.logged_in ? (
             <Switch>
-              <Route path="/profile" component={UserContainer} />
+              <Route
+                path="/profile"
+                render={props => (
+                  <UserContainer
+                    {...props}
+                    current_user={this.props.current_user}
+                  />
+                )}
+              />
               <Route path="/teachers" component={TeacherList} />
               <Route path="/buycredits" component={BuyCredits} />
             </Switch>

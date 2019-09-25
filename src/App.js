@@ -32,6 +32,7 @@ class App extends Component {
   }
 
   setUser = (user, type) => {
+    // debugger;
     this.setState({
       logged_in: true,
       current_user: user,
@@ -42,7 +43,6 @@ class App extends Component {
   findUser = () => {
     let token = localStorage.getItem("current_user");
     let identity = localStorage.getItem("user_type");
-    // let identity = "student";
     if (token) {
       // TODO fetch student#profile or teacher#profile /profile and send token
       // TODO authorization bearer token
@@ -103,6 +103,7 @@ class App extends Component {
           logged_in={this.state.logged_in}
           user_type={this.state.user_type}
           setUser={this.setUser}
+          current_user={this.state.current_user}
         />
         <Footer />
       </div>

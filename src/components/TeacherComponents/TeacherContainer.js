@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  withRouter,
+  Redirect
+} from "react-router-dom";
 import TeacherList from "./TeacherList";
 import TeacherProfile from "./TeacherProfile";
 
-export default class TeacherContainer extends Component {
+class TeacherContainer extends Component {
   render() {
     return (
       <div>
@@ -11,3 +16,5 @@ export default class TeacherContainer extends Component {
     );
   }
 }
+
+export default withRouter(TeacherContainer);
