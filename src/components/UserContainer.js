@@ -10,14 +10,12 @@ import Search from "./Search";
 
 class UserContainer extends Component {
   render() {
-    console.log(this.props);
     return (
       <div>
-        {/* <h1>logged in</h1> */}
         {this.props.current_user.student ? (
           <StudentProfile current_user={this.props.current_user} />
         ) : (
-          <TeacherContainer />
+          <TeacherContainer current_user={this.props.current_user} />
         )}
       </div>
     );

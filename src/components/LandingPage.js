@@ -6,11 +6,12 @@ import StudentRegistration from "./StudentComponents/StudentRegistration";
 import LandingContent from "./LandingContent";
 import LoginForm from "./LoginForm";
 import UserContainer from "./UserContainer";
-import TeacherList from "./TeacherComponents/TeacherList";
+import TeacherContainer from "./TeacherComponents/TeacherContainer";
 import BuyCredits from "./StudentComponents/BuyCredits";
 
 export default class LandingPage extends Component {
   render() {
+    // console.log(this.props);
     return (
       <div className="landing-page">
         <Switch>
@@ -22,10 +23,21 @@ export default class LandingPage extends Component {
                   <UserContainer
                     {...props}
                     current_user={this.props.current_user}
+                    teachers={this.props.teachers}
                   />
                 )}
               />
-              <Route path="/teachers" component={TeacherList} />
+              {/* TODO Move these down */}
+              <Route
+                path="/teachers"
+                render={props => (
+                  <TeacherContainer
+                    {...props}
+                    current_user={this.props.current_user}
+                    teachers={this.props.teachers}
+                  />
+                )}
+              />
               <Route path="/buycredits" component={BuyCredits} />
             </Switch>
           ) : (

@@ -104,6 +104,7 @@ class App extends Component {
           user_type={this.state.user_type}
           setUser={this.setUser}
           current_user={this.state.current_user}
+          teachers={this.state.teachers}
         />
         <Footer />
       </div>
