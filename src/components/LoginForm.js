@@ -41,20 +41,26 @@ export default class LoginForm extends Component {
     })
       .then(resp => resp.json())
       .then(data => {
-        this.setState(
-          {
-            current_user: data["user"]
-          },
-          () => {
-            // debugger;
-            localStorage.setItem("current_user", data["jwt"]);
-            this.props.setUser(data["user"], Object.keys(data["user"])[0]);
-            this.props.history.push({
-              pathname: "/profile",
-              userType: Object.keys(data["user"])[0]
-            });
-          }
-        );
+        if (data.status === "accepted") {
+          this.setState(
+            {
+              current_user: data["user"]
+            },
+            () => {
+              // TODO handle incorrect user details
+              localStorage.setItem("current_user", data["jwt"]);
+              localStorage.setItem("user_type", Object.keys(data["user"])[0]);
+              this.props.setUser(data["user"], Object.keys(data["user"])[0]);
+              this.props.history.push({
+                pathname: `/profile`,
+                userType: Object.keys(data["user"])[0]
+              });
+            }
+          );
+        } else {
+          let errorBox = document.getElementById("error-span");
+          errorBox.innerHTML = data.message;
+        }
       });
   };
 
@@ -92,6 +98,8 @@ export default class LoginForm extends Component {
               onChange={this.handleChange}
               type="password"
             />
+            <span id="error-span"></span>
+            <br></br>
             <label className="login__label--checkbox">
               <input
                 id="login-sign-up"

@@ -53,16 +53,20 @@ export default class Registration extends Component {
         Accept: "application/json"
       },
       body: JSON.stringify({
-        name: this.state.name,
-        username: this.state.username,
-        email: this.state.email,
-        password_digest: this.state.password_digest,
-        skype_id: this.state.skype_id,
-        photo_url: this.state.photo_url,
-        intro_text: this.state.intro_text,
-        lessons_completed: 0,
-        native_language: this.state.native_language,
-        lesson_credits: 5
+        student: {
+          name: this.state.name,
+          username: this.state.username,
+          email: this.state.email,
+          password: this.state.password_digest,
+          skype_id: this.state.skype_id,
+          photo_url:
+            this.state.photo_url ||
+            "https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png",
+          intro_text: this.state.intro_text,
+          lessons_completed: 0,
+          native_language: this.state.native_language,
+          lesson_credits: 5
+        }
       })
     })
       .then(resp => resp.json())
@@ -71,6 +75,7 @@ export default class Registration extends Component {
 
   loginStudent = student => {
     localStorage.setItem("current_user", student["jwt"]);
+    localStorage.setItem("user_type", "student");
     this.props.setUser(student, "student");
     this.props.history.push({
       pathname: "/profile",

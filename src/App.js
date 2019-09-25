@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  withRouter
+} from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -22,10 +28,10 @@ class App extends Component {
   componentDidMount() {
     this.fetchTeachers();
     // this.setUser();
+    this.findUser();
   }
 
   setUser = (user, type) => {
-    // debugger;
     this.setState({
       logged_in: true,
       current_user: user,
@@ -33,39 +39,42 @@ class App extends Component {
     });
   };
 
-  // setUser = (user, type) => {
-  //   let token = localStorage.getItem("current_user");
-  //   if (token) {
-  //     // TODO fetch student#profile or teacher#profile /profile and send token
-  //     // TODO authorization bearer token
-  //     // TODO Authorize the user
-  //     // TODO setstate with current user
-  //     fetch("http://localhost:3000/api/v1/profile", {
-  //       method: "GET",
-  //       headers: {
-  //         Authorization: `Bearer <token>`
-  //       }
-  //     })
-  //       .then(resp => resp.json())
-  //       .then(data => {
-  //         this.setState(
-  //           {
-  //             current_user: data["user"]
-  //           },
-  //           () => {
-  //             localStorage.setItem("current_user", data["jwt"]);
-  //             this.props.setUser(data["user"], Object.keys(data["user"])[0]);
-  //             this.props.history.push({
-  //               pathname: "/profile",
-  //               userType: Object.keys(data["user"])[0]
-  //             });
-  //           }
-  //         );
-  //       });
-  //   } else {
-  //     localStorage.removeItem("current_user");
-  //   }
-  // };
+  findUser = () => {
+    let token = localStorage.getItem("current_user");
+    let identity = localStorage.getItem("user_type");
+    // let identity = "student";
+    if (token) {
+      // TODO fetch student#profile or teacher#profile /profile and send token
+      // TODO authorization bearer token
+      // TODO Authorize the user
+      // TODO setstate with current user
+      fetch(`http://localhost:3000/api/v1/${identity}profile`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+        .then(resp => resp.json())
+        .then(data => {
+          console.log(`hello from app.js`, data);
+          this.setState(
+            {
+              logged_in: true,
+              current_user: data[identity]
+            },
+            () => {
+              // localStorage.setItem("current_user", data);
+              this.props.history.push({
+                pathname: `/profile`,
+                userType: Object.keys(data[identity])[0]
+              });
+            }
+          );
+        });
+    } else {
+      localStorage.removeItem("current_user");
+    }
+  };
 
   fetchTeachers = () => {
     fetch(`${rootUrl}teachers`)
@@ -101,4 +110,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

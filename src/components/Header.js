@@ -10,7 +10,11 @@ import "../styles/Header.css";
 
 export default class Header extends Component {
   handleHomeClick = () => {
-    window.location.href = "/";
+    {
+      this.props.logged_in
+        ? (window.location.href = "/profile")
+        : (window.location.href = "/");
+    }
   };
 
   logout = () => {
