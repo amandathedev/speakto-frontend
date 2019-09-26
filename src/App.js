@@ -21,32 +21,37 @@ class App extends Component {
       logged_in: false,
       teachers: [],
       current_user: "",
-      user_type: ""
+      user_type: "",
+      ratings: []
     };
   }
 
   componentDidMount() {
-    this.fetchTeachers();
-    // this.setUser();
     this.findUser();
+    if (this.state.logged_in) {
+      this.fetchRatings();
+      this.fetchTeachers();
+    }
   }
 
   setUser = (user, type) => {
-    this.setState({
-      logged_in: true,
-      current_user: user,
-      user_type: type
-    });
+    this.setState(
+      {
+        logged_in: true,
+        current_user: user,
+        user_type: type
+      },
+      () => {
+        this.fetchRatings();
+        this.fetchTeachers();
+      }
+    );
   };
 
   findUser = () => {
     let token = localStorage.getItem("current_user");
     let identity = localStorage.getItem("user_type");
     if (token) {
-      // TODO fetch student#profile or teacher#profile /profile and send token
-      // TODO authorization bearer token
-      // TODO Authorize the user
-      // TODO setstate with current user
       fetch(`http://localhost:3000/api/v1/${identity}profile`, {
         method: "GET",
         headers: {
@@ -62,7 +67,6 @@ class App extends Component {
               current_user: data[identity]
             },
             () => {
-              // localStorage.setItem("current_user", data);
               this.props.history.push({
                 pathname: `/profile`,
                 userType: Object.keys(data[identity])[0]
@@ -76,11 +80,37 @@ class App extends Component {
   };
 
   fetchTeachers = () => {
-    fetch(`${rootUrl}teachers`)
+    let token = localStorage.getItem("current_user");
+    fetch(`${rootUrl}teachers`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
       .then(resp => resp.json())
       .then(teachers => {
         this.setState({
           teachers
+        });
+      })
+      .catch(alert);
+  };
+
+  fetchRatings = () => {
+    // teacher is logged in, this fetch returns that teacher's ratings
+    // student is logged in, this fetch returns all the ratings
+    let token = localStorage.getItem("current_user");
+    fetch(`${rootUrl}ratings?identity=${this.state.user_type}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(ratings => {
+        // console.log(ratings);
+        this.setState({
+          ratings
         });
       })
       .catch(alert);
@@ -95,15 +125,18 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <div>
         <Header logged_in={this.state.logged_in} logout={this.logout} />
         <LandingPage
           logged_in={this.state.logged_in}
-          user_type={this.state.user_type}
           setUser={this.setUser}
           current_user={this.state.current_user}
+          user_type={this.state.user_type}
           teachers={this.state.teachers}
+          ratings={this.state.ratings}
+          findUser={this.findUser}
         />
         <Footer />
       </div>

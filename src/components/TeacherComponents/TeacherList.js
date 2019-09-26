@@ -9,22 +9,32 @@ import React, { Component } from "react";
 export default class TeacherList extends Component {
   // https://dev.to/abdulbasit313/an-easy-way-to-create-a-customize-dynamic-table-in-react-js-3igg
 
-  redirectTeacher = () => {
-    // TODO
-    // this.props.history.push("/teachers");
+  // redirectTeacher = () => {
+  //   // TODO
+  //   // this.props.history.push("/teachers");
+  // };
+  averageRating = ratings => {
+    let ratingValues = ratings.map(rating => {
+      return rating.rating;
+    });
+
+    let ratingTotal = 0;
+    for (let i = 0; i < ratingValues.length; i++) {
+      ratingTotal += ratingValues[i];
+    }
+
+    let ratingAverage = parseInt(ratingTotal) / ratings.length;
+
+    let averageRating = ratingAverage.toFixed(2);
+    return averageRating;
   };
 
   renderTableData = () => {
+    console.log(this.props);
+
     return this.props.teachers.map(teacher => {
       // Deconstruct
-      const {
-        id,
-        name,
-        photo_url,
-        skype_id,
-        lessons_completed,
-        intro_text
-      } = teacher;
+      const { id, name, photo_url, skype_id, intro_text, ratings } = teacher;
 
       return (
         <tr key={id}>
@@ -37,7 +47,7 @@ export default class TeacherList extends Component {
             />
           </td>
           <td>{skype_id}</td>
-          <td>{lessons_completed}</td>
+          <td>{ratings ? this.averageRating(ratings) : "--"}</td>
           <td>{intro_text}</td>
           <td>
             <button
@@ -64,7 +74,7 @@ export default class TeacherList extends Component {
                     <th scope="col">Name</th>
                     <th scope="col">Photo</th>
                     <th scope="col">Skype ID</th>
-                    <th scope="col">Total lessons</th>
+                    <th scope="col">Rating</th>
                     <th scope="col">Intro</th>
                     <th scope="col"></th>
                   </tr>

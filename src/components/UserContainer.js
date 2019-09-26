@@ -10,12 +10,26 @@ import Search from "./Search";
 
 class UserContainer extends Component {
   render() {
+    // debugger;
     return (
       <div>
-        {this.props.current_user.student ? (
-          <StudentProfile current_user={this.props.current_user} />
+        {/* this checks if its a student or nah */}
+        {Object.keys(this.props.current_user)[0] == "student" ? (
+          <StudentProfile
+            current_user={this.props.current_user}
+            user_type={this.props.user_type}
+            teachers={this.props.teachers}
+            ratings={this.props.ratings}
+          />
         ) : (
-          <TeacherContainer current_user={this.props.current_user} />
+          <TeacherContainer
+            ratings={this.props.ratings}
+            current_user={this.props.current_user}
+            findUser={this.props.findUser}
+            user_type={this.props.user_type}
+            teachers={this.props.teachers}
+            ratings={this.props.ratings}
+          />
         )}
       </div>
     );

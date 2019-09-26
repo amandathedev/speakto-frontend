@@ -2,25 +2,7 @@ import React, { Component } from "react";
 import "../styles/FeaturedTeachers.css";
 
 export default class FeaturedTeachers extends Component {
-  // returnThree = () => {
-  //   let threeTeachers = this.props.teachers.slice(0, 3);
-  //   return threeTeachers.map(teacher => (
-  //     <h3>{teacher.name}</h3>
-  //   ))
-  // };
   render() {
-    // console.log(this.props.teachers.slice(0, 3));
-    // console.log(threeTeachers);
-    // threeTeachers.forEach(renderTeachers);
-    // renderTeachers = () => {
-    //   return {}
-    // };
-
-    // <h2>FEATURED TEACHERS</h2>
-    // {this.state.threeTeachers.map(teacher => (
-    //   <FeaturedCard teacher={teacher} />
-    // ))}
-
     return (
       <div>
         {/* Meet the teachers */}

@@ -8,15 +8,39 @@ import TeacherList from "./TeacherList";
 import TeacherProfile from "./TeacherProfile";
 
 class TeacherContainer extends Component {
+  getAverageRating = () => {
+    let ratingValues = this.props.ratings.map(rating => {
+      return rating.rating;
+    });
+
+    let ratingTotal = 0;
+    for (let i = 0; i < ratingValues.length; i++) {
+      ratingTotal += ratingValues[i];
+    }
+
+    let ratingAverage = parseInt(ratingTotal) / this.props.ratings.length;
+
+    let averageRating = ratingAverage.toFixed(2);
+    return averageRating;
+  };
+
   render() {
     return (
       <div>
-        {/* <h1>teacher container</h1> */}
-        {/* TODO */}
+        {/* TODO everywhere else */}
         {this.props.current_user.student ? (
-          <TeacherList teachers={this.props.teachers} />
+          <TeacherList
+            teachers={this.props.teachers}
+            user_type={this.props.user_type}
+            ratings={this.props.ratings ? this.getAverageRating() : ""}
+          />
         ) : (
-          <TeacherProfile current_user={this.props.current_user} />
+          <TeacherProfile
+            filterRatings={this.filterRatings}
+            ratings={this.props.ratings}
+            current_user={this.props.current_user}
+            averageRating={this.props.ratings ? this.getAverageRating() : ""}
+          />
         )}
       </div>
     );

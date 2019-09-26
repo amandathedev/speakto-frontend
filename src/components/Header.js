@@ -13,8 +13,8 @@ class Header extends Component {
   handleHomeClick = () => {
     {
       this.props.logged_in
-        ? (window.location.href = "/profile")
-        : (window.location.href = "/");
+        ? this.props.history.push("/profile")
+        : this.props.history.push("/");
     }
   };
 

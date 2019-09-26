@@ -4,7 +4,12 @@ import "../../styles/TeacherProfile.css";
 import "../../App.css";
 
 export default class TeacherProfile extends Component {
+  componentDidMount = () => {
+    // this.props.filterRatings();
+  };
+
   render() {
+    // console.log(this.props.averageRating);
     const {
       id,
       name,
@@ -62,7 +67,7 @@ export default class TeacherProfile extends Component {
                     <i className="far fa-star fa-5x"></i>
                   </div>
                   <h6 className="text-uppercase">Rating</h6>
-                  <h1 className="display-1">4.5</h1>
+                  <h1 className="display-1">{this.props.averageRating}</h1>
                 </div>
               </div>
             </div>
