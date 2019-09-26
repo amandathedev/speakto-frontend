@@ -1,0 +1,64 @@
+@media screen and (max-width: 34em) {
+  .row-offcanvas-left .sidebar-offcanvas {
+    left: -45%;
+  }
+  .row-offcanvas-left.active {
+    left: 45%;
+    margin-left: -6px;
+  }
+  .sidebar-offcanvas {
+    width: 45%;
+  }
+}
+
+.card {
+  overflow: hidden;
+  width: 95%;
+}
+
+.main {
+  align-content: center;
+  padding-left: 10em;
+  padding-right: 10em;
+  margin-bottom: 10em;
+}
+
+.card-block {
+  height: 9em;
+  background-color: #4fb579;
+  color: rgba(255, 255, 255, 0.646);
+}
+
+.text-uppercase {
+  font-size: 1.2em;
+  margin-left: 0.5em;
+  margin-top: 0.4em;
+}
+
+.display-1 {
+  font-size: 4em;
+  float: left;
+  margin-left: 0.2em;
+  margin-top: 0.4em;
+}
+
+.card-block .rotate {
+  z-index: 8;
+  float: right;
+  height: 100%;
+}
+
+.card-block .rotate i {
+  color: rgba(20, 20, 20, 0.15);
+  position: absolute;
+  left: 0;
+  left: auto;
+  right: -10px;
+  bottom: 0;
+  display: block;
+  -webkit-transform: rotate(-44deg);
+  -moz-transform: rotate(-44deg);
+  -o-transform: rotate(-44deg);
+  -ms-transform: rotate(-44deg);
+  transform: rotate(-44deg);
+}

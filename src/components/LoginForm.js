@@ -47,7 +47,6 @@ export default class LoginForm extends Component {
               current_user: data["user"]
             },
             () => {
-              // TODO handle incorrect user details
               localStorage.setItem("current_user", data["jwt"]);
               localStorage.setItem("user_type", Object.keys(data["user"])[0]);
               this.props.setUser(data["user"], Object.keys(data["user"])[0]);
@@ -60,6 +59,7 @@ export default class LoginForm extends Component {
         } else {
           let errorBox = document.getElementById("error-span");
           errorBox.innerHTML = data.message;
+          errorBox.className = "error-box";
         }
       });
   };

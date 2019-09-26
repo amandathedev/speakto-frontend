@@ -18,6 +18,10 @@ class StudentProfile extends Component {
     this.props.history.push("/buycredits");
   };
 
+  handleEditRedirect = () => {
+    this.props.history.push("/editprofile");
+  };
+
   render() {
     let studentName = this.props.current_user.student.name;
     return (

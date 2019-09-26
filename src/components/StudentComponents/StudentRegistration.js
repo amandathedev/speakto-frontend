@@ -46,7 +46,7 @@ export default class Registration extends Component {
           skype_id: this.state.skype_id,
           photo_url:
             this.state.photo_url ||
-            "https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png",
+            "https://icon-library.net/images/default-user-icon/default-user-icon-14.jpg",
           lessons_completed: 0,
           native_language: this.state.native_language,
           lesson_credits: 5

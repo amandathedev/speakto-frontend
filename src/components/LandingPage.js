@@ -8,6 +8,7 @@ import LoginForm from "./LoginForm";
 import UserContainer from "./UserContainer";
 import TeacherContainer from "./TeacherComponents/TeacherContainer";
 import BuyCredits from "./StudentComponents/BuyCredits";
+import EditProfile from "./EditProfile";
 
 export default class LandingPage extends Component {
   render() {
@@ -39,6 +40,7 @@ export default class LandingPage extends Component {
                 )}
               />
               <Route path="/buycredits" component={BuyCredits} />
+              <Route path="/editprofile" component={EditProfile} />
             </Switch>
           ) : (
             <Switch>

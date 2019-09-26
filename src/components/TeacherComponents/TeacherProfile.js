@@ -1,13 +1,73 @@
 import React, { Component } from "react";
 import TeacherSchedule from "./TeacherSchedule";
+import "../../styles/TeacherProfile.css";
+import "../../App.css";
 
 export default class TeacherProfile extends Component {
   render() {
-    // console.log(this.props.current_user.teacher.name);
-    let teacherName = this.props.current_user.teacher.name;
+    const {
+      id,
+      name,
+      photo_url,
+      skype_id,
+      lessons_completed,
+      intro_text,
+      income_balance
+    } = this.props.current_user.teacher;
+
     return (
       <div>
-        <h1>Welcome back, {teacherName}!</h1>
+        <br></br>
+        <h1>Welcome back, {name}!</h1>
+        {/* Inspiration https://codepen.io/botlab/pen/QvvNab */}
+        <div className="col-md-9 col-lg-12 main">
+          <div className="row mb-3">
+            <div className="col-xl-3 col-lg-6">
+              <div className="card">
+                <div className="card-block ">
+                  <div className="rotate">
+                    <i className="fas fa-chalkboard-teacher fa-5x"></i>
+                  </div>
+                  <h6 className="text-uppercase">Lessons Completed</h6>
+                  <h1 className="display-1">{lessons_completed}</h1>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-6">
+              <div className="card">
+                <div className="card-block">
+                  <div className="rotate">
+                    <i className="fas fa-comment-dollar fa-5x"></i>
+                  </div>
+                  <h6 className="text-uppercase">Income Balance</h6>
+                  <h1 className="display-1">${income_balance}</h1>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-6">
+              <div className="card">
+                <div className="card-block">
+                  <div className="rotate">
+                    <i className="far fa-calendar-alt fa-5x"></i>
+                  </div>
+                  <h6 className="text-uppercase">Next Lesson</h6>
+                  <h1 className="display-1">10/15</h1>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-6">
+              <div className="card">
+                <div className="card-block">
+                  <div className="rotate">
+                    <i className="far fa-star fa-5x"></i>
+                  </div>
+                  <h6 className="text-uppercase">Rating</h6>
+                  <h1 className="display-1">4.5</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <TeacherSchedule />
       </div>
     );

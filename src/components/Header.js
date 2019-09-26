@@ -36,7 +36,7 @@ class Header extends Component {
                 height="30"
                 alt="Company Logo"
               />
-              <strong> NativeSpeak</strong>
+              <strong className="site-title"> NativeSpeak</strong>
             </a>
             {this.props.logged_in && (
               <a

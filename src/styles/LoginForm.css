@@ -181,3 +181,7 @@
 .login__forgot:hover {
   color: #479768;
 }
+
+.error-box {
+  color: red;
+}
