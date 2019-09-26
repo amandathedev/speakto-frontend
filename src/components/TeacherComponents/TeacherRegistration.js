@@ -16,8 +16,7 @@ export default class Registration extends Component {
       email: "",
       password_digest: "",
       skype_id: "",
-      photo_url:
-        "https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png",
+      photo_url: "",
       intro_text: ""
     };
   }
@@ -46,7 +45,9 @@ export default class Registration extends Component {
           email: this.state.email,
           password: this.state.password_digest,
           skype_id: this.state.skype_id,
-          photo_url: this.state.photo_url,
+          photo_url:
+            this.state.photo_url ||
+            "https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png",
           lessons_completed: 0,
           intro_text: this.state.intro_text,
           volunteer_points: 0,
@@ -58,7 +59,6 @@ export default class Registration extends Component {
       .then(teacher => {
         teacher.error ? alert(teacher.error) : this.loginTeacher(teacher);
       });
-    // .catch(alert);
   };
 
   loginTeacher = teacher => {
@@ -83,7 +83,7 @@ export default class Registration extends Component {
           We'd love to have you as one of our teachers! Please complete this
           registration form to join us.
         </h5>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={event => this.handleSubmit(event)}>
           <div className="form-row">
             <div className="form-group col-md-6">
               <label>Full Name</label>

@@ -32,7 +32,6 @@ class App extends Component {
   }
 
   setUser = (user, type) => {
-    // debugger;
     this.setState({
       logged_in: true,
       current_user: user,
@@ -56,7 +55,7 @@ class App extends Component {
       })
         .then(resp => resp.json())
         .then(data => {
-          console.log(`hello from app.js`, data);
+          // console.log(`hello from app.js`, data);
           this.setState(
             {
               logged_in: true,

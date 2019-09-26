@@ -16,27 +16,12 @@ export default class Registration extends Component {
       password_digest: "",
       skype_id: "",
       photo_url: "",
-      intro_text: "",
       native_language: ""
     };
   }
 
   rootUrl = "http://localhost:3000/api/v1/";
   studentsUrl = `${this.rootUrl}students`;
-
-  // validateForm() {
-  //   return (
-  //     this.state.name.length > 5 &&
-  //     this.state.username.length > 4 &&
-  //     this.state.password_digest.length > 5 &&
-  //     this.state.email.length > 6 &&
-  //     this.state.password_digest.length > 5 &&
-  //     this.state.skype_id.length > 4 &&
-  //     this.state.photo_url.length > 7 &&
-  //     this.state.intro_text.length > 20 &&
-  //     this.state.native_language.length > 3
-  //   );
-  // }
 
   handleChange = event => {
     this.setState({
@@ -75,13 +60,17 @@ export default class Registration extends Component {
   };
 
   loginStudent = student => {
-    localStorage.setItem("current_user", student["jwt"]);
-    localStorage.setItem("user_type", "student");
-    this.props.setUser(student, "student");
-    this.props.history.push({
-      pathname: "/profile",
-      userType: "student"
-    });
+    if (student.error) {
+      alert(student.error);
+    } else {
+      localStorage.setItem("current_user", student["jwt"]);
+      localStorage.setItem("user_type", "student");
+      this.props.setUser(student, "student");
+      this.props.history.push({
+        pathname: "/profile",
+        userType: "student"
+      });
+    }
   };
 
   render() {
@@ -177,17 +166,6 @@ export default class Registration extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            {/* <div className="form-group col-md-9">
-              <label>Tell us something about you</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder=""
-                value={this.state.intro_text}
-                name="intro_text"
-                onChange={this.handleChange}
-              />
-            </div> */}
           </div>
           <button
             type="submit"

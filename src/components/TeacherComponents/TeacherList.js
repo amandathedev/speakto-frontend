@@ -1,10 +1,22 @@
 import React, { Component } from "react";
 
+// const style = {
+//   image: {
+//     backgroundColor: "black"
+//   }
+// };
+
 export default class TeacherList extends Component {
   // https://dev.to/abdulbasit313/an-easy-way-to-create-a-customize-dynamic-table-in-react-js-3igg
-  allTeachers = this.props.teachers;
+
+  redirectTeacher = () => {
+    // TODO
+    // this.props.history.push("/teachers");
+  };
+
   renderTableData = () => {
     return this.props.teachers.map(teacher => {
+      // Deconstruct
       const {
         id,
         name,
@@ -13,6 +25,7 @@ export default class TeacherList extends Component {
         lessons_completed,
         intro_text
       } = teacher;
+
       return (
         <tr key={id}>
           <th scope="row">{name}</th>
@@ -27,7 +40,12 @@ export default class TeacherList extends Component {
           <td>{lessons_completed}</td>
           <td>{intro_text}</td>
           <td>
-            <button className="btn btn-primary btn-sm">Book</button>
+            <button
+              onClick={this.redirectTeacher}
+              className="btn btn-primary btn-sm"
+            >
+              Book
+            </button>
           </td>
         </tr>
       );

@@ -9,12 +9,15 @@ import TeacherProfile from "./TeacherProfile";
 
 class TeacherContainer extends Component {
   render() {
-    // console.log(this.props);
     return (
       <div>
+        {/* <h1>teacher container</h1> */}
+        {/* TODO */}
         {this.props.current_user.student ? (
           <TeacherList teachers={this.props.teachers} />
-        ) : null}
+        ) : (
+          <TeacherProfile current_user={this.props.current_user} />
+        )}
       </div>
     );
   }

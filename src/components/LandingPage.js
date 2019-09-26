@@ -27,7 +27,7 @@ export default class LandingPage extends Component {
                   />
                 )}
               />
-              {/* TODO Move these down */}
+              {/* TODO Move these down to child */}
               <Route
                 path="/teachers"
                 render={props => (
