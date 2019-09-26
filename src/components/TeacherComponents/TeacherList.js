@@ -14,19 +14,23 @@ export default class TeacherList extends Component {
   //   // this.props.history.push("/teachers");
   // };
   averageRating = ratings => {
-    let ratingValues = ratings.map(rating => {
-      return rating.rating;
-    });
+    if (ratings.length > 0) {
+      let ratingValues = ratings.map(rating => {
+        return rating.rating;
+      });
 
-    let ratingTotal = 0;
-    for (let i = 0; i < ratingValues.length; i++) {
-      ratingTotal += ratingValues[i];
+      let ratingTotal = 0;
+      for (let i = 0; i < ratingValues.length; i++) {
+        ratingTotal += ratingValues[i];
+      }
+
+      let ratingAverage = parseInt(ratingTotal) / ratings.length;
+
+      let averageRating = ratingAverage.toFixed(2);
+      return averageRating;
+    } else {
+      return "--";
     }
-
-    let ratingAverage = parseInt(ratingTotal) / ratings.length;
-
-    let averageRating = ratingAverage.toFixed(2);
-    return averageRating;
   };
 
   renderTableData = () => {
@@ -47,7 +51,7 @@ export default class TeacherList extends Component {
             />
           </td>
           <td>{skype_id}</td>
-          <td>{ratings ? this.averageRating(ratings) : "--"}</td>
+          <td>{this.averageRating(ratings)}</td>
           <td>{intro_text}</td>
           <td>
             <button
@@ -76,7 +80,6 @@ export default class TeacherList extends Component {
                     <th scope="col">Skype ID</th>
                     <th scope="col">Rating</th>
                     <th scope="col">Intro</th>
-                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>{this.renderTableData()}</tbody>
