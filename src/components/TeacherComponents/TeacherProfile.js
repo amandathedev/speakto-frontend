@@ -1,12 +1,11 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import TeacherSchedule from "./TeacherSchedule";
 import "../../styles/TeacherProfile.css";
 import "../../App.css";
 
-export default class TeacherProfile extends Component {
-  componentDidMount = () => {
-    // this.props.filterRatings();
-  };
+class TeacherProfile extends Component {
+  componentDidMount = () => {};
 
   render() {
     // console.log(this.props.averageRating);
@@ -25,6 +24,7 @@ export default class TeacherProfile extends Component {
         <br></br>
         <h1>Welcome back, {name}!</h1>
         {/* Inspiration https://codepen.io/botlab/pen/QvvNab */}
+        {/* TODO students shouldn't see this at all */}
         <div className="col-md-9 col-lg-12 main">
           <div className="row mb-3">
             <div className="col-xl-3 col-lg-6">
@@ -73,8 +73,10 @@ export default class TeacherProfile extends Component {
             </div>
           </div>
         </div>
-        <TeacherSchedule />
+        <TeacherSchedule timeslots={this.props.timeslots} />
       </div>
     );
   }
 }
+
+export default withRouter(TeacherProfile);

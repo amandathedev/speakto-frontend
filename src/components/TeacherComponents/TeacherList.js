@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 // const style = {
 //   image: {
@@ -6,13 +7,13 @@ import React, { Component } from "react";
 //   }
 // };
 
-export default class TeacherList extends Component {
+class TeacherList extends Component {
   // https://dev.to/abdulbasit313/an-easy-way-to-create-a-customize-dynamic-table-in-react-js-3igg
 
-  // redirectTeacher = () => {
-  //   // TODO
-  //   // this.props.history.push("/teachers");
-  // };
+  redirectTeacher = id => {
+    this.props.history.push(`/viewteacher/${id}`);
+  };
+
   averageRating = ratings => {
     if (ratings.length > 0) {
       let ratingValues = ratings.map(rating => {
@@ -55,7 +56,7 @@ export default class TeacherList extends Component {
           <td>{intro_text}</td>
           <td>
             <button
-              onClick={this.redirectTeacher}
+              onClick={() => this.redirectTeacher(id)}
               className="btn btn-primary btn-sm"
             >
               Book
@@ -91,3 +92,5 @@ export default class TeacherList extends Component {
     );
   }
 }
+
+export default withRouter(TeacherList);

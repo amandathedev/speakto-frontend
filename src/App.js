@@ -22,16 +22,16 @@ class App extends Component {
       teachers: [],
       current_user: "",
       user_type: "",
-      ratings: []
+      ratings: [],
+      timeslots: []
     };
   }
 
   componentDidMount() {
     this.findUser();
-    if (this.state.logged_in) {
-      this.fetchRatings();
-      this.fetchTeachers();
-    }
+    // if (this.state.logged_in) {
+
+    // }
   }
 
   setUser = (user, type) => {
@@ -44,6 +44,7 @@ class App extends Component {
       () => {
         this.fetchRatings();
         this.fetchTeachers();
+        this.fetchTimeslots();
       }
     );
   };
@@ -60,15 +61,17 @@ class App extends Component {
       })
         .then(resp => resp.json())
         .then(data => {
-          // console.log(`hello from app.js`, data);
           this.setState(
             {
               logged_in: true,
-              current_user: data[identity]
+              current_user: data[identity],
+              user_type: identity
             },
             () => {
+              this.fetchRatings();
+              this.fetchTeachers();
               this.props.history.push({
-                pathname: `/profile`,
+                // pathname: `/profile`,
                 userType: Object.keys(data[identity])[0]
               });
             }
@@ -108,9 +111,25 @@ class App extends Component {
     })
       .then(resp => resp.json())
       .then(ratings => {
-        // console.log(ratings);
         this.setState({
           ratings
+        });
+      })
+      .catch(alert);
+  };
+
+  fetchTimeslots = () => {
+    let token = localStorage.getItem("current_user");
+    fetch(`${rootUrl}timeslots?identity=${this.state.user_type}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(timeslots => {
+        this.setState({
+          timeslots
         });
       })
       .catch(alert);
@@ -125,7 +144,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <Header logged_in={this.state.logged_in} logout={this.logout} />
@@ -136,7 +154,8 @@ class App extends Component {
           user_type={this.state.user_type}
           teachers={this.state.teachers}
           ratings={this.state.ratings}
-          findUser={this.findUser}
+          timeslots={this.state.timeslots}
+          // findUser={this.findUser}
         />
         <Footer />
       </div>

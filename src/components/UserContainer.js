@@ -13,7 +13,6 @@ class UserContainer extends Component {
     // debugger;
     return (
       <div>
-        {/* this checks if its a student or nah */}
         {Object.keys(this.props.current_user)[0] == "student" ? (
           <StudentProfile
             current_user={this.props.current_user}
@@ -25,10 +24,11 @@ class UserContainer extends Component {
           <TeacherContainer
             ratings={this.props.ratings}
             current_user={this.props.current_user}
-            findUser={this.props.findUser}
+            // findUser={this.props.findUser}
             user_type={this.props.user_type}
             teachers={this.props.teachers}
             ratings={this.props.ratings}
+            timeslots={this.props.timeslots}
           />
         )}
       </div>

@@ -36,6 +36,7 @@ class TeacherContainer extends Component {
           <TeacherList
             teachers={this.props.teachers}
             user_type={this.props.user_type}
+            timeslots={this.props.timeslots}
             ratings={this.props.ratings ? this.getAverageRating() : ""}
           />
         ) : (
@@ -43,6 +44,7 @@ class TeacherContainer extends Component {
             filterRatings={this.filterRatings}
             ratings={this.props.ratings}
             current_user={this.props.current_user}
+            timeslots={this.props.timeslots}
             averageRating={this.props.ratings ? this.getAverageRating() : ""}
           />
         )}

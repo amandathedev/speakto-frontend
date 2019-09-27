@@ -9,6 +9,7 @@ import UserContainer from "./UserContainer";
 import TeacherContainer from "./TeacherComponents/TeacherContainer";
 import BuyCredits from "./StudentComponents/BuyCredits";
 import EditProfile from "./EditProfile";
+import TeacherShow from "./TeacherComponents/TeacherShow";
 
 export default class LandingPage extends Component {
   render() {
@@ -27,7 +28,8 @@ export default class LandingPage extends Component {
                     teachers={this.props.teachers}
                     ratings={this.props.ratings}
                     user_type={this.props.user_type}
-                    findUser={this.props.findUser}
+                    // findUser={this.props.findUser}
+                    timeslots={this.props.timeslots}
                   />
                 )}
               />
@@ -41,11 +43,18 @@ export default class LandingPage extends Component {
                     teachers={this.props.teachers}
                     ratings={this.props.ratings}
                     user_type={this.props.user_type}
+                    timeslots={this.props.timeslots}
                   />
                 )}
               />
               <Route path="/buycredits" component={BuyCredits} />
               <Route path="/editprofile" component={EditProfile} />
+              <Route
+                path="/viewteacher/:id"
+                render={props => (
+                  <TeacherShow {...props} timeslots={this.props.timeslots} />
+                )}
+              />
             </Switch>
           ) : (
             <Switch>
