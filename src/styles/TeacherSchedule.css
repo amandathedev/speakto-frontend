@@ -15,13 +15,16 @@ ul.main {
 h3 {
   padding: 0;
   margin: 0;
-}
-
-.date {
   width: 17%;
   padding: 15% 1% 0 0;
   float: left;
 }
+
+/* .date {
+  width: 17%;
+  padding: 15% 1% 0 0;
+  float: left;
+} */
 
 .date h3 {
   font-size: 1.5em;

@@ -46,65 +46,88 @@ export default class TeacherShow extends Component {
   // For each timeslot, onclick => set availability to false and fetch to book timeslot and add current student's id and create a lesson
   // Add the booked lesson to that student's profile with a different fetch
 
-  //   var dates = []
-  // this.state.timeslots.forEach(ts => {
-  // 	if (!dates.includes(ts.date)) {
-  // 	dates.push(ts.date)}})
+  adamFunction = () => {
+    const organized = {};
+    this.state.timeslots.forEach(timeslot => {
+      const { id, month, date, hour, available } = timeslot;
+      if (organized[`${month}.${date}`]) {
+        organized[`${month}.${date}`].push({ hour, available, id });
+      } else {
+        organized[`${month}.${date}`] = [{ hour, available, id }];
+      }
+    });
+    console.log(organized);
+    return organized;
+  };
+
+  betterRenderTimeslots = () => {
+    const newObject = this.adamFunction();
+    let allDays = [];
+    for (let date in newObject) {
+      let onThisDay = (
+        <>
+          <h3>{date}</h3>
+          <li className="events">
+            <ul className="events-detail">
+              {newObject[date].map(timeslot => {
+                return (
+                  <li>
+                    {<span className="event-time">{timeslot.hour}:00</span>}
+                  </li>
+                );
+              })}
+            </ul>
+          </li>
+        </>
+      );
+      allDays.push(onThisDay);
+    }
+    return allDays;
+  };
 
   renderTimeslots = () => {
-    // // timeslots
-    // var tsObject = {};
-    // // dates
-    // var ds = [];
-
-    // var newTimeslotObject = this.state.timeslots.forEach(ts => {
-    //   var d = ts.date.toString();
-    //   var h = ts.hour.toString();
-    //   if (!ds.includes(d)) {
-    //     ds.push(d);
-    //     tsObject[d] = ts.hour.split();
-    //   } else {
-    //     tsObject[d].push(ts);
-    //   }
-    // });
-    // debugger;
-
-    // for (date in newTimeslotObject) {
-    return this.state.timeslots.map(timeslot => {
-      const { id, month, date, hour, available } = timeslot;
-      // TODO switch this
-      if (!date.available)
-        return (
-          <div className="schedule-div">
-            <ul className="main">
-              <li className="date">
+    // let dates = [];
+    // return this.state.timeslots.map(timeslot => {
+    //   const { id, month, date, hour, available } = timeslot;
+    //   // TODO switch this
+    //   if (!date.available) {
+    //     if (!dates.includes(date)) {
+    //       dates.push(date);
+    //       return {
+    /* <ul className="main">
                 <h3>
                   {month}.{date}
                 </h3>
-              </li>
-              <li className="events">
-                <ul className="events-detail">
-                  <li>
-                    <a href="#">
-                      <span className="event-time">{hour}</span>
-                      <span className="event-name">{available}</span>
-                      <br></br>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        );
-    });
+                <li className="events">
+                  <ul className="events-detail">
+                    <li>{<span className="event-time">{hour}:00</span>}</li>
+                  </ul>
+                </li>
+              </ul> */
+    //       };
+    //     } else {
+    //       return (
+    //         <ul className="events-detail">
+    //           <li className="events-detail">
+    //             <span className="event-time">{hour}:00</span>
+    //           </li>
+    //         </ul>
+    //       );
+    //     }
+    //   }
+    // });
   };
 
   render() {
+    this.adamFunction();
     return (
       <div>
         <br></br>
         <h1>Availability</h1>
-        {this.renderTimeslots()}
+        {/* {this.renderTimeslots()} */}
+        <div className="schedule-div">
+          <ul className="main">{this.betterRenderTimeslots()}</ul>
+        </div>
       </div>
     );
   }
