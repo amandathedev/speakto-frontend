@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "../../styles/TeacherList.css";
 
-// const style = {
-//   image: {
-//     backgroundColor: "black"
-//   }
-// };
-
 class TeacherList extends Component {
   // https://dev.to/abdulbasit313/an-easy-way-to-create-a-customize-dynamic-table-in-react-js-3igg
 
@@ -36,8 +30,6 @@ class TeacherList extends Component {
   };
 
   renderTableData = () => {
-    console.log(this.props);
-
     return this.props.teachers.map(teacher => {
       // Deconstruct
       const { id, name, photo_url, skype_id, intro_text, ratings } = teacher;

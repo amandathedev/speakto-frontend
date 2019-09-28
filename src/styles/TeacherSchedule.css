@@ -11,7 +11,9 @@ h1 {
 }
 
 .date-h3 {
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  color: #58866b;
+  font-weight: 700;
 }
 
 ul.main {
@@ -85,4 +87,11 @@ ul.main {
 
 .main-schedule {
   width: 100%;
+  margin-bottom: 15%;
 }
+
+/* .div-date {
+  padding: 10px;
+  box-shadow: 0 0 5px 0 #ddd;
+  margin-bottom: 20px;
+} */

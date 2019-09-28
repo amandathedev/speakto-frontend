@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import "../../styles/TeacherSchedule.css";
 
-export default class TeacherSchedule extends Component {
+class TeacherSchedule extends Component {
   // Map over the timeslots
   // Create a ul for every day with a timeslot
   // Add the date in month/day format
@@ -11,14 +12,35 @@ export default class TeacherSchedule extends Component {
   // Teacher has the ability to cancel the lesson
   // Teacher has the ability to remove the availability from the list
 
-  // renderTimeslots = () => {
-  //   console.log(this.props);
-  //   return this.props.timeslots.map(timeslots => {
-  //     const { month}
-  //   })
-  // }
+  constructor() {
+    super();
+
+    this.state = {
+      timeslots: []
+    };
+  }
+
+  componentDidMount() {
+    const token = localStorage.getItem("current_user");
+    fetch(
+      `http://localhost:3000/api/v1/timeslots/${this.props.match.params.id}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    )
+      .then(resp => resp.json())
+      .then(timeslots =>
+        this.setState({
+          timeslots
+        })
+      );
+  }
 
   render() {
+    console.log(this.state);
     return (
       <div className="schedule-div">
         <hr></hr>
@@ -45,3 +67,5 @@ export default class TeacherSchedule extends Component {
     );
   }
 }
+
+export default withRouter(TeacherSchedule);

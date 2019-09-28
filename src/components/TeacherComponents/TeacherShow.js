@@ -27,25 +27,7 @@ export default class TeacherShow extends Component {
           timeslots
         })
       );
-  }
-
-  // componentWillUnmount() {}
-  // Map over the timeslots
-  // Create a ul for every day with a timeslot
-  // Add the date in month/day format
-  // Create an li for every timeslot for each day
-  // If the timeslot is booked, change the display
-  // Add click listener to book the time slot if user_type = student
-  // Teacher has the ability to cancel the lesson
-  // Teacher has the ability to remove the availability from the list
-
-  // TeacherProfile should do the same thing as this
-  // Fix the rendering
-  // Date format
-  // If this.state.timeslot.available === false, don't display
-  // Conditionally render unavailable timeslots on teacherprofile
-  // For each timeslot, onclick => set availability to false and fetch to book timeslot and add current student's id and create a lesson
-  // Add the booked lesson to that student's profile with a different fetch
+  }]
 
   restructureData = () => {
     const organized = {};
@@ -57,7 +39,7 @@ export default class TeacherShow extends Component {
         organized[`${month}.${date}`] = [{ hour, available, id }];
       }
     });
-    console.log(organized);
+    // console.log(organized);
     return organized;
   };
 
@@ -68,7 +50,9 @@ export default class TeacherShow extends Component {
       let onThisDay = (
         <>
           <li className="events">
-            <h3 className="date-h3">{date}</h3>
+            <div className="div-date">
+              <h3 className="date-h3">{date}</h3>
+            </div>
             <ul className="events-detail">
               {newObject[date].map(timeslot => {
                 return (
@@ -125,7 +109,6 @@ export default class TeacherShow extends Component {
       <div className="main-schedule">
         <br></br>
         <h1>Availability</h1>
-        {/* {this.renderTimeslots()} */}
         <div className="schedule-div">
           <ul className="main">{this.betterRenderTimeslots()}</ul>
         </div>

@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import TeacherSchedule from "./TeacherSchedule";
 import "../../styles/TeacherProfile.css";
 import "../../App.css";
 
 class TeacherProfile extends Component {
   // componentDidMount = () => {};
 
-  handleEditSchedule = () => {
-    this.props.history.push("/editavailability");
+  redirectTeacher = id => {
+    this.props.history.push(`/viewteacher/${id}`);
   };
 
   handleEditProfile = () => {
@@ -80,25 +79,24 @@ class TeacherProfile extends Component {
             </div>
           </div>
         </div>
-        <div class="col-md-12 teacher-button-group">
+        <div className="col-md-12 teacher-button-group">
           <p>
             <button
               type="button"
-              class="btn teacher-buttons btn-lg"
+              className="btn teacher-buttons btn-lg"
               onClick={this.handleEditProfile}
             >
               Edit Profile
             </button>
             <button
               type="button"
-              class="btn teacher-buttons btn-lg"
-              onClick={this.handleEditSchedule}
+              className="btn teacher-buttons btn-lg"
+              onClick={() => this.redirectTeacher(id)}
             >
-              Edit Schedule
+              My Availability
             </button>
           </p>
         </div>
-        <TeacherSchedule timeslots={this.props.timeslots} />
       </div>
     );
   }

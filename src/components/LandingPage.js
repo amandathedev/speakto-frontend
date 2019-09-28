@@ -10,7 +10,6 @@ import TeacherContainer from "./TeacherComponents/TeacherContainer";
 import BuyCredits from "./StudentComponents/BuyCredits";
 import TeacherShow from "./TeacherComponents/TeacherShow";
 import EditTeacher from "./TeacherComponents/EditTeacher";
-import EditAvailability from "./TeacherComponents/EditAvailability";
 import EditStudent from "./StudentComponents/EditStudent";
 
 export default class LandingPage extends Component {
@@ -58,10 +57,6 @@ export default class LandingPage extends Component {
               <Route
                 path="/editteacher/:id"
                 render={props => <EditTeacher {...props} />}
-              />
-              <Route
-                path="/editavailability/:id"
-                render={props => <EditAvailability {...props} />}
               />
               <Route
                 path="/editstudent/:id"
