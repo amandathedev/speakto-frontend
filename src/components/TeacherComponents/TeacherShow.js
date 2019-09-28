@@ -27,7 +27,29 @@ export default class TeacherShow extends Component {
           timeslots
         })
       );
-  }]
+  }
+
+  // TODO
+  getMonths = () => {
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+    this.state.timeslots.map(timeslot => {
+      timeslot.month = timeslot.month.getMonth();
+    });
+    return;
+  };
 
   restructureData = () => {
     const organized = {};
@@ -103,7 +125,12 @@ export default class TeacherShow extends Component {
     // });
   };
 
+  getTeacherName = () => {
+    // this.props.match.params.id;
+  };
+
   render() {
+    console.log(this.props);
     this.restructureData();
     return (
       <div className="main-schedule">

@@ -51,7 +51,13 @@ export default class LandingPage extends Component {
               <Route
                 path="/viewteacher/:id"
                 render={props => (
-                  <TeacherShow {...props} timeslots={this.props.timeslots} />
+                  <TeacherShow
+                    {...props}
+                    current_user={this.props.current_user}
+                    user_type={this.props.user_type}
+                    timeslots={this.props.timeslots}
+                    teachers={this.props.teachers}
+                  />
                 )}
               />
               <Route
