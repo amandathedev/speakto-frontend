@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../../styles/TeacherSchedule.css";
 
 export default class TeacherShow extends Component {
   constructor() {
@@ -46,7 +47,7 @@ export default class TeacherShow extends Component {
   // For each timeslot, onclick => set availability to false and fetch to book timeslot and add current student's id and create a lesson
   // Add the booked lesson to that student's profile with a different fetch
 
-  adamFunction = () => {
+  restructureData = () => {
     const organized = {};
     this.state.timeslots.forEach(timeslot => {
       const { id, month, date, hour, available } = timeslot;
@@ -61,7 +62,7 @@ export default class TeacherShow extends Component {
   };
 
   betterRenderTimeslots = () => {
-    const newObject = this.adamFunction();
+    const newObject = this.restructureData();
     let allDays = [];
     for (let date in newObject) {
       let onThisDay = (
@@ -119,7 +120,7 @@ export default class TeacherShow extends Component {
   };
 
   render() {
-    this.adamFunction();
+    this.restructureData();
     return (
       <div>
         <br></br>

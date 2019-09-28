@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+h1 {
+  margin-bottom: 0;
+}
+
 ul.main {
   list-style: none;
   max-width: 75%;
@@ -19,12 +23,6 @@ h3 {
   padding: 15% 1% 0 0;
   float: left;
 }
-
-/* .date {
-  width: 17%;
-  padding: 15% 1% 0 0;
-  float: left;
-} */
 
 .date h3 {
   font-size: 1.5em;
@@ -42,10 +40,6 @@ h3 {
   padding-top: 3%;
 }
 
-.events-detail {
-  max-width: 650px;
-}
-
 .events-detail li {
   padding: 10px;
   border-bottom: 1px dashed #ccc;
@@ -55,10 +49,6 @@ h3 {
 
 .events-detail li:hover {
   background: #e9e9e9;
-}
-
-.event-time {
-  font-weight: 900;
 }
 
 .events-detail li a {
@@ -92,5 +82,6 @@ h3 {
 }
 
 .schedule-div {
-  margin-bottom: 40%;
+  padding-bottom: 80%;
+  padding-top: 0;
 }

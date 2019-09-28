@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Timeslot from "./Timeslot";
 import "../../styles/TeacherSchedule.css";
 
 export default class TeacherSchedule extends Component {
