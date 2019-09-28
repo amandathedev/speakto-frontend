@@ -84,7 +84,9 @@ export default class Registration extends Component {
         <form onSubmit={event => this.handleSubmit(event)}>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label>Full Name</label>
+              <label>
+                Full Name<span className="required-asterisk"> *</span>
+              </label>
               <input
                 type="text"
                 className="form-control"
@@ -95,7 +97,9 @@ export default class Registration extends Component {
               />
             </div>
             <div className="form-group col-md-6">
-              <label>Choose a username</label>
+              <label>
+                Choose a username<span className="required-asterisk"> *</span>
+              </label>
               <input
                 type="text"
                 className="form-control"
@@ -108,7 +112,9 @@ export default class Registration extends Component {
           </div>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label>Email address</label>
+              <label>
+                Email address<span className="required-asterisk"> *</span>
+              </label>
               <input
                 type="email"
                 className="form-control"
@@ -119,7 +125,9 @@ export default class Registration extends Component {
               />
             </div>
             <div className="form-group col-md-6">
-              <label>Choose a password</label>
+              <label>
+                Choose a password<span className="required-asterisk"> *</span>
+              </label>
               <input
                 type="password"
                 className="form-control"
@@ -132,7 +140,9 @@ export default class Registration extends Component {
           </div>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label>Skype ID</label>
+              <label>
+                Skype ID<span className="required-asterisk"> *</span>
+              </label>
               <input
                 type="text"
                 className="form-control"

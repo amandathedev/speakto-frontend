@@ -5,10 +5,17 @@ import "../../styles/TeacherProfile.css";
 import "../../App.css";
 
 class TeacherProfile extends Component {
-  componentDidMount = () => {};
+  // componentDidMount = () => {};
+
+  handleEditSchedule = () => {
+    this.props.history.push("/editavailability");
+  };
+
+  handleEditProfile = () => {
+    this.props.history.push("/editteacher");
+  };
 
   render() {
-    // console.log(this.props.averageRating);
     const {
       id,
       name,
@@ -72,6 +79,24 @@ class TeacherProfile extends Component {
               </div>
             </div>
           </div>
+        </div>
+        <div class="col-md-12 teacher-button-group">
+          <p>
+            <button
+              type="button"
+              class="btn teacher-buttons btn-lg"
+              onClick={this.handleEditProfile}
+            >
+              Edit Profile
+            </button>
+            <button
+              type="button"
+              class="btn teacher-buttons btn-lg"
+              onClick={this.handleEditSchedule}
+            >
+              Edit Schedule
+            </button>
+          </p>
         </div>
         <TeacherSchedule timeslots={this.props.timeslots} />
       </div>

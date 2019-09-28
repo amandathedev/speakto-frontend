@@ -32,6 +32,7 @@ a.quicklink .ql_caption {
   width: 100%;
   position: relative;
 }
+
 .outer {
   display: table;
   position: relative;
@@ -129,13 +130,6 @@ p {
   border-radius: 10px;
 }
 
-.image-10 {
-  display: block;
-  margin-top: 9px;
-  margin-left: 8px;
-  float: left;
-}
-
 .div-block-21 {
   display: inline-block;
   margin-top: -31px;
@@ -146,6 +140,15 @@ p {
   margin-top: 0;
   margin-bottom: 2px;
   font-size: 18px;
+  font-weight: 700;
+}
+
+.fa-check-circle {
+  color: #3ea066;
+  display: block;
+  margin-top: 9px;
+  margin-left: 8px;
+  float: left;
 }
 
 /* End how it works */

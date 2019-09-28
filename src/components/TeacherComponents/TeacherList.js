@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import "../../styles/TeacherList.css";
 
 // const style = {
 //   image: {
@@ -47,7 +48,7 @@ class TeacherList extends Component {
           <td className="w-25">
             <img
               src={photo_url}
-              className="img-fluid img-thumbnail"
+              className="img-fluid img-thumbnail teacher-images"
               alt="photo"
             />
           </td>

@@ -10,39 +10,35 @@ h1 {
   margin-bottom: 0;
 }
 
+.date-h3 {
+  text-decoration: underline;
+}
+
 ul.main {
   list-style: none;
-  max-width: 75%;
+  max-width: 60%;
   margin: 20px auto;
 }
 
-h3 {
+/* h3 {
   padding: 0;
   margin: 0;
   width: 17%;
   padding: 15% 1% 0 0;
   float: left;
-}
-
-.date h3 {
-  font-size: 1.5em;
-}
-
-.date p {
-  font-size: 0.8em;
-}
+} */
 
 .events {
   float: left;
   width: 80%;
-  border-left: 1px solid #ccc;
-  margin-top: 10%;
-  padding-top: 3%;
+  /* border-left: 1px solid #ccc; */
+  margin-top: 8%;
+  /* padding-top: 3%; */
 }
 
 .events-detail li {
   padding: 10px;
-  border-bottom: 1px dashed #ccc;
+  border-bottom: 1px solid #ccc;
   line-height: 22px;
   transition: ease 0.4s all;
 }
@@ -84,4 +80,9 @@ h3 {
 .schedule-div {
   padding-bottom: 80%;
   padding-top: 0;
+  margin: 0 auto;
+}
+
+.main-schedule {
+  width: 100%;
 }

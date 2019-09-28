@@ -14,13 +14,19 @@
 .card {
   overflow: hidden;
   width: 95%;
+  margin-top: 5em;
 }
+
+/* .card:hover {
+  background-color: black;
+  cursor: pointer;
+} */
 
 .main {
   align-content: center;
-  padding-left: 10em;
-  padding-right: 10em;
-  margin-bottom: 10em;
+  padding-left: 5em;
+  padding-right: 5em;
+  margin-bottom: 5em;
 }
 
 .card-block {
@@ -61,4 +67,30 @@
   -o-transform: rotate(-44deg);
   -ms-transform: rotate(-44deg);
   transform: rotate(-44deg);
+}
+
+/* Buttons */
+.teacher-buttons {
+  font-weight: 700;
+  font-size: 1em;
+  background-color: #adadad;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border: none;
+  border-bottom: 0.15em solid black;
+  border-radius: 3px;
+  padding: 0.65em 1.3em;
+  display: inline-block;
+  margin: 0 auto;
+  margin-right: 20px;
+  margin-bottom: 4em;
+}
+
+.teacher-buttons:hover {
+  background-color: #4fb579;
+  outline: none;
+}
+
+.teacher-button-group {
+  text-align: center;
 }

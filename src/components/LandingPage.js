@@ -8,12 +8,13 @@ import LoginForm from "./LoginForm";
 import UserContainer from "./UserContainer";
 import TeacherContainer from "./TeacherComponents/TeacherContainer";
 import BuyCredits from "./StudentComponents/BuyCredits";
-import EditProfile from "./EditProfile";
 import TeacherShow from "./TeacherComponents/TeacherShow";
+import EditTeacher from "./TeacherComponents/EditTeacher";
+import EditAvailability from "./TeacherComponents/EditAvailability";
+import EditStudent from "./StudentComponents/EditStudent";
 
 export default class LandingPage extends Component {
   render() {
-    // console.log(this.props);
     return (
       <div className="landing-page">
         <Switch>
@@ -48,12 +49,23 @@ export default class LandingPage extends Component {
                 )}
               />
               <Route path="/buycredits" component={BuyCredits} />
-              <Route path="/editprofile" component={EditProfile} />
               <Route
                 path="/viewteacher/:id"
                 render={props => (
                   <TeacherShow {...props} timeslots={this.props.timeslots} />
                 )}
+              />
+              <Route
+                path="/editteacher/:id"
+                render={props => <EditTeacher {...props} />}
+              />
+              <Route
+                path="/editavailability/:id"
+                render={props => <EditAvailability {...props} />}
+              />
+              <Route
+                path="/editstudent/:id"
+                render={props => <EditStudent {...props} />}
               />
             </Switch>
           ) : (

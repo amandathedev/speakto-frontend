@@ -19,7 +19,7 @@ class StudentProfile extends Component {
   };
 
   handleEditRedirect = () => {
-    this.props.history.push("/editprofile");
+    this.props.history.push("/editstudent");
   };
 
   render() {

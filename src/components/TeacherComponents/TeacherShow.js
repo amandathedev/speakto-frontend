@@ -67,8 +67,8 @@ export default class TeacherShow extends Component {
     for (let date in newObject) {
       let onThisDay = (
         <>
-          <h3>{date}</h3>
           <li className="events">
+            <h3 className="date-h3">{date}</h3>
             <ul className="events-detail">
               {newObject[date].map(timeslot => {
                 return (
@@ -122,7 +122,7 @@ export default class TeacherShow extends Component {
   render() {
     this.restructureData();
     return (
-      <div>
+      <div className="main-schedule">
         <br></br>
         <h1>Availability</h1>
         {/* {this.renderTimeslots()} */}

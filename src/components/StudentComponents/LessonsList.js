@@ -6,3 +6,5 @@ export default class LessonsList extends Component {
     return <div></div>;
   }
 }
+
+// See TeacherShow for fetching from /:id
