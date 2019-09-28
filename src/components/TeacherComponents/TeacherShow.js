@@ -11,6 +11,7 @@ export default class TeacherShow extends Component {
   }
 
   componentDidMount() {
+    this.getTeacherName();
     const token = localStorage.getItem("current_user");
     fetch(
       `http://localhost:3000/api/v1/timeslots/${this.props.match.params.id}`,
@@ -127,15 +128,33 @@ export default class TeacherShow extends Component {
 
   getTeacherName = () => {
     // this.props.match.params.id;
+    return this.props.teachers.map(teacher => {
+      if (teacher.id == this.props.match.params.id) {
+        // console.log(teacher.id);
+        // console.log(this.props.match.params.id);
+        // console.log(teacher.name);
+        return teacher.name;
+      }
+    });
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props.match.params.id);
+    // console.log(this.props.user_type);
     this.restructureData();
     return (
       <div className="main-schedule">
         <br></br>
-        <h1>Availability</h1>
+        <h1>{this.getTeacherName()}'s Schedule</h1>
+        {this.props.user_type === "student" ? (
+          <p className="schedule-instructions">
+            Please choose an available time to book a lesson.
+          </p>
+        ) : (
+          <p className="schedule-instructions">
+            Select a reserved time to view more information about the booking.
+          </p>
+        )}
         <div className="schedule-div">
           <ul className="main">{this.betterRenderTimeslots()}</ul>
         </div>

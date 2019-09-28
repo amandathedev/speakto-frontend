@@ -94,3 +94,9 @@
 .teacher-button-group {
   text-align: center;
 }
+
+.schedule-instructions {
+  text-align: center;
+  margin-top: 2em;
+  font-size: 1em;
+}
