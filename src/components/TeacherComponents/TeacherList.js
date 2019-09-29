@@ -4,6 +4,13 @@ import "../../styles/TeacherList.css";
 
 class TeacherList extends Component {
   // https://dev.to/abdulbasit313/an-easy-way-to-create-a-customize-dynamic-table-in-react-js-3igg
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      filter: ""
+    };
+  }
 
   redirectTeacher = id => {
     this.props.history.push(`/viewteacher/${id}`);
@@ -29,11 +36,25 @@ class TeacherList extends Component {
     }
   };
 
-  renderTableData = () => {
-    return this.props.teachers.map(teacher => {
-      // Deconstruct
-      const { id, name, photo_url, skype_id, intro_text, ratings } = teacher;
+  onSearchChange = event => {
+    this.setState({ filter: event.target.value });
+  };
 
+  filteredTeachers = () => {
+    if (this.state.filter.length > 0) {
+      return this.props.teachers.filter(teacher => {
+        return teacher.name
+          .toLowerCase()
+          .includes(this.state.filter.toLowerCase());
+      });
+    } else {
+      return this.props.teachers;
+    }
+  };
+
+  renderTableData = () => {
+    return this.filteredTeachers().map(teacher => {
+      const { id, name, photo_url, skype_id, intro_text, ratings } = teacher;
       return (
         <tr key={id}>
           <th scope="row">{name}</th>
@@ -66,14 +87,22 @@ class TeacherList extends Component {
         <div className="container">
           <div className="row">
             <div className="col-12">
+              <div className="form-group search-box">
+                <input
+                  type="text"
+                  className="form-control search-box-input"
+                  placeholder="Search by teacher's name"
+                  onChange={event => this.onSearchChange(event)}
+                />
+              </div>
               <table className="table table-image">
                 <thead>
                   <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Photo</th>
-                    <th scope="col">Skype ID</th>
-                    <th scope="col">Rating</th>
-                    <th scope="col">Intro</th>
+                    <th>Name</th>
+                    <th>Photo</th>
+                    <th>Skype ID</th>
+                    <th>Rating</th>
+                    <th>Intro</th>
                   </tr>
                 </thead>
                 <tbody>{this.renderTableData()}</tbody>

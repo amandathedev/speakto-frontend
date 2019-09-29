@@ -95,7 +95,7 @@ class TeacherProfile extends Component {
               className="btn teacher-buttons btn-lg"
               onClick={() => this.redirectTeacher(id)}
             >
-              My Availability
+              My Schedule
             </button>
           </p>
         </div>

@@ -1,3 +1,15 @@
 .teacher-images {
   width: 13em;
 }
+
+.search-box {
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.search-box-input {
+  border-radius: 18px;
+  /* font-family: "FontAwesome"; */
+}
