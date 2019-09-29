@@ -70,11 +70,21 @@ export default class LandingPage extends Component {
               />
               <Route
                 path="/editteacher/:id"
-                render={props => <EditTeacher {...props} />}
+                render={props => (
+                  <EditTeacher
+                    {...props}
+                    current_user={this.props.current_user}
+                  />
+                )}
               />
               <Route
                 path="/editstudent/:id"
-                render={props => <EditStudent {...props} />}
+                render={props => (
+                  <EditStudent
+                    {...props}
+                    current_user={this.props.current_user}
+                  />
+                )}
               />
             </Switch>
           ) : (

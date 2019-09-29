@@ -2,7 +2,7 @@
 #home_quicklinks {
   padding: 20px 0;
   text-align: center;
-  margin-bottom: 10em;
+  margin-bottom: 5em;
 }
 a.quicklink.link1 {
   background: #58866b;
@@ -97,3 +97,37 @@ a.quicklink {
   text-decoration: none;
 }
 /* End buttons */
+
+/* Student buttons */
+.student-buttons {
+  font-weight: 700;
+  font-size: 1em;
+  background-color: #d6d2d2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border: none;
+  border-bottom: 0.15em solid black;
+  border-radius: 3px;
+  padding: 0.65em 1.3em;
+  display: inline-block;
+  margin: 0 auto;
+  margin-right: 20px;
+  margin-bottom: 4em;
+}
+
+.student-buttons:hover {
+  background-color: #4fb579;
+  outline: none;
+}
+
+.student-button-group {
+  text-align: center;
+}
+
+.edit-submit {
+  margin: -20px -50px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-top: 3em;
+}

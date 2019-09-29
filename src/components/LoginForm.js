@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+// import Toast from "react-bootstrap/Toast";
+// import ToastHeader from "react-bootstrap/ToastHeader";
+// import ToastBody from "react-bootstrap/ToastBody";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/LoginForm.css";
 
 // SOURCE https://codepen.io/brianmontanaweb/pen/ZQojEd
@@ -22,7 +27,25 @@ export default class LoginForm extends Component {
       [event.target.name]: event.target.value
     });
   };
-  // Authorization: `Bearer <token>`,
+
+  // notify = () => toast("Wow so easy !");
+
+  // TODO
+  forgotPassword = () => {
+    toast("Password reset instructions have been sent to your email address.", {
+      autoClose: 10000
+    });
+    // return (
+    //   <Toast>
+    //     <ToastHeader>
+    //       <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
+    //       <strong className="mr-auto">Bootstrap</strong>
+    //       <small>11 mins ago</small>
+    //     </ToastHeader>
+    //     <ToastBody>Hello, world! This is a toast message.</ToastBody>
+    //   </Toast>
+    // );
+  };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -116,7 +139,10 @@ export default class LoginForm extends Component {
             </button>
           </form>
           {/* TODO */}
-          <a className="login__forgot">Forgot Password?</a>
+          <a className="login__forgot" onClick={this.forgotPassword}>
+            Forgot Password?
+          </a>
+          <ToastContainer pauseOnFocusLoss={false} closeButton={false} />
         </div>
       </div>
     );

@@ -10,8 +10,8 @@ class TeacherProfile extends Component {
     this.props.history.push(`/viewteacher/${id}`);
   };
 
-  handleEditProfile = () => {
-    this.props.history.push("/editteacher");
+  handleEditRedirect = id => {
+    this.props.history.push(`/editteacher/${id}`);
   };
 
   render() {
@@ -84,7 +84,9 @@ class TeacherProfile extends Component {
             <button
               type="button"
               className="btn teacher-buttons btn-lg"
-              onClick={this.handleEditProfile}
+              onClick={() =>
+                this.handleEditRedirect(this.props.current_user.teacher.id)
+              }
             >
               Edit Profile
             </button>

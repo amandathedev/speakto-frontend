@@ -24,7 +24,7 @@ export default class FeaturedTeachers extends Component {
                     <h4 className="card-title">Jim Halpert</h4>
                     <p className="card-text">
                       You can practice your English while we talk about sports.
-                      Whatever kind of spots you want.
+                      Whatever kind of sports you want.
                     </p>
                   </div>
                 </div>
@@ -41,7 +41,7 @@ export default class FeaturedTeachers extends Component {
                     </p>
                     <h4 className="card-title">Michael Scott</h4>
                     <p className="card-text">
-                      "You miss 100% of the shots you don't take."
+                      You miss 100% of the shots you don't take.
                     </p>
                   </div>
                 </div>
@@ -58,8 +58,8 @@ export default class FeaturedTeachers extends Component {
                     </p>
                     <h4 className="card-title">Kelly Kapoor</h4>
                     <p className="card-text">
-                      Let's talk about pop culture and gossip. It'll mostly be
-                      me talking but maybe you'll learn something.
+                      Let's talk about pop culture and gossip. I can teach you
+                      everything about my favorite celebrities.
                     </p>
                   </div>
                 </div>

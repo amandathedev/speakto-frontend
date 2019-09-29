@@ -18,8 +18,8 @@ class StudentProfile extends Component {
     this.props.history.push("/buycredits");
   };
 
-  handleEditRedirect = () => {
-    this.props.history.push("/editstudent");
+  handleEditRedirect = id => {
+    this.props.history.push(`/editstudent/${id}`);
   };
 
   render() {
@@ -55,11 +55,11 @@ class StudentProfile extends Component {
             <span className="ql_bottom"></span>
           </a>
 
-          <a className="quicklink link3" onClick={this.handleEditRedirect}>
+          <a className="quicklink link3">
             <span className="ql_caption">
               <span className="outer">
                 <span className="inner">
-                  <h2>Edit my profile</h2>
+                  <h2>Upcoming Lessons</h2>
                 </span>
               </span>
             </span>
@@ -68,6 +68,27 @@ class StudentProfile extends Component {
           </a>
         </div>
         {/* End buttons */}
+        <div className="col-md-12 student-button-group">
+          <p>
+            <button
+              type="button"
+              className="btn student-buttons btn-lg"
+              // onClick={this.handleEditRedirect}
+              onClick={() =>
+                this.handleEditRedirect(this.props.current_user.student.id)
+              }
+            >
+              Edit My Profile
+            </button>
+            <button
+              type="button"
+              className="btn student-buttons btn-lg"
+              // onClick={() => this.redirectTeacher(id)}
+            >
+              Lesson History
+            </button>
+          </p>
+        </div>
       </div>
     );
   }
