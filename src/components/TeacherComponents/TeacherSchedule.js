@@ -40,7 +40,7 @@ class TeacherSchedule extends Component {
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className="schedule-div">
         <hr></hr>

@@ -73,7 +73,7 @@
 .teacher-buttons {
   font-weight: 700;
   font-size: 1em;
-  background-color: #adadad;
+  background-color: #d6d2d2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   border: none;
@@ -99,4 +99,51 @@
   text-align: center;
   margin-top: 2em;
   font-size: 1em;
+}
+
+.unavailable-event {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+/* Modal */
+.center {
+  margin-top: 50px;
+}
+
+.modal-header {
+  padding-bottom: 5px;
+}
+
+.modal-footer {
+  padding: 0;
+}
+
+.modal-buttons {
+  height: 40px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border: none;
+  border-right: 1px solid #ddd;
+}
+
+.modal-footer .btn-group:last-child > button {
+  border-right: 0;
+}
+
+.modal-h4 {
+  text-align: center;
+}
+
+/* End modal */
+
+.available-timeslot {
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: rgba(255, 0, 0, 0.336);
+}
+
+.booking-btn:hover {
+  background-color: rgba(0, 128, 0, 0.336);
 }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import BookingModal from "../BookingModal";
 import "../../styles/TeacherSchedule.css";
 
 export default class TeacherShow extends Component {
@@ -11,7 +12,6 @@ export default class TeacherShow extends Component {
   }
 
   componentDidMount() {
-    this.getTeacherName();
     const token = localStorage.getItem("current_user");
     fetch(
       `http://localhost:3000/api/v1/timeslots/${this.props.match.params.id}`,
@@ -78,11 +78,130 @@ export default class TeacherShow extends Component {
             </div>
             <ul className="events-detail">
               {newObject[date].map(timeslot => {
-                return (
-                  <li>
-                    {<span className="event-time">{timeslot.hour}:00</span>}
-                  </li>
-                );
+                if (timeslot.available === false) {
+                  return (
+                    // TODO key
+                    <li key={timeslot.id} className="unavailable-event">
+                      {this.props.user_type === "student" ? (
+                        <span className="event-time">
+                          {timeslot.hour}:00 -- Unavailable
+                        </span>
+                      ) : (
+                        <span className="event-time">
+                          {timeslot.hour}:00 -- Lesson with student.name
+                        </span>
+                      )}
+                    </li>
+                  );
+                } else {
+                  return (
+                    <li
+                      key={timeslot.id}
+                      className="available-timeslot"
+                      data-toggle="modal"
+                      data-target="#bookingModal"
+                    >
+                      {/* Modal. TODO move this cuz wtf */}
+                      {this.props.user_type === "student" ? (
+                        <div
+                          className="modal fade"
+                          id="bookingModal"
+                          aria-labelledby="modalLabel"
+                          aria-hidden="true"
+                        >
+                          <div className="modal-dialog">
+                            <div className="modal-content">
+                              <div className="modal-header">
+                                <button
+                                  type="button"
+                                  className="close"
+                                  data-dismiss="modal"
+                                >
+                                  <span aria-hidden="true">×</span>
+                                </button>
+                              </div>
+                              <div className="modal-body">
+                                <form>
+                                  <div className="form-group">
+                                    <h4 className="modal-h4">New booking</h4>
+                                    <label>Teacher's Name</label>
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      id="input-teacher"
+                                      placeholder={this.getTeacherName()}
+                                      disabled
+                                    />
+                                  </div>
+                                  <div className="form-group">
+                                    <label>Student's Name</label>
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      id="input-student"
+                                      placeholder={
+                                        // TODO render modal for unavailable only for teachers and vice versa
+                                        this.props.current_user.student.name
+                                      }
+                                      disabled
+                                    />
+                                  </div>
+                                  <div className="form-group">
+                                    <label>Lesson time</label>
+                                    <input
+                                      type="text"
+                                      id="input-timeslot"
+                                      className="form-control"
+                                      id="input-timeslot"
+                                      placeholder="timeslot.date timeslot.hour"
+                                      disabled
+                                    />
+                                  </div>
+                                </form>
+                              </div>
+                              <div className="modal-footer">
+                                <div
+                                  className="btn-group modal-buttons btn-group-justified"
+                                  role="group"
+                                  aria-label="group button"
+                                >
+                                  <div
+                                    className="btn-group modal-buttons btn-delete hidden cancel-btn"
+                                    role="group"
+                                  >
+                                    <button
+                                      type="button"
+                                      className="btn btn-default"
+                                      data-dismiss="modal"
+                                      role="button"
+                                    >
+                                      Cancel
+                                    </button>
+                                  </div>
+                                  <div
+                                    className="btn-group modal-buttons booking-btn"
+                                    role="group"
+                                  >
+                                    <button
+                                      type="button"
+                                      className="btn btn-default"
+                                      data-action="save"
+                                      role="button"
+                                    >
+                                      Book lesson
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ) : // {/* End modal */}
+                      null}
+                      {<span className="event-time">{timeslot.hour}:00</span>}
+                    </li>
+                  );
+                }
               })}
             </ul>
           </li>
@@ -93,54 +212,14 @@ export default class TeacherShow extends Component {
     return allDays;
   };
 
-  renderTimeslots = () => {
-    // let dates = [];
-    // return this.state.timeslots.map(timeslot => {
-    //   const { id, month, date, hour, available } = timeslot;
-    //   // TODO switch this
-    //   if (!date.available) {
-    //     if (!dates.includes(date)) {
-    //       dates.push(date);
-    //       return {
-    /* <ul className="main">
-                <h3>
-                  {month}.{date}
-                </h3>
-                <li className="events">
-                  <ul className="events-detail">
-                    <li>{<span className="event-time">{hour}:00</span>}</li>
-                  </ul>
-                </li>
-              </ul> */
-    //       };
-    //     } else {
-    //       return (
-    //         <ul className="events-detail">
-    //           <li className="events-detail">
-    //             <span className="event-time">{hour}:00</span>
-    //           </li>
-    //         </ul>
-    //       );
-    //     }
-    //   }
-    // });
-  };
-
   getTeacherName = () => {
-    // this.props.match.params.id;
-    return this.props.teachers.map(teacher => {
-      if (teacher.id == this.props.match.params.id) {
-        // console.log(teacher.id);
-        // console.log(this.props.match.params.id);
-        // console.log(teacher.name);
-        return teacher.name;
-      }
-    });
+    let teacherObj = this.props.teachers.find(
+      teacher => teacher.id == this.props.match.params.id
+    );
+    return teacherObj ? teacherObj.name : null;
   };
 
   render() {
-    // console.log(this.props.match.params.id);
-    // console.log(this.props.user_type);
     this.restructureData();
     return (
       <div className="main-schedule">

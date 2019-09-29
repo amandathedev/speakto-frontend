@@ -47,7 +47,15 @@ export default class LandingPage extends Component {
                   />
                 )}
               />
-              <Route path="/buycredits" component={BuyCredits} />
+              <Route
+                path="/buycredits"
+                render={props => (
+                  <BuyCredits
+                    {...props}
+                    current_user={this.props.current_user}
+                  />
+                )}
+              />
               <Route
                 path="/viewteacher/:id"
                 render={props => (

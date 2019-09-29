@@ -28,6 +28,7 @@ class StudentProfile extends Component {
       <div>
         <br></br>
         <h1>Welcome back, {studentName}!</h1>
+        <br></br>
         {/* Buttons */}
         <div id="home_quicklinks">
           <a className="quicklink link1" onClick={this.handleLessonRedirect}>
