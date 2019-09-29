@@ -6,7 +6,11 @@ export default class BuyCredits extends Component {
     super();
 
     this.state = {
-      newCredits: 10
+      newCredits: 10,
+      cardName: "",
+      ccNum: 0,
+      expiration: 0,
+      secCode: 0
     };
   }
 
@@ -34,18 +38,39 @@ export default class BuyCredits extends Component {
     });
   };
 
-  handleCreditSubmit = event => {
-    event.preventDefault();
-    fetch("http://localhost:3000/api/v1/students/:id", {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        credits: this.state.newCredits
-      })
+  validateForm = () => {
+    if (this.state.cardName.length > 5 && this.state.ccNum.length === 16) {
+      this.handleCreditSubmit();
+    } else {
+      alert("Invalid information. Please correct the form and try again.");
+    }
+  };
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
     });
+    console.log(this.state);
+  };
+
+  handleCreditSubmit = event => {
+    let token = localStorage.getItem("current_user");
+    fetch(
+      `http://localhost:3000/api/v1/students/${this.props.current_user.student.id}`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          lesson_credits:
+            this.state.newCredits +
+            this.props.current_user.student.lesson_credits
+        })
+      }
+    );
   };
 
   render() {
@@ -163,11 +188,20 @@ export default class BuyCredits extends Component {
                   className="form-control"
                   type="text"
                   maxLength="255"
+                  name="cardName"
+                  onChange={this.handleChange}
+                  required
                 ></input>
               </div>
               <div className="form-group">
                 <label>Card number</label>
-                <input className="card-image form-control" type="text"></input>
+                <input
+                  className="card-image form-control"
+                  name="ccNum"
+                  type="number"
+                  onChange={this.handleChange}
+                  required
+                ></input>
               </div>
               <div className="expiration-date-group form-group">
                 <label>Expiration date</label>
@@ -175,19 +209,26 @@ export default class BuyCredits extends Component {
                   className="form-control"
                   type="text"
                   placeholder="MM / YY"
+                  name="expiration"
                   maxLength="7"
+                  onChange={this.handleChange}
                 ></input>
               </div>
               <div className="security-code-group form-group">
                 <label>Security code</label>
                 <div className="input-container">
-                  <input className="form-control" type="text"></input>
+                  <input
+                    className="form-control"
+                    name="secCode"
+                    type="number"
+                    onChange={this.handleChange}
+                  ></input>
                 </div>
               </div>
               <button
                 className="btn btn-block btn-success submit-button"
                 type="submit"
-                onClick={this.handleCreditSubmit}
+                onClick={this.validateForm}
               >
                 <span className="submit-button-lock"></span>
                 <span className="align-middle">

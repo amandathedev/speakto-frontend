@@ -79,6 +79,7 @@ export default class TeacherShow extends Component {
             <ul className="events-detail">
               {newObject[date].map(timeslot => {
                 if (timeslot.available === false) {
+                  // console.log(timeslot);
                   return (
                     // TODO key
                     <li key={timeslot.id} className="unavailable-event">
@@ -153,7 +154,7 @@ export default class TeacherShow extends Component {
                                       id="input-timeslot"
                                       className="form-control"
                                       id="input-timeslot"
-                                      placeholder="timeslot.date timeslot.hour"
+                                      placeholder={this.getTimeslotTime()}
                                       disabled
                                     />
                                   </div>
@@ -217,6 +218,10 @@ export default class TeacherShow extends Component {
       teacher => teacher.id == this.props.match.params.id
     );
     return teacherObj ? teacherObj.name : null;
+  };
+
+  getTimeslotTime = event => {
+    // let timeslotTime = this.props.timeslots.find();
   };
 
   render() {
