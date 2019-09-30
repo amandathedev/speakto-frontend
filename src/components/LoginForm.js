@@ -30,16 +30,6 @@ export default class LoginForm extends Component {
     toast("Password reset instructions have been sent to your email address.", {
       autoClose: 10000
     });
-    // return (
-    //   <Toast>
-    //     <ToastHeader>
-    //       <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
-    //       <strong className="mr-auto">Bootstrap</strong>
-    //       <small>11 mins ago</small>
-    //     </ToastHeader>
-    //     <ToastBody>Hello, world! This is a toast message.</ToastBody>
-    //   </Toast>
-    // );
   };
 
   handleSubmit = event => {

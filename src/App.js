@@ -33,7 +33,7 @@ class App extends Component {
   componentDidMount() {
     this.findUser();
     // if (this.state.logged_in) {
-    console.log(this.state.current_date);
+    // console.log(this.state.current_date);
 
     // }
   }

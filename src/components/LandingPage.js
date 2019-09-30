@@ -11,6 +11,7 @@ import BuyCredits from "./StudentComponents/BuyCredits";
 import TeacherShow from "./TeacherComponents/TeacherShow";
 import EditTeacher from "./TeacherComponents/EditTeacher";
 import EditStudent from "./StudentComponents/EditStudent";
+import LessonsList from "./StudentComponents/LessonsList";
 
 export default class LandingPage extends Component {
   render() {
@@ -90,10 +91,20 @@ export default class LandingPage extends Component {
                   />
                 )}
               />
+              <Route
+                path="/lessons"
+                render={props => (
+                  <LessonsList
+                    {...props}
+                    current_user={this.props.current_user}
+                  />
+                )}
+              />
             </Switch>
           ) : (
             <Switch>
               <Route exact path="/" component={LandingContent} />
+              {/* <Route exact path="" component={LandingContent} /> */}
               <Route
                 path="/login"
                 render={props => (

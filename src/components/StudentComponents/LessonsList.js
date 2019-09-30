@@ -3,7 +3,11 @@ import RatingModal from "./RatingModal";
 
 export default class LessonsList extends Component {
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <h1>Lessons list</h1>
+      </div>
+    );
   }
 }
 

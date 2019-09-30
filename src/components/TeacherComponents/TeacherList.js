@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "../../styles/TeacherList.css";
-import { Button, Popover, PopoverHeader, PopoverBody } from "reactstrap";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class TeacherList extends Component {
   // https://dev.to/abdulbasit313/an-easy-way-to-create-a-customize-dynamic-table-in-react-js-3igg
@@ -22,7 +23,16 @@ class TeacherList extends Component {
     });
     thisTeacher.timeslots.length
       ? this.props.history.push(`/viewteacher/${id}`)
-      : console.log("no");
+      : this.noBookings();
+  };
+
+  noBookings = () => {
+    toast(
+      "This teacher has no lesson times available. Please check back later.",
+      {
+        autoClose: 10000
+      }
+    );
   };
 
   averageRating = ratings => {
@@ -158,6 +168,7 @@ class TeacherList extends Component {
               </table>
             </div>
           </div>
+          <ToastContainer pauseOnFocusLoss={false} closeButton={false} />
         </div>
       </div>
     );

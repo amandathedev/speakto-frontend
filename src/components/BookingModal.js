@@ -3,97 +3,94 @@
 
 // export default class BookingModal extends Component {
 //   render() {
+//     console.log(this.props);
 //     return (
 //       <div
-//         class="modal fade"
-//         id="squarespaceModal"
-//         tabindex="-1"
-//         role="dialog"
+//         className="modal fade"
+//         id="bookingModal"
 //         aria-labelledby="modalLabel"
 //         aria-hidden="true"
 //       >
-//         <div class="modal-dialog">
-//           <div class="modal-content">
-//             <div class="modal-header">
-//               <button type="button" class="close" data-dismiss="modal">
+//         <div className="modal-dialog">
+//           <div className="modal-content">
+//             <div className="modal-header">
+//               <button type="button" className="close" data-dismiss="modal">
 //                 <span aria-hidden="true">×</span>
-//                 <span class="sr-only">Close</span>
 //               </button>
-//               <h3 class="modal-title" id="lineModalLabel">
-//                 My Modal
-//               </h3>
 //             </div>
-//             <div class="modal-body">
+//             <div className="modal-body">
 //               <form>
-//                 <div class="form-group">
-//                   <label for="exampleInputEmail1">Email address</label>
+//                 <div className="form-group">
+//                   <h4 className="modal-h4">New booking</h4>
+//                   <label>Teacher's Name</label>
 //                   <input
-//                     type="email"
-//                     class="form-control"
-//                     id="exampleInputEmail1"
-//                     placeholder="Enter email"
+//                     type="text"
+//                     className="form-control"
+//                     id="input-teacher"
+//                     // placeholder={this.getTeacherName()}
+//                     disabled
 //                   />
 //                 </div>
-//                 <div class="form-group">
-//                   <label for="exampleInputPassword1">Password</label>
+//                 <div className="form-group">
+//                   <label>Student's Name</label>
 //                   <input
-//                     type="password"
-//                     class="form-control"
-//                     id="exampleInputPassword1"
-//                     placeholder="Password"
+//                     type="text"
+//                     className="form-control"
+//                     id="input-student"
+//                     placeholder={
+//                       // TODO render modal for unavailable only for teachers and vice versa
+//                       this.props.current_user.student.name
+//                     }
+//                     disabled
 //                   />
 //                 </div>
-//                 <div class="form-group">
-//                   <label for="exampleInputFile">File input</label>
-//                   <input type="file" id="exampleInputFile" />
-//                   <p class="help-block">Example block-level help text here.</p>
+//                 <div className="form-group">
+//                   <label>Lesson time</label>
+//                   <input
+//                     type="text"
+//                     id="input-timeslot"
+//                     className="form-control"
+//                     id="input-timeslot"
+//                     // placeholder={`${date} at ${timeslot.hour}:00`}
+//                     disabled
+//                   />
 //                 </div>
-//                 <div class="checkbox">
-//                   <label>
-//                     <input type="checkbox" />> Check me out
-//                   </label>
-//                 </div>
-//                 <button type="submit" class="btn btn-default">
-//                   Submit
-//                 </button>
 //               </form>
 //             </div>
-//             <div class="modal-footer">
+//             <div className="modal-footer">
 //               <div
-//                 class="btn-group btn-group-justified"
+//                 className="btn-group modal-buttons btn-group-justified"
 //                 role="group"
 //                 aria-label="group button"
 //               >
-//                 <div class="btn-group" role="group">
+//                 <div
+//                   className="btn-group modal-buttons btn-delete hidden cancel-btn"
+//                   role="group"
+//                 >
 //                   <button
 //                     type="button"
-//                     class="btn btn-default"
+//                     className="btn btn-default"
 //                     data-dismiss="modal"
 //                     role="button"
 //                   >
-//                     Close
+//                     Cancel
 //                   </button>
 //                 </div>
-//                 <div class="btn-group btn-delete hidden" role="group">
+//                 <div
+//                   className="btn-group modal-buttons booking-btn"
+//                   role="group"
+//                 >
 //                   <button
 //                     type="button"
-//                     id="delImage"
-//                     class="btn btn-default btn-hover-red"
-//                     data-dismiss="modal"
-//                     role="button"
-//                   >
-//                     Delete
-//                   </button>
-//                 </div>
-//                 <div class="btn-group" role="group">
-//                   <button
-//                     type="button"
-//                     id="saveImage"
-//                     class="btn btn-default btn-hover-green"
+//                     className="btn btn-default"
 //                     data-action="save"
 //                     role="button"
+//                     onClick={event =>
+//                       // this.bookLesson(timeslot.id)
+//                       console.log(event.target)
+//                     }
 //                   >
-//                     Save
+//                     Book lesson
 //                   </button>
 //                 </div>
 //               </div>

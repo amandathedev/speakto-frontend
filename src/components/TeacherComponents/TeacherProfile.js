@@ -28,7 +28,7 @@ class TeacherProfile extends Component {
     return (
       <div>
         <br></br>
-        <h1>Welcome back, {name}!</h1>
+        <h1>Welcome, {name}!</h1>
         {/* Inspiration https://codepen.io/botlab/pen/QvvNab */}
         {/* TODO students shouldn't see this at all */}
         <div className="col-md-9 col-lg-12 main">

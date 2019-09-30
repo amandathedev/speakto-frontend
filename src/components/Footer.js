@@ -16,7 +16,9 @@ const Footer = props => {
         <a href="http://www.twitter.com">
           <i className="fa fa-twitter"></i>
         </a>
-        <a href="mailto:contact.nativespeak@gmail.com">
+        {/* TODO put back */}
+        {/* <a href="mailto:contact.nativespeak@gmail.com"> */}
+        <a href="#">
           <i className="far fa-envelope"></i>
         </a>
         <a href="http://www.instagram.com">

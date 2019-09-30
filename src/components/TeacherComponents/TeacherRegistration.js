@@ -57,7 +57,8 @@ export default class Registration extends Component {
     })
       .then(resp => resp.json())
       .then(teacher => {
-        teacher.error ? alert(teacher.error) : this.loginTeacher(teacher);
+        console.log(teacher);
+        // teacher.error ? alert(teacher.error) : this.loginTeacher(teacher);
       });
   };
 

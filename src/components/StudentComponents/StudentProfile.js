@@ -22,12 +22,16 @@ class StudentProfile extends Component {
     this.props.history.push(`/editstudent/${id}`);
   };
 
+  handleLessonListRedirect = () => {
+    this.props.history.push("/lessons");
+  };
+
   render() {
     let studentName = this.props.current_user.student.name;
     return (
       <div>
         <br></br>
-        <h1>Welcome back, {studentName}!</h1>
+        <h1>Welcome, {studentName}!</h1>
         <br></br>
         {/* Buttons */}
         <div id="home_quicklinks">
@@ -55,7 +59,12 @@ class StudentProfile extends Component {
             <span className="ql_bottom"></span>
           </a>
 
-          <a className="quicklink link3">
+          <a
+            className="quicklink link3"
+            onClick={() =>
+              this.handleLessonListRedirect(this.props.current_user.student.id)
+            }
+          >
             <span className="ql_caption">
               <span className="outer">
                 <span className="inner">
@@ -83,7 +92,11 @@ class StudentProfile extends Component {
             <button
               type="button"
               className="btn student-buttons btn-lg"
-              // onClick={() => this.redirectTeacher(id)}
+              onClick={() =>
+                this.handleLessonListRedirect(
+                  this.props.current_user.student.id
+                )
+              }
             >
               Lesson History
             </button>
