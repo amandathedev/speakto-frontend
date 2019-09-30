@@ -53,6 +53,7 @@ export default class TeacherShow extends Component {
     return organized;
   };
 
+  // TODO
   openModal = timeslot => {
     const { id, month_name, date, hour, available } = timeslot;
     document.getElementById(
@@ -122,9 +123,6 @@ export default class TeacherShow extends Component {
   };
 
   bookLesson = () => {
-    // PATCH add lesson with 3 foreign keys
-    // Change render on this list
-    // Add to student and teacher bookings
     let token = localStorage.getItem("current_user");
     fetch(`http://localhost:3000/api/v1/lessons`, {
       method: "POST",
@@ -204,10 +202,7 @@ export default class TeacherShow extends Component {
                         type="text"
                         className="form-control"
                         id="input-student"
-                        placeholder={
-                          // TODO render modal for unavailable only for teachers and vice versa
-                          this.props.current_user.student.name
-                        }
+                        placeholder={this.props.current_user.student.name}
                         disabled
                       />
                     </div>

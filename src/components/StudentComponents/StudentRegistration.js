@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../../styles/Registration.css";
 
 export default class Registration extends Component {
@@ -55,8 +57,10 @@ export default class Registration extends Component {
     })
       .then(resp => resp.json())
       .then(student => {
-        console.log(student);
-        // student.error ? alert(student.error) : this.loginStudent(student);
+        // console.log(student);
+        student.error
+          ? toast(student.error, { autoclose: 10000 })
+          : this.loginStudent(student);
       });
   };
 
@@ -189,6 +193,7 @@ export default class Registration extends Component {
             Sign up
           </button>
         </form>
+        <ToastContainer pauseOnFocusLoss={false} closeButton={false} />
       </div>
     );
   }

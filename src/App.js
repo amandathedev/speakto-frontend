@@ -58,20 +58,12 @@ class App extends Component {
       let nameA = a.name.toLowerCase(),
         nameB = b.name.toLowerCase();
       if (order) {
-        if (nameA < nameB)
-          // Sort ascending
-          return -1;
-        else if (nameA > nameB)
-          // Sort descending
-          return 1;
+        if (nameA < nameB) return -1;
+        else if (nameA > nameB) return 1;
         else return 0;
       } else {
-        if (nameA > nameB)
-          // Sort ascending
-          return -1;
-        else if (nameA < nameB)
-          // Sort descending
-          return 1;
+        if (nameA > nameB) return -1;
+        else if (nameA < nameB) return 1;
         else return 0;
       }
     });
@@ -84,23 +76,16 @@ class App extends Component {
   // TODO
   sortRatings = order => {
     let sortedRatings = this.state.ratings.sort(function(a, b) {
+      // TODO If ratings
       let ratingA = a.rating,
         ratingB = b.rating;
       if (order) {
-        if (ratingA < ratingB)
-          // Sort ascending
-          return -1;
-        else if (ratingA > ratingB)
-          // Sort descending
-          return 1;
+        if (ratingA < ratingB) return -1;
+        else if (ratingA > ratingB) return 1;
         else return 0;
       } else {
-        if (ratingA > ratingB)
-          // Sort ascending
-          return -1;
-        else if (ratingA < ratingB)
-          // Sort descending
-          return 1;
+        if (ratingA > ratingB) return -1;
+        else if (ratingA < ratingB) return 1;
         else return 0;
       }
     });
@@ -131,8 +116,9 @@ class App extends Component {
             () => {
               this.fetchRatings();
               this.fetchTeachers();
+              // Maybe
               this.props.history.push({
-                // pathname: `/profile`,
+                // pathname: `/`,
                 userType: Object.keys(data[identity])[0]
               });
             }
