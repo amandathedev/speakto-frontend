@@ -30,36 +30,14 @@ export default class TeacherShow extends Component {
       );
   }
 
-  // TODO
-  getMonths = () => {
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
-    ];
-    this.state.timeslots.map(timeslot => {
-      timeslot.month = timeslot.month.getMonth();
-    });
-    return;
-  };
-
   restructureData = () => {
     const organized = {};
     this.state.timeslots.forEach(timeslot => {
-      const { id, month, date, hour, available } = timeslot;
-      if (organized[`${month}.${date}`]) {
-        organized[`${month}.${date}`].push({ hour, available, id });
+      const { id, month_name, date, hour, available } = timeslot;
+      if (organized[`${month_name} ${date}`]) {
+        organized[`${month_name} ${date}`].push({ hour, available, id });
       } else {
-        organized[`${month}.${date}`] = [{ hour, available, id }];
+        organized[`${month_name} ${date}`] = [{ hour, available, id }];
       }
     });
     // console.log(organized);
@@ -225,6 +203,7 @@ export default class TeacherShow extends Component {
   };
 
   render() {
+    // console.log(this.props.timeslots)
     this.restructureData();
     return (
       <div className="main-schedule">

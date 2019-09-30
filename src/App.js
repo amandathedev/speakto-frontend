@@ -6,9 +6,6 @@ import {
   Link,
   withRouter
 } from "react-router-dom";
-// import Toast from "react-bootstrap/Toast";
-// import ToastHeader from "react-bootstrap/ToastHeader";
-// import ToastBody from "react-bootstrap/ToastBody";
 import { ToastContainer, toast } from "react-toastify";
 import "./App.css";
 import Header from "./components/Header";
@@ -27,7 +24,8 @@ class App extends Component {
       current_user: "",
       user_type: "",
       ratings: [],
-      timeslots: []
+      timeslots: [],
+      current_date: new Date().toLocaleString()
     };
   }
 

@@ -13,7 +13,13 @@ class TeacherList extends Component {
   }
 
   redirectTeacher = id => {
+    // {
+    //   this.props.teachers[id - 1].timeslots
+    //     ?
     this.props.history.push(`/viewteacher/${id}`);
+    //     : console.log("nah");
+    // }
+    // console.log(this.props.teachers[id - 1].name);
   };
 
   averageRating = ratings => {
@@ -69,6 +75,7 @@ class TeacherList extends Component {
           <td>{this.averageRating(ratings)}</td>
           <td>{intro_text}</td>
           <td>
+            {/* TODO if the teacher has no timeslots, stay here */}
             <button
               onClick={() => this.redirectTeacher(id)}
               className="btn btn-primary btn-sm"
