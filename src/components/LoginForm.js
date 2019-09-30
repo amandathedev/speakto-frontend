@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-// import Toast from "react-bootstrap/Toast";
-// import ToastHeader from "react-bootstrap/ToastHeader";
-// import ToastBody from "react-bootstrap/ToastBody";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/LoginForm.css";
@@ -27,8 +24,6 @@ export default class LoginForm extends Component {
       [event.target.name]: event.target.value
     });
   };
-
-  // notify = () => toast("Wow so easy !");
 
   // TODO
   forgotPassword = () => {

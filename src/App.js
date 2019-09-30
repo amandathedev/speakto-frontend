@@ -7,6 +7,7 @@ import {
   withRouter
 } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { Button, Popover, PopoverHeader, PopoverBody } from "reactstrap";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -32,6 +33,7 @@ class App extends Component {
   componentDidMount() {
     this.findUser();
     // if (this.state.logged_in) {
+    console.log(this.state.current_date);
 
     // }
   }
@@ -49,6 +51,63 @@ class App extends Component {
         this.fetchTimeslots();
       }
     );
+  };
+
+  sortTeachers = order => {
+    let sortedTeachers = this.state.teachers.sort(function(a, b) {
+      let nameA = a.name.toLowerCase(),
+        nameB = b.name.toLowerCase();
+      if (order) {
+        if (nameA < nameB)
+          // Sort ascending
+          return -1;
+        else if (nameA > nameB)
+          // Sort descending
+          return 1;
+        else return 0;
+      } else {
+        if (nameA > nameB)
+          // Sort ascending
+          return -1;
+        else if (nameA < nameB)
+          // Sort descending
+          return 1;
+        else return 0;
+      }
+    });
+
+    this.setState({
+      teachers: sortedTeachers
+    });
+  };
+
+  // TODO
+  sortRatings = order => {
+    let sortedRatings = this.state.ratings.sort(function(a, b) {
+      let ratingA = a.rating,
+        ratingB = b.rating;
+      if (order) {
+        if (ratingA < ratingB)
+          // Sort ascending
+          return -1;
+        else if (ratingA > ratingB)
+          // Sort descending
+          return 1;
+        else return 0;
+      } else {
+        if (ratingA > ratingB)
+          // Sort ascending
+          return -1;
+        else if (ratingA < ratingB)
+          // Sort descending
+          return 1;
+        else return 0;
+      }
+    });
+
+    this.setState({
+      ratings: sortedRatings
+    });
   };
 
   findUser = () => {
@@ -157,6 +216,8 @@ class App extends Component {
           teachers={this.state.teachers}
           ratings={this.state.ratings}
           timeslots={this.state.timeslots}
+          sortTeachers={this.sortTeachers}
+          sortRatings={this.sortRatings}
           // findUser={this.findUser}
         />
         <Footer />

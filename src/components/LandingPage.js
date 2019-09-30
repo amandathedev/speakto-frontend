@@ -30,6 +30,8 @@ export default class LandingPage extends Component {
                     user_type={this.props.user_type}
                     // findUser={this.props.findUser}
                     timeslots={this.props.timeslots}
+                    sortTeachers={this.props.sortTeachers}
+                    sortRatings={this.props.sortRatings}
                   />
                 )}
               />
@@ -44,6 +46,8 @@ export default class LandingPage extends Component {
                     ratings={this.props.ratings}
                     user_type={this.props.user_type}
                     timeslots={this.props.timeslots}
+                    sortTeachers={this.props.sortTeachers}
+                    sortRatings={this.props.sortRatings}
                   />
                 )}
               />

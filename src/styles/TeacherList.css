@@ -13,3 +13,8 @@
   border-radius: 18px;
   /* font-family: "FontAwesome"; */
 }
+
+.alpha-icon {
+  margin-left: 10px;
+  cursor: pointer;
+}

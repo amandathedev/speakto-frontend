@@ -37,6 +37,8 @@ class TeacherContainer extends Component {
             teachers={this.props.teachers}
             user_type={this.props.user_type}
             timeslots={this.props.timeslots}
+            sortTeachers={this.props.sortTeachers}
+            sortRatings={this.props.sortRatings}
             ratings={this.props.ratings ? this.getAverageRating() : ""}
           />
         ) : (

@@ -56,6 +56,7 @@ export default class EditTeacher extends Component {
       }
     );
   };
+  // TODO redirect after submit or display alert
 
   render() {
     const {

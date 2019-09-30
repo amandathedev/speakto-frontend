@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 export default class EditStudent extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ export default class EditStudent extends Component {
     this.setState({
       [event.target.name]: event.target.value
     });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   handleSubmit = event => {
@@ -56,6 +57,13 @@ export default class EditStudent extends Component {
         })
       }
     );
+  };
+  // TODO redirect after submit or display alert
+
+  editComplete = () => {
+    toast("Password reset instructions have been sent to your email address.", {
+      autoClose: 10000
+    });
   };
 
   render() {
@@ -145,6 +153,7 @@ export default class EditStudent extends Component {
             Submit
           </button>
         </form>
+        {/* <ToastContainer pauseOnFocusLoss={false} closeButton={false} />  */}
       </div>
     );
   }

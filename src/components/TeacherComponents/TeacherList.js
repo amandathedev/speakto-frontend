@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "../../styles/TeacherList.css";
+import { Button, Popover, PopoverHeader, PopoverBody } from "reactstrap";
 
 class TeacherList extends Component {
   // https://dev.to/abdulbasit313/an-easy-way-to-create-a-customize-dynamic-table-in-react-js-3igg
@@ -8,18 +9,20 @@ class TeacherList extends Component {
     super(props);
 
     this.state = {
-      filter: ""
+      filter: "",
+      sortAlpha: true,
+      sortRating: true
     };
   }
 
+  // TODO
   redirectTeacher = id => {
-    // {
-    //   this.props.teachers[id - 1].timeslots
-    //     ?
-    this.props.history.push(`/viewteacher/${id}`);
-    //     : console.log("nah");
-    // }
-    // console.log(this.props.teachers[id - 1].name);
+    let thisTeacher = this.props.teachers.find(teacher => {
+      return teacher.id === id;
+    });
+    thisTeacher.timeslots.length
+      ? this.props.history.push(`/viewteacher/${id}`)
+      : console.log("no");
   };
 
   averageRating = ratings => {
@@ -75,7 +78,6 @@ class TeacherList extends Component {
           <td>{this.averageRating(ratings)}</td>
           <td>{intro_text}</td>
           <td>
-            {/* TODO if the teacher has no timeslots, stay here */}
             <button
               onClick={() => this.redirectTeacher(id)}
               className="btn btn-primary btn-sm"
@@ -86,6 +88,20 @@ class TeacherList extends Component {
         </tr>
       );
     });
+  };
+
+  changeSort = () => {
+    this.setState(prevState => ({
+      sortAlpha: !prevState.sortAlpha
+    }));
+    this.props.sortTeachers(this.state.sortAlpha);
+  };
+
+  changeRatingSort = () => {
+    this.setState(prevState => ({
+      sortRating: !prevState.sortRating
+    }));
+    this.props.sortRatings(this.state.sortRating);
   };
 
   render() {
@@ -105,10 +121,36 @@ class TeacherList extends Component {
               <table className="table table-image">
                 <thead>
                   <tr>
-                    <th>Name</th>
+                    <th>
+                      Name
+                      {this.state.sortAlpha ? (
+                        <i
+                          className="fas fa-sort-alpha-down alpha-icon"
+                          onClick={this.changeSort}
+                        ></i>
+                      ) : (
+                        <i
+                          className="fas fa-sort-alpha-up alpha-icon"
+                          onClick={this.changeSort}
+                        ></i>
+                      )}
+                    </th>
                     <th>Photo</th>
                     <th>Skype ID</th>
-                    <th>Rating</th>
+                    <th>
+                      Rating{" "}
+                      {this.state.sortRating ? (
+                        <i
+                          className="fas fa-sort-amount-down alpha-icon"
+                          onClick={this.changeRatingSort}
+                        ></i>
+                      ) : (
+                        <i
+                          className="fas fa-sort-amount-up alpha-icon"
+                          onClick={this.changeRatingSort}
+                        ></i>
+                      )}
+                    </th>
                     <th>Intro</th>
                   </tr>
                 </thead>

@@ -202,6 +202,13 @@ export default class TeacherShow extends Component {
     // let timeslotTime = this.props.timeslots.find();
   };
 
+  // getTeacherPhoto = () => {
+  //   let teacherImg = this.props.teacher.find(
+  //     teacher => teacher.id === this.props.match.params.id
+  //   );
+  //   return teacherImg ? teacherImg.photo_url : null;
+  // };
+
   render() {
     // console.log(this.props.timeslots)
     this.restructureData();
@@ -209,6 +216,7 @@ export default class TeacherShow extends Component {
       <div className="main-schedule">
         <br></br>
         <h1>{this.getTeacherName()}'s Schedule</h1>
+        {/* <img src={this.getTeacherPhoto()}></img> */}
         {this.props.user_type === "student" ? (
           <p className="schedule-instructions">
             Please choose an available time to book a lesson.
