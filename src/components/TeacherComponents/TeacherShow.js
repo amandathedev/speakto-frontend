@@ -36,7 +36,13 @@ export default class TeacherShow extends Component {
     this.state.timeslots.forEach(timeslot => {
       const { id, month_name, date, hour, available } = timeslot;
       if (organized[`${month_name} ${date}`]) {
-        organized[`${month_name} ${date}`].push({ hour, available, id });
+        organized[`${month_name} ${date}`].push({
+          month_name,
+          date,
+          hour,
+          available,
+          id
+        });
       } else {
         organized[`${month_name} ${date}`] = [
           {
@@ -76,8 +82,8 @@ export default class TeacherShow extends Component {
             </div>
             <ul className="events-detail">
               {newObject[date].map(timeslot => {
+                console.log(timeslot);
                 if (timeslot.available === false) {
-                  console.log(timeslot);
                   return (
                     // TODO key
                     <li key={timeslot.id} className="unavailable-event">
@@ -138,7 +144,11 @@ export default class TeacherShow extends Component {
       })
     })
       .then(data => data.json())
-      .then(data => console.log(data));
+      .then(data => this.closeModal());
+  };
+
+  closeModal = () => {
+    this.props.history.push("/profile");
   };
 
   // getTeacherPhoto = () => {

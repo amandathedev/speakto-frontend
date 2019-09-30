@@ -6,11 +6,9 @@ import {
 } from "react-router-dom";
 import TeacherContainer from "./TeacherComponents/TeacherContainer";
 import StudentProfile from "./StudentComponents/StudentProfile";
-import Search from "./Search";
 
 class UserContainer extends Component {
   render() {
-    // debugger;
     return (
       <div>
         {Object.keys(this.props.current_user)[0] == "student" ? (

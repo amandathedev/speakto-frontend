@@ -20,3 +20,11 @@ a:hover {
 .site-title:hover {
   color: #477458;
 }
+
+.fa-sign-out-alt {
+  margin-right: 5px;
+}
+
+.header-icon {
+  margin-right: 2px;
+}

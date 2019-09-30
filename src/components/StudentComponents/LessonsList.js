@@ -6,6 +6,11 @@ export default class LessonsList extends Component {
       <div>
         <h1 className="lesson-h1">upcoming lessons/lesson history</h1>
         <br></br>
+        <div className="col-md-12 student-button-group">
+          <button type="button" className="btn student-buttons btn-lg">
+            Lesson History
+          </button>
+        </div>
         <table className="table table-striped lesson-table">
           <thead>
             <tr>

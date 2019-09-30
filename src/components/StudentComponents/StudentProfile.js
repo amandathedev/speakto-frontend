@@ -68,7 +68,7 @@ class StudentProfile extends Component {
             <span className="ql_caption">
               <span className="outer">
                 <span className="inner">
-                  <h2>Upcoming Lessons</h2>
+                  <h2>My Lessons</h2>
                 </span>
               </span>
             </span>
@@ -89,7 +89,7 @@ class StudentProfile extends Component {
             >
               Edit My Profile
             </button>
-            <button
+            {/* <button
               type="button"
               className="btn student-buttons btn-lg"
               onClick={() =>
@@ -99,7 +99,7 @@ class StudentProfile extends Component {
               }
             >
               Lesson History
-            </button>
+            </button> */}
           </p>
         </div>
       </div>

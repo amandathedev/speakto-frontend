@@ -230,9 +230,8 @@ export default class BuyCredits extends Component {
                 type="submit"
                 onClick={this.validateForm}
               >
-                <span className="submit-button-lock"></span>
                 <span className="align-middle">
-                  Pay ${this.state.newCredits}
+                  <i class="fas fa-lock"></i> Pay ${this.state.newCredits}
                 </span>
               </button>
             </form>

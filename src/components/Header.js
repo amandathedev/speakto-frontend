@@ -34,6 +34,7 @@ class Header extends Component {
                 src="https://img.icons8.com/cotton/64/000000/translation--v2.png"
                 width="30"
                 height="30"
+                className="header-icon"
                 alt="Company Logo"
               />
               <strong className="site-title"> NativeSpeak</strong>

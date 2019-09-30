@@ -26,16 +26,19 @@ class App extends Component {
       user_type: "",
       ratings: [],
       timeslots: [],
-      current_date: new Date().toLocaleString()
+      current_date: new Date().toLocaleString(),
+      current_month: new Date().getMonth(),
+      current_day: new Date().getDate(),
+      current_hour: new Date().getHours()
     };
   }
 
   componentDidMount() {
     this.findUser();
-    // if (this.state.logged_in) {
-    // console.log(this.state.current_date);
-
-    // }
+    console.log(this.state.current_date);
+    console.log(this.state.current_month + 1);
+    console.log(this.state.current_day);
+    console.log(this.state.current_hour);
   }
 
   setUser = (user, type) => {
