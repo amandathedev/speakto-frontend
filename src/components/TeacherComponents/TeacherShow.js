@@ -151,6 +151,8 @@ export default class TeacherShow extends Component {
       .then(data => data.json())
       .then(data => this.closeModal());
   };
+  // .then call another function
+  // that function does a fetch to deduct credits
 
   closeModal = () => {
     document.location.reload(true);
