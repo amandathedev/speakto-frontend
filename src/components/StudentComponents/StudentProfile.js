@@ -10,16 +10,16 @@ import BuyCredits from "./BuyCredits";
 import "../../styles/StudentProfile.css";
 
 class StudentProfile extends Component {
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    this.state = {
-      // current_month: new Date().getMonth(),
-      // current_day: new Date().getDate(),
-      // current_hour: new Date().getHours(),
-      lessons: []
-    };
-  }
+  //   this.state = {
+  //     // current_month: new Date().getMonth(),
+  //     // current_day: new Date().getDate(),
+  //     // current_hour: new Date().getHours(),
+  //     lessons: []
+  //   };
+  // }
 
   handleLessonRedirect = () => {
     this.props.history.push("/teachers");
@@ -36,6 +36,22 @@ class StudentProfile extends Component {
   handleLessonListRedirect = () => {
     this.props.history.push("/lessons");
   };
+
+  // fetchLessons = () => {
+  //   const token = localStorage.getItem("current_user");
+  //   fetch("http://localhost:3000/api/v1/lessons/", {
+  //     method: "GET",
+  //     headers: {
+  //       Authorization: `Bearer ${token}`
+  //     }
+  //   })
+  //     .then(resp => resp.json())
+  //     .then(lessons =>
+  //       this.setState({
+  //         lessons
+  //       })
+  //     );
+  // };
 
   render() {
     let studentName = this.props.current_user.student.name;

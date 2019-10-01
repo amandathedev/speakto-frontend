@@ -14,6 +14,33 @@ import EditStudent from "./StudentComponents/EditStudent";
 import LessonsList from "./StudentComponents/LessonsList";
 
 export default class LandingPage extends Component {
+  // constructor() {
+  //   super();
+
+  //   this.state = {
+  //     // current_month: new Date().getMonth(),
+  //     // current_day: new Date().getDate(),
+  //     // current_hour: new Date().getHours(),
+  //     lessons: []
+  //   };
+  // }
+  // // HERE
+  // fetchLessons = () => {
+  //   const token = localStorage.getItem("current_user");
+  //   fetch("http://localhost:3000/api/v1/lessons/", {
+  //     method: "GET",
+  //     headers: {
+  //       Authorization: `Bearer ${token}`
+  //     }
+  //   })
+  //     .then(resp => resp.json())
+  //     .then(lessons =>
+  //       this.setState({
+  //         lessons
+  //       })
+  //     );
+  // };
+
   render() {
     return (
       <div className="landing-page">
@@ -98,7 +125,7 @@ export default class LandingPage extends Component {
                   <LessonsList
                     {...props}
                     current_user={this.props.current_user}
-                    lessons={this.props.lessons}
+                    // lessons={this.state.lessons}
                   />
                 )}
               />
@@ -110,7 +137,11 @@ export default class LandingPage extends Component {
               <Route
                 path="/login"
                 render={props => (
-                  <LoginForm {...props} setUser={this.props.setUser} />
+                  <LoginForm
+                    {...props}
+                    // fetchLessons={this.props.fetchLessons}
+                    setUser={this.props.setUser}
+                  />
                 )}
               />
               <Route

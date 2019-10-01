@@ -70,6 +70,8 @@ export default class LoginForm extends Component {
           errorBox.className = "error-box";
         }
       });
+    // HERE
+    // .then(this.props.fetchLessons());
   };
 
   render() {

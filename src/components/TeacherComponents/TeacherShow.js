@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-// import BookingModal from "../BookingModal";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import "../../styles/TeacherSchedule.css";
 
 export default class TeacherShow extends Component {
@@ -152,7 +153,11 @@ export default class TeacherShow extends Component {
   };
 
   closeModal = () => {
-    this.props.history.push("/profile");
+    document.location.reload(true);
+    // TOAST
+    // toast("Password reset instructions have been sent to your email address.", {
+    //   autoClose: 10000
+    // });
   };
 
   // getTeacherPhoto = () => {
@@ -275,6 +280,7 @@ export default class TeacherShow extends Component {
           </div>
         ) : // {/* End modal */}
         null}
+        {/* <ToastContainer pauseOnFocusLoss={false} closeButton={false} /> */}
       </div>
     );
   }

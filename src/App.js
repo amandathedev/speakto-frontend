@@ -36,28 +36,12 @@ class App extends Component {
 
   componentDidMount() {
     this.findUser();
-    this.fetchLessons();
+    // this.fetchLessons();
     // console.log(this.state.current_date);
     // console.log(this.state.current_month + 1);
     // console.log(this.state.current_day);
     // console.log(this.state.current_hour);
   }
-
-  fetchLessons = () => {
-    const token = localStorage.getItem("current_user");
-    fetch("http://localhost:3000/api/v1/lessons/", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-      .then(resp => resp.json())
-      .then(lessons =>
-        this.setState({
-          lessons
-        })
-      );
-  };
 
   setUser = (user, type) => {
     this.setState(
@@ -137,14 +121,14 @@ class App extends Component {
             () => {
               this.fetchRatings();
               this.fetchTeachers();
-              // Maybe
               this.props.history.push({
-                // pathname: `/`,
                 userType: Object.keys(data[identity])[0]
               });
             }
           );
         });
+      // HERE
+      // .then(this.fetchLessons());
     } else {
       localStorage.removeItem("current_user");
     }
@@ -226,6 +210,7 @@ class App extends Component {
           timeslots={this.state.timeslots}
           sortTeachers={this.sortTeachers}
           sortRatings={this.sortRatings}
+          // fetchLessons={this.fetchLessons}
           // findUser={this.findUser}
         />
         <Footer />

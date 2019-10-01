@@ -1,35 +1,50 @@
 import React, { Component } from "react";
 
 export default class LessonsList extends Component {
-  constructor() {
-    super();
-
+  constructor(props) {
+    super(props);
     this.state = {
-      current_month: new Date().getMonth(),
-      current_day: new Date().getDate(),
-      current_hour: new Date().getHours()
-      // lessons: []
+      current_time: Date.now(),
+      lessons: []
     };
   }
 
-  renderTableData = () => {
-    return this.props.lessons.map(lesson => {
-      return (
-        <tr>
-          <th scope="row">{lesson.id}</th>
-          <td>{lesson.teacher.name}</td>
-          <td>
-            {lesson.timeslot.month_name} {lesson.timeslot.date}
-          </td>
-          <td>{lesson.timeslot.hour}:00</td>
-        </tr>
+  componentDidMount() {
+    const token = localStorage.getItem("current_user");
+    fetch("http://localhost:3000/api/v1/lessons/", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(lessons =>
+        this.setState({
+          lessons
+        })
       );
-    });
+  }
+
+  renderTableData = () => {
+    return this.state.lessons.length ? (
+      this.state.lessons.map(lesson => {
+        return (
+          <tr>
+            <th scope="row">{lesson.id}</th>
+            <td>{lesson.teacher.name}</td>
+            <td>
+              {lesson.timeslot.month_name} {lesson.timeslot.date}
+            </td>
+            <td>{lesson.timeslot.hour}:00</td>
+          </tr>
+        );
+      })
+    ) : (
+      <h6>'Loading'</h6>
+    );
   };
 
   render() {
-    console.log(this.props.lessons);
-
     return (
       <div>
         <h1 className="lesson-h1">Lessons</h1>
