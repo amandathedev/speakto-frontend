@@ -77,7 +77,7 @@ export default class LandingContent extends Component {
           {/* How it works */}
           <div className="div-block-19">
             <div className="div-block-22 w-clearfix">
-              <i class="fas fa-check-circle fa-2x"></i>
+              <i className="fas fa-check-circle fa-2x"></i>
               <div className="div-block-21">
                 <h3 className="heading-10">Buy credits</h3>
                 <p className="paragraph-4">
@@ -88,7 +88,7 @@ export default class LandingContent extends Component {
               </div>
             </div>
             <div className="div-block-22 w-clearfix">
-              <i class="fas fa-check-circle fa-2x"></i>
+              <i className="fas fa-check-circle fa-2x"></i>
               <div className="div-block-21">
                 <h3 className="heading-10">Chat with a native speaker</h3>
                 <p className="paragraph-4">

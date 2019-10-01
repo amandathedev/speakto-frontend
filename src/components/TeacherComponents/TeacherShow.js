@@ -70,6 +70,10 @@ export default class TeacherShow extends Component {
     });
   };
 
+  getStudentName = () => {
+    console.log(this.props);
+  };
+
   betterRenderTimeslots = () => {
     const newObject = this.restructureData();
     let allDays = [];
@@ -82,10 +86,9 @@ export default class TeacherShow extends Component {
             </div>
             <ul className="events-detail">
               {newObject[date].map(timeslot => {
-                console.log(timeslot);
+                // console.log(timeslot);
                 if (timeslot.available === false) {
                   return (
-                    // TODO key
                     <li key={timeslot.id} className="unavailable-event">
                       {this.props.user_type === "student" ? (
                         <span className="event-time">
@@ -93,7 +96,8 @@ export default class TeacherShow extends Component {
                         </span>
                       ) : (
                         <span className="event-time">
-                          {timeslot.hour}:00 -- Lesson with student.name
+                          {timeslot.hour}:00 -- Lesson with{" "}
+                          {this.getStudentName()}
                         </span>
                       )}
                     </li>

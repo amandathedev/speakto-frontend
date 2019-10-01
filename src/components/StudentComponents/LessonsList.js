@@ -32,12 +32,12 @@ export default class LessonsList extends Component {
 
     return (
       <div>
-        <h1 className="lesson-h1">upcoming lessons/lesson history</h1>
+        <h1 className="lesson-h1">Lessons</h1>
         <br></br>
         <div className="col-md-12 student-button-group">
-          <button type="button" className="btn student-buttons btn-lg">
+          {/* <button type="button" className="btn student-buttons btn-lg">
             Lesson History
-          </button>
+          </button> */}
         </div>
         <table className="table table-striped lesson-table">
           <thead>
