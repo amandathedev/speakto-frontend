@@ -58,10 +58,10 @@ export default class LoginForm extends Component {
               localStorage.setItem("current_user", data["jwt"]);
               localStorage.setItem("user_type", Object.keys(data["user"])[0]);
               this.props.setUser(data["user"], Object.keys(data["user"])[0]);
-              this.props.history.push({
-                pathname: `/profile`,
-                userType: Object.keys(data["user"])[0]
-              });
+              // this.props.history.push({
+              //   pathname: `/profile`,
+              //   userType: Object.keys(data["user"])[0]
+              // });
             }
           );
         } else {

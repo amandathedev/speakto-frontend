@@ -54,6 +54,11 @@ class App extends Component {
         this.fetchRatings();
         this.fetchTeachers();
         this.fetchTimeslots();
+        // IF SOMETHING BROKE THIS IS WHY
+        this.props.history.push({
+          pathname: "/profile",
+          userType: type
+        });
       }
     );
   };

@@ -72,10 +72,10 @@ export default class Registration extends Component {
       localStorage.setItem("current_user", teacher["jwt"]);
       localStorage.setItem("user_type", "teacher");
       this.props.setUser(teacher, "teacher");
-      this.props.history.push({
-        pathname: "/profile",
-        userType: "teacher"
-      });
+      // this.props.history.push({
+      //   pathname: "/profile",
+      //   userType: "teacher"
+      // });
     }
   };
 
