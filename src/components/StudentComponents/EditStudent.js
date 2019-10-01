@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-export default class EditStudent extends Component {
+class EditStudent extends Component {
   constructor(props) {
     super(props);
 
@@ -29,10 +31,10 @@ export default class EditStudent extends Component {
     this.setState({
       [event.target.name]: event.target.value
     });
-    // console.log(this.state);
   };
 
   handleSubmit = event => {
+    event.preventDefault();
     let token = localStorage.getItem("current_user");
     fetch(
       `http://localhost:3000/api/v1/students/${this.props.current_user.student.id}`,
@@ -56,12 +58,12 @@ export default class EditStudent extends Component {
           }
         })
       }
-    );
+      // .then(document.location.reload(true))
+    ).then(this.editComplete());
   };
-  // TODO redirect after submit or display alert
 
   editComplete = () => {
-    toast("Password reset instructions have been sent to your email address.", {
+    toast("Your profile has been edited successfully.", {
       autoClose: 10000
     });
   };
@@ -153,8 +155,10 @@ export default class EditStudent extends Component {
             Submit
           </button>
         </form>
-        {/* <ToastContainer pauseOnFocusLoss={false} closeButton={false} />  */}
+        <ToastContainer pauseOnFocusLoss={false} closeButton={false} />
       </div>
     );
   }
 }
+
+export default withRouter(EditStudent);

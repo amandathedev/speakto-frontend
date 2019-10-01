@@ -29,16 +29,17 @@ export default class LessonsList extends Component {
       });
   }
 
+  cancelBooking = () => {
+    console.log("boom");
+  };
+
   sortDates = () => {
     return this.state.lessons.sort(function(a, b) {
-      // Turn your strings into dates, and then subtract them
-      // to get a value that is either negative, positive, or zero.
       return new Date(a.timeslot.realdate) - new Date(b.timeslot.realdate);
     });
   };
 
   renderTableData = () => {
-    // map over sorted array from separate function
     return this.state.lessons.length ? (
       this.sortDates().map(lesson => {
         return (
@@ -51,31 +52,33 @@ export default class LessonsList extends Component {
             <td>{lesson.timeslot.hour}:00</td>
             {lesson.timeslot.realdate < this.state.current_time ? (
               <td>
-                <button>review pls</button>
+                {/* TODO */}
+                <button className="lesson-button btn btn-sm btn-success">
+                  Leave a review
+                </button>
               </td>
             ) : (
-              <td>:)</td>
+              <td>
+                <button
+                  className="lesson-button btn btn-sm btn-danger"
+                  onClick={this.cancelBooking}
+                >
+                  Cancel
+                </button>
+              </td>
             )}
           </tr>
         );
       })
     ) : (
-      <h6>'Loading'</h6>
+      <h6 className="no-lessons">
+        No lessons found. Please check out our list of teachers if you'd like to
+        book a lesson!
+      </h6>
     );
   };
 
-  alreadyHappened = () => {
-    return this.state.lessons.map(lesson => {
-      {
-        return lesson.timeslot.realdate > this.state.current_time
-          ? true
-          : false;
-      }
-    });
-  };
-
   render() {
-    this.alreadyHappened();
     return (
       <div>
         <h1 className="lesson-h1">Lessons</h1>
@@ -88,6 +91,7 @@ export default class LessonsList extends Component {
               <th scope="col">Teacher</th>
               <th scope="col">Date</th>
               <th scope="col">Time</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>{this.renderTableData()}</tbody>
