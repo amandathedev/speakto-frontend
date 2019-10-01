@@ -28,6 +28,7 @@ export default class LandingPage extends Component {
                     current_user={this.props.current_user}
                     teachers={this.props.teachers}
                     ratings={this.props.ratings}
+                    lessons={this.props.lessons}
                     user_type={this.props.user_type}
                     // findUser={this.props.findUser}
                     timeslots={this.props.timeslots}
@@ -97,6 +98,7 @@ export default class LandingPage extends Component {
                   <LessonsList
                     {...props}
                     current_user={this.props.current_user}
+                    lessons={this.props.lessons}
                   />
                 )}
               />

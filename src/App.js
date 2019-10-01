@@ -26,6 +26,7 @@ class App extends Component {
       user_type: "",
       ratings: [],
       timeslots: [],
+      lessons: [],
       current_date: new Date().toLocaleString(),
       current_month: new Date().getMonth(),
       current_day: new Date().getDate(),
@@ -35,11 +36,28 @@ class App extends Component {
 
   componentDidMount() {
     this.findUser();
-    console.log(this.state.current_date);
-    console.log(this.state.current_month + 1);
-    console.log(this.state.current_day);
-    console.log(this.state.current_hour);
+    this.fetchLessons();
+    // console.log(this.state.current_date);
+    // console.log(this.state.current_month + 1);
+    // console.log(this.state.current_day);
+    // console.log(this.state.current_hour);
   }
+
+  fetchLessons = () => {
+    const token = localStorage.getItem("current_user");
+    fetch("http://localhost:3000/api/v1/lessons/", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(lessons =>
+        this.setState({
+          lessons
+        })
+      );
+  };
 
   setUser = (user, type) => {
     this.setState(
@@ -204,6 +222,7 @@ class App extends Component {
           user_type={this.state.user_type}
           teachers={this.state.teachers}
           ratings={this.state.ratings}
+          lessons={this.state.lessons}
           timeslots={this.state.timeslots}
           sortTeachers={this.sortTeachers}
           sortRatings={this.sortRatings}

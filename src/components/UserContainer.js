@@ -17,6 +17,7 @@ class UserContainer extends Component {
             user_type={this.props.user_type}
             teachers={this.props.teachers}
             ratings={this.props.ratings}
+            lessons={this.props.lessons}
           />
         ) : (
           <TeacherContainer

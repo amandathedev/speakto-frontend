@@ -10,6 +10,17 @@ import BuyCredits from "./BuyCredits";
 import "../../styles/StudentProfile.css";
 
 class StudentProfile extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      // current_month: new Date().getMonth(),
+      // current_day: new Date().getDate(),
+      // current_hour: new Date().getHours(),
+      lessons: []
+    };
+  }
+
   handleLessonRedirect = () => {
     this.props.history.push("/teachers");
   };
