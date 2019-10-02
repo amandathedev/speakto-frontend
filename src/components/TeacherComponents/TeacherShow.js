@@ -72,7 +72,7 @@ export default class TeacherShow extends Component {
   };
 
   getStudentName = () => {
-    console.log(this.props);
+    console.log("you still have to get the name for the schedule");
   };
 
   betterRenderTimeslots = () => {

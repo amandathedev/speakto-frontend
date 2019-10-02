@@ -117,7 +117,7 @@ class TeacherList extends Component {
   render() {
     return (
       <div>
-        <div className="container">
+        <div className="container list-container">
           <div className="row">
             <div className="col-12">
               <div className="form-group search-box">

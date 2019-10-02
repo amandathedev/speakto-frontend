@@ -80,14 +80,18 @@ ul.main {
 }
 
 .schedule-div {
-  padding-bottom: 80%;
+  /* padding-bottom: 80%; */
   padding-top: 0;
+  padding-bottom: 40%;
+  width: 80%;
   margin: 0 auto;
+  /* width: 110px; */
+  height: 90vh;
+  overflow: scroll;
 }
 
 .main-schedule {
   width: 100%;
-  margin-bottom: 15%;
 }
 
 /* .div-date {

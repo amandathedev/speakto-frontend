@@ -35,7 +35,7 @@ export default class LessonsList extends Component {
 
   sortDates = () => {
     return this.state.lessons.sort(function(a, b) {
-      return new Date(a.timeslot.realdate) - new Date(b.timeslot.realdate);
+      return new Date(b.timeslot.realdate) - new Date(a.timeslot.realdate);
     });
   };
 
