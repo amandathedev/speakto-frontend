@@ -149,7 +149,7 @@ class TeacherList extends Component {
                     <th>Skype ID</th>
                     <th>
                       Rating{" "}
-                      {this.state.sortRating ? (
+                      {/* {this.state.sortRating ? (
                         <i
                           className="fas fa-sort-amount-down alpha-icon"
                           onClick={this.changeRatingSort}
@@ -159,7 +159,7 @@ class TeacherList extends Component {
                           className="fas fa-sort-amount-up alpha-icon"
                           onClick={this.changeRatingSort}
                         ></i>
-                      )}
+                      )} */}
                     </th>
                     <th>Intro</th>
                   </tr>

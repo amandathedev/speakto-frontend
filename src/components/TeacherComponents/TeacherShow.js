@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
 import "../../styles/TeacherSchedule.css";
 
 export default class TeacherShow extends Component {
@@ -99,6 +97,8 @@ export default class TeacherShow extends Component {
                         <span className="event-time">
                           {timeslot.hour}:00 -- Lesson with{" "}
                           {this.getStudentName()}
+                          {/* TODO */}
+                          <button className="cancel-button">Cancel</button>
                         </span>
                       )}
                     </li>
@@ -156,10 +156,6 @@ export default class TeacherShow extends Component {
 
   closeModal = () => {
     document.location.reload(true);
-    // TOAST
-    // toast("Password reset instructions have been sent to your email address.", {
-    //   autoClose: 10000
-    // });
   };
 
   // getTeacherPhoto = () => {
@@ -168,6 +164,10 @@ export default class TeacherShow extends Component {
   //   );
   //   return teacherImg ? teacherImg.photo_url : null;
   // };
+
+  sortDates = () => {
+    // return this.state.lessons
+  };
 
   render() {
     this.restructureData();
@@ -182,7 +182,7 @@ export default class TeacherShow extends Component {
           </p>
         ) : (
           <p className="schedule-instructions">
-            Select a reserved time to view more information about the booking.
+            {/* Select a reserved time to view more information about the booking. */}
           </p>
         )}
         <div className="schedule-div">
@@ -282,7 +282,6 @@ export default class TeacherShow extends Component {
           </div>
         ) : // {/* End modal */}
         null}
-        {/* <ToastContainer pauseOnFocusLoss={false} closeButton={false} /> */}
       </div>
     );
   }

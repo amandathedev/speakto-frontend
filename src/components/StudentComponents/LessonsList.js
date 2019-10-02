@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default class LessonsList extends Component {
   constructor(props) {
@@ -29,8 +31,24 @@ export default class LessonsList extends Component {
       });
   }
 
-  cancelBooking = () => {
-    console.log("boom");
+  cancelBooking = id => {
+    const token = localStorage.getItem("current_user");
+    fetch(`http://localhost:3000/api/v1/lessons/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    })
+      .then(resp => resp.json())
+      .then(lesson => {
+        if (lesson.message === "Lesson deleted") {
+          document.getElementById("row" + id).remove();
+        }
+      });
+    toast("Lesson deleted.", {
+      autoClose: 10000
+    });
   };
 
   sortDates = () => {
@@ -42,8 +60,9 @@ export default class LessonsList extends Component {
   renderTableData = () => {
     return this.state.lessons.length ? (
       this.sortDates().map(lesson => {
+        // console.log(lesson.rating);
         return (
-          <tr>
+          <tr id={`row${lesson.id}`}>
             <th scope="row">{lesson.id}</th>
             <td>{lesson.teacher.name}</td>
             <td>
@@ -52,16 +71,19 @@ export default class LessonsList extends Component {
             <td>{lesson.timeslot.hour}:00</td>
             {lesson.timeslot.realdate < this.state.current_time ? (
               <td>
-                {/* TODO */}
-                <button className="lesson-button btn btn-sm btn-success">
-                  Leave a review
-                </button>
+                {/* {!lesson.rating ? (
+                  <button className="lesson-button btn btn-sm btn-success">
+                    Leave a review
+                  </button>
+                ) : (
+                  ""
+                )} */}
               </td>
             ) : (
               <td>
                 <button
                   className="lesson-button btn btn-sm btn-danger"
-                  onClick={this.cancelBooking}
+                  onClick={() => this.cancelBooking(lesson.id)}
                 >
                   Cancel
                 </button>
@@ -96,6 +118,7 @@ export default class LessonsList extends Component {
           </thead>
           <tbody>{this.renderTableData()}</tbody>
         </table>
+        <ToastContainer pauseOnFocusLoss={false} closeButton={false} />
       </div>
     );
   }

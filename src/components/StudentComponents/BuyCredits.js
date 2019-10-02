@@ -39,7 +39,7 @@ export default class BuyCredits extends Component {
   };
 
   validateForm = () => {
-    if (this.state.cardName.length > 3 && this.state.ccNum.length === 8) {
+    if (this.state.cardName.length > 3 && this.state.ccNum.length > 6) {
       this.handleCreditSubmit();
     } else {
       alert("Invalid information. Please correct the form and try again.");
@@ -50,7 +50,6 @@ export default class BuyCredits extends Component {
     this.setState({
       [event.target.name]: event.target.value
     });
-    console.log(this.state);
   };
 
   handleCreditSubmit = event => {
