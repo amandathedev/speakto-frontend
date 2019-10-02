@@ -60,7 +60,6 @@ export default class LessonsList extends Component {
   renderTableData = () => {
     return this.state.lessons.length ? (
       this.sortDates().map(lesson => {
-        // console.log(lesson.rating);
         return (
           <tr id={`row${lesson.id}`}>
             <th scope="row">{lesson.id}</th>
@@ -71,13 +70,14 @@ export default class LessonsList extends Component {
             <td>{lesson.timeslot.hour}:00</td>
             {lesson.timeslot.realdate < this.state.current_time ? (
               <td>
-                {/* {!lesson.rating ? (
+                {!lesson.rating ? (
                   <button className="lesson-button btn btn-sm btn-success">
                     Leave a review
                   </button>
                 ) : (
-                  ""
-                )} */}
+                  <h6>{lesson.rating.rating}/5</h6>
+                  // ""
+                )}
               </td>
             ) : (
               <td>
@@ -113,7 +113,7 @@ export default class LessonsList extends Component {
               <th scope="col">Teacher</th>
               <th scope="col">Date</th>
               <th scope="col">Time</th>
-              <th scope="col"></th>
+              <th scope="col">Your Rating</th>
             </tr>
           </thead>
           <tbody>{this.renderTableData()}</tbody>

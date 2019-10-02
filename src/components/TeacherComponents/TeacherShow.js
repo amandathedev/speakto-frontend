@@ -24,14 +24,27 @@ export default class TeacherShow extends Component {
     )
       .then(resp => resp.json())
       .then(timeslots =>
-        this.setState({
-          timeslots
-        })
+        this.setState(
+          {
+            timeslots
+          },
+          () => {
+            this.restructureData();
+          }
+        )
       );
   }
 
+  sortDates = () => {
+    console.log(this.state.timeslots);
+    return this.state.timeslots.sort(function(a, b) {
+      return new Date(b.realdate) - new Date(a.realdate);
+    });
+  };
+
   restructureData = () => {
     const organized = {};
+    this.sortDates();
     this.state.timeslots.forEach(timeslot => {
       const { id, month_name, date, hour, available } = timeslot;
       if (organized[`${month_name} ${date}`]) {
@@ -54,23 +67,25 @@ export default class TeacherShow extends Component {
         ];
       }
     });
-    // console.log(organized);
     return organized;
   };
 
-  // TODO
   openModal = timeslot => {
-    const { id, month_name, date, hour, available } = timeslot;
-    document.getElementById(
-      "input-timeslot"
-    ).value = `${month_name} ${date}, ${hour}:00`;
-    this.setState({
-      opened_timeslot: timeslot
-    });
+    if (this.props.user_type === "student") {
+      const { id, month_name, date, hour, available } = timeslot;
+      document.getElementById(
+        "input-timeslot"
+      ).value = `${month_name} ${date}, ${hour}:00`;
+      this.setState({
+        opened_timeslot: timeslot
+      });
+    } else {
+      return true;
+    }
   };
 
   getStudentName = () => {
-    console.log("you still have to get the name for the schedule");
+    // console.log("you still have to get the name for the schedule");
   };
 
   betterRenderTimeslots = () => {
@@ -85,8 +100,8 @@ export default class TeacherShow extends Component {
             </div>
             <ul className="events-detail">
               {newObject[date].map(timeslot => {
-                // console.log(timeslot);
                 if (timeslot.available === false) {
+                  // console.log(timeslot);
                   return (
                     <li key={timeslot.id} className="unavailable-event">
                       {this.props.user_type === "student" ? (
@@ -98,7 +113,7 @@ export default class TeacherShow extends Component {
                           {timeslot.hour}:00 -- Lesson with{" "}
                           {this.getStudentName()}
                           {/* TODO */}
-                          <button className="cancel-button">Cancel</button>
+                          {/* <button className="cancel-button">Cancel</button> */}
                         </span>
                       )}
                     </li>
@@ -151,8 +166,6 @@ export default class TeacherShow extends Component {
       .then(data => data.json())
       .then(data => this.closeModal());
   };
-  // .then call another function
-  // that function does a fetch to deduct credits
 
   closeModal = () => {
     document.location.reload(true);
@@ -170,7 +183,6 @@ export default class TeacherShow extends Component {
   };
 
   render() {
-    this.restructureData();
     return (
       <div className="main-schedule">
         <br></br>
@@ -182,7 +194,8 @@ export default class TeacherShow extends Component {
           </p>
         ) : (
           <p className="schedule-instructions">
-            {/* Select a reserved time to view more information about the booking. */}
+            Please view the booking email for more information about each
+            booking.
           </p>
         )}
         <div className="schedule-div">
