@@ -27,11 +27,9 @@ export default class LandingContent extends Component {
       <div>
         <h1 className="h1-title">NativeSpeak</h1>
         <br></br>
-        <br></br>
         <h5 className="h5-intro">
           Chat with native speakers and learn to speak like a native speaker.
         </h5>
-        <br></br>
         {/* Buttons */}
         <div id="home_quicklinks">
           <a className="quicklink link1" onClick={this.handleLoginRedirect}>

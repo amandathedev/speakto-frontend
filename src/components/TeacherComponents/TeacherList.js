@@ -48,11 +48,22 @@ class TeacherList extends Component {
 
       let ratingAverage = parseInt(ratingTotal) / ratings.length;
 
-      let averageRating = ratingAverage.toFixed(2);
-      return averageRating;
+      let averageRating = Number(ratingAverage);
+      return averageRating.toFixed(2);
     } else {
-      return "--";
+      return 0;
     }
+  };
+
+  sortRatings = order => {
+    // console.log(this.props.teachers.map(t => this.averageRating(t.ratings)));
+    return order
+      ? this.props.teachers.sort((a, b) =>
+          this.averageRating(a.ratings) > this.averageRating(b.ratings) ? 1 : -1
+        )
+      : this.props.teachers.sort((a, b) =>
+          this.averageRating(a.ratings) < this.averageRating(b.ratings) ? 1 : -1
+        );
   };
 
   onSearchChange = event => {
@@ -111,7 +122,7 @@ class TeacherList extends Component {
     this.setState(prevState => ({
       sortRating: !prevState.sortRating
     }));
-    this.props.sortRatings(this.state.sortRating);
+    this.sortRatings(this.state.sortRating);
   };
 
   render() {
@@ -149,7 +160,7 @@ class TeacherList extends Component {
                     <th>Skype ID</th>
                     <th>
                       Rating{" "}
-                      {/* {this.state.sortRating ? (
+                      {this.state.sortRating ? (
                         <i
                           className="fas fa-sort-amount-down alpha-icon"
                           onClick={this.changeRatingSort}
@@ -159,7 +170,7 @@ class TeacherList extends Component {
                           className="fas fa-sort-amount-up alpha-icon"
                           onClick={this.changeRatingSort}
                         ></i>
-                      )} */}
+                      )}
                     </th>
                     <th>Intro</th>
                   </tr>

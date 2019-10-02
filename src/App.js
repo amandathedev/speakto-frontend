@@ -54,7 +54,6 @@ class App extends Component {
         this.fetchRatings();
         this.fetchTeachers();
         this.fetchTimeslots();
-        // IF SOMETHING BROKE THIS IS WHY
         this.props.history.push({
           pathname: "/profile",
           userType: type
@@ -80,28 +79,6 @@ class App extends Component {
 
     this.setState({
       teachers: sortedTeachers
-    });
-  };
-
-  // TODO
-  sortRatings = order => {
-    let sortedRatings = this.state.ratings.sort(function(a, b) {
-      // TODO If ratings
-      let ratingA = a.rating,
-        ratingB = b.rating;
-      if (order) {
-        if (ratingA < ratingB) return -1;
-        else if (ratingA > ratingB) return 1;
-        else return 0;
-      } else {
-        if (ratingA > ratingB) return -1;
-        else if (ratingA < ratingB) return 1;
-        else return 0;
-      }
-    });
-
-    this.setState({
-      ratings: sortedRatings
     });
   };
 

@@ -8,26 +8,6 @@ import TeacherList from "./TeacherList";
 import TeacherProfile from "./TeacherProfile";
 
 class TeacherContainer extends Component {
-  getAverageRating = () => {
-    if (this.props.ratings.length > 0) {
-      let ratingValues = this.props.ratings.map(rating => {
-        return rating.rating;
-      });
-
-      let ratingTotal = 0;
-      for (let i = 0; i < ratingValues.length; i++) {
-        ratingTotal += ratingValues[i];
-      }
-
-      let ratingAverage = parseInt(ratingTotal) / this.props.ratings.length;
-
-      let averageRating = ratingAverage.toFixed(2);
-      return averageRating;
-    } else {
-      return "--";
-    }
-  };
-
   render() {
     return (
       <div>
@@ -39,7 +19,7 @@ class TeacherContainer extends Component {
             timeslots={this.props.timeslots}
             sortTeachers={this.props.sortTeachers}
             sortRatings={this.props.sortRatings}
-            ratings={this.props.ratings ? this.getAverageRating() : ""}
+            ratings={this.getAverageRating}
           />
         ) : (
           <TeacherProfile
