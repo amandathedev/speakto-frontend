@@ -58,7 +58,25 @@ export default class LessonsList extends Component {
   };
 
   leaveRating = (event, id) => {
-    console.log(event.target.value, id);
+    // console.log(id);
+    event.preventDefault();
+    let token = localStorage.getItem("current_user");
+    fetch("http://localhost:3000/api/v1/ratings", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        rating: {
+          rating: event.target.value,
+          lesson_id: id
+        }
+      })
+    })
+      .then(resp => resp.json())
+      .then(document.location.reload(true));
   };
 
   renderTableData = () => {
@@ -78,7 +96,6 @@ export default class LessonsList extends Component {
                   <div className="star-rating">
                     <input
                       type="radio"
-                      // id="star5"
                       id={`star5${lesson.id}`}
                       name="rating"
                       value="5"
@@ -86,13 +103,11 @@ export default class LessonsList extends Component {
                     />
                     <label
                       className="full"
-                      // htmlFor="star5"
                       htmlFor={`star5${lesson.id}`}
                       title="5 stars"
                     ></label>
                     <input
                       type="radio"
-                      // id="star4"
                       id={`star4${lesson.id}`}
                       name="rating"
                       value="4"
@@ -100,13 +115,11 @@ export default class LessonsList extends Component {
                     />
                     <label
                       className="full"
-                      // htmlFor="star4"
                       htmlFor={`star4${lesson.id}`}
                       title="4 stars"
                     ></label>
                     <input
                       type="radio"
-                      // id="star3"
                       id={`star3${lesson.id}`}
                       name="rating"
                       value="3"
@@ -120,7 +133,6 @@ export default class LessonsList extends Component {
                     ></label>
                     <input
                       type="radio"
-                      // id="star2"
                       id={`star2${lesson.id}`}
                       name="rating"
                       value="2"
@@ -128,13 +140,11 @@ export default class LessonsList extends Component {
                     />
                     <label
                       className="full"
-                      // htmlFor="star2"
                       htmlFor={`star2${lesson.id}`}
                       title="2 stars"
                     ></label>
                     <input
                       type="radio"
-                      // id="star1"
                       id={`star1${lesson.id}`}
                       name="rating"
                       value="1"
