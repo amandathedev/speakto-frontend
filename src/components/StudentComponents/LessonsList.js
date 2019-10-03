@@ -78,31 +78,36 @@ export default class LessonsList extends Component {
                   <div className="star-rating">
                     <input
                       type="radio"
-                      id="star5"
+                      // id="star5"
+                      id={`star5${lesson.id}`}
                       name="rating"
                       value="5"
                       onClick={event => this.leaveRating(event, lesson.id)}
                     />
                     <label
                       className="full"
-                      htmlFor="star5"
+                      // htmlFor="star5"
+                      htmlFor={`star5${lesson.id}`}
                       title="5 stars"
                     ></label>
                     <input
                       type="radio"
-                      id="star4"
+                      // id="star4"
+                      id={`star4${lesson.id}`}
                       name="rating"
                       value="4"
                       onClick={event => this.leaveRating(event, lesson.id)}
                     />
                     <label
                       className="full"
-                      htmlFor="star4"
+                      // htmlFor="star4"
+                      htmlFor={`star4${lesson.id}`}
                       title="4 stars"
                     ></label>
                     <input
                       type="radio"
-                      id="star3"
+                      // id="star3"
+                      id={`star3${lesson.id}`}
                       name="rating"
                       value="3"
                       onClick={event => this.leaveRating(event, lesson.id)}
@@ -110,23 +115,27 @@ export default class LessonsList extends Component {
                     <label
                       className="full"
                       htmlFor="star3"
+                      htmlFor={`star3${lesson.id}`}
                       title="3 stars"
                     ></label>
                     <input
                       type="radio"
-                      id="star2"
+                      // id="star2"
+                      id={`star2${lesson.id}`}
                       name="rating"
                       value="2"
                       onClick={event => this.leaveRating(event, lesson.id)}
                     />
                     <label
                       className="full"
-                      htmlFor="star2"
+                      // htmlFor="star2"
+                      htmlFor={`star2${lesson.id}`}
                       title="2 stars"
                     ></label>
                     <input
                       type="radio"
-                      id="star1"
+                      // id="star1"
+                      id={`star1${lesson.id}`}
                       name="rating"
                       value="1"
                       onClick={event => this.leaveRating(event, lesson.id)}
@@ -134,6 +143,7 @@ export default class LessonsList extends Component {
                     <label
                       className="full"
                       htmlFor="star1"
+                      htmlFor={`star1${lesson.id}`}
                       title="1 star"
                     ></label>
                   </div>

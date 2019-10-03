@@ -13,6 +13,7 @@ export default class TeacherShow extends Component {
 
   componentDidMount() {
     const token = localStorage.getItem("current_user");
+    console.log(this.props.match);
     fetch(
       `http://localhost:3000/api/v1/timeslots/${this.props.match.params.id}`,
       {
@@ -99,18 +100,19 @@ export default class TeacherShow extends Component {
             <ul className="events-detail">
               {newObject[date].map(timeslot => {
                 if (timeslot.available === false) {
-                  console.log(this.props.current_user.student.id);
-                  console.log(timeslot);
+                  // IF YOU'RE A STUDENT
+                  // console.log(this.state.timeslots);
+                  // console.log(this.props.current_user.student.id);
                   return (
                     <li key={timeslot.id} className="unavailable-event">
                       {this.props.user_type === "student" ? (
                         <span className="event-time">
-                          {timeslot.hour}:00 -- Unavailable
+                          {timeslot.hour}:00 -- Booked
                         </span>
                       ) : (
                         <span className="event-time">
-                          {timeslot.hour}:00 -- Lesson with{" "}
-                          {this.getStudentName()}
+                          {timeslot.hour}:00 -- Booked{" "}
+                          {/* {this.getStudentName()} */}
                           {/* TODO */}
                           {/* <button className="cancel-button">Cancel</button> */}
                         </span>
