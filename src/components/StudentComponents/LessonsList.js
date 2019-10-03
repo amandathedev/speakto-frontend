@@ -79,6 +79,21 @@ export default class LessonsList extends Component {
       .then(document.location.reload(true));
   };
 
+  showStars = ratingNumber => {
+    //  const stars = '<i className="fas fa-star"></i>'
+    //  let starHtml;
+    let stars = "";
+
+    for (let i = 0; i < ratingNumber; i++) {
+      // stars += <i className="fas fa-star checked"></i>;
+      stars += `⭐`;
+    }
+    // for (let i = 0; i < 5 - ratingNumber; i++) {
+    //   stars += <i class="fas fa-star"></i>;
+    // }
+    return stars;
+  };
+
   renderTableData = () => {
     return this.state.lessons.length ? (
       this.sortDates().map(lesson => {
@@ -158,7 +173,10 @@ export default class LessonsList extends Component {
                     ></label>
                   </div>
                 ) : (
-                  <h6 className="rating-h6">{lesson.rating.rating}/5</h6>
+                  // <h6 className="rating-h6">{lesson.rating.rating}/5</h6>
+                  <span className="rating-h6">
+                    {this.showStars(lesson.rating.rating)}
+                  </span>
                 )}
               </td>
             ) : (

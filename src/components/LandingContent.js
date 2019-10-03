@@ -97,7 +97,7 @@ export default class LandingContent extends Component {
               </div>
             </div>
             <div className="div-block-22 w-clearfix">
-              <i class="fas fa-check-circle fa-2x"></i>
+              <i className="fas fa-check-circle fa-2x"></i>
               <div className="div-block-21">
                 <h3 className="heading-10">Improve your skills</h3>
                 <p className="paragraph-4">

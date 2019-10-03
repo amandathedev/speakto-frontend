@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../../styles/BuyCredits.css";
 
 export default class BuyCredits extends Component {
@@ -38,11 +40,14 @@ export default class BuyCredits extends Component {
     });
   };
 
-  validateForm = () => {
-    if (this.state.cardName.length > 3 && this.state.ccNum.length > 6) {
+  validateForm = event => {
+    event.preventDefault();
+    if (this.state.cardName.length > 3 && this.state.ccNum.length > 3) {
       this.handleCreditSubmit();
     } else {
-      alert("Invalid information. Please correct the form and try again.");
+      toast("Invalid information. Please correct the form and try again.", {
+        autoClose: 10000
+      });
     }
   };
 
@@ -69,7 +74,7 @@ export default class BuyCredits extends Component {
             this.props.current_user.student.lesson_credits
         })
       }
-    );
+    ).then(document.location.reload(true));
   };
 
   render() {
@@ -237,6 +242,7 @@ export default class BuyCredits extends Component {
           </div>
         </div>
         {/* End credit card form */}
+        <ToastContainer pauseOnFocusLoss={false} closeButton={false} />
       </div>
     );
   }

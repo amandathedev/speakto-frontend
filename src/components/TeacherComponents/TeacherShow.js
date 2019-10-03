@@ -13,7 +13,7 @@ export default class TeacherShow extends Component {
 
   componentDidMount() {
     const token = localStorage.getItem("current_user");
-    console.log(this.props.match);
+    // console.log(this.props.match);
     fetch(
       `http://localhost:3000/api/v1/timeslots/${this.props.match.params.id}`,
       {
@@ -81,10 +81,6 @@ export default class TeacherShow extends Component {
     } else {
       return true;
     }
-  };
-
-  getStudentName = () => {
-    // console.log("you still have to get the name for the schedule");
   };
 
   betterRenderTimeslots = () => {
