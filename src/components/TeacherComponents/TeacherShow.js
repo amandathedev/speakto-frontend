@@ -6,6 +6,7 @@ export default class TeacherShow extends Component {
     super();
 
     this.state = {
+      current_time: Date.now(),
       timeslots: [],
       opened_timeslot: {}
     };
@@ -37,20 +38,24 @@ export default class TeacherShow extends Component {
   }
 
   sortDates = () => {
-    return this.state.timeslots.sort(function(a, b) {
-      return new Date(b.realdate) - new Date(a.realdate);
-    });
+    return this.state.timeslots
+      .filter(timeslot => new Date(timeslot.realdate) > this.state.current_time)
+      .sort(function(a, b) {
+        return new Date(a.realdate) - new Date(b.realdate);
+      });
   };
 
   restructureData = () => {
     const organized = {};
     this.sortDates().forEach(timeslot => {
-      const { id, month_name, date, hour, available } = timeslot;
+      const { id, month_name, date, hour, available, realdate } = timeslot;
+
       if (organized[`${month_name} ${date}`]) {
         organized[`${month_name} ${date}`].push({
           month_name,
           date,
           hour,
+          realdate,
           available,
           id
         });
@@ -60,6 +65,7 @@ export default class TeacherShow extends Component {
             month_name,
             date,
             hour,
+            realdate,
             available,
             id
           }
@@ -96,9 +102,6 @@ export default class TeacherShow extends Component {
             <ul className="events-detail">
               {newObject[date].map(timeslot => {
                 if (timeslot.available === false) {
-                  // IF YOU'RE A STUDENT
-                  // console.log(this.state.timeslots);
-                  // console.log(this.props.current_user.student.id);
                   return (
                     <li key={timeslot.id} className="unavailable-event">
                       {this.props.user_type === "student" ? (

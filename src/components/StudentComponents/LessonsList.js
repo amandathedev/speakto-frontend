@@ -267,16 +267,21 @@ export default class LessonsList extends Component {
       <div>
         <h1 className="lesson-h1">Lessons</h1>
         <br></br>
-        <h5>
+        {/* <h5>
           If you'd like to apply for free lessons, please send us an email!
-        </h5>
+        </h5> */}
         <br></br>
         <div className="col-md-12 student-button-group"></div>
         <table className="table table-striped lesson-table">
           <thead>
             <tr>
               <th scope="col">Lesson ID</th>
-              <th scope="col">Teacher</th>
+              {this.props.user_type === "student" ? (
+                <th scope="col">Teacher</th>
+              ) : (
+                <th scope="col">Student</th>
+              )}
+              {/* <th scope="col">Teacher</th> */}
               <th scope="col">Date</th>
               <th scope="col">Time</th>
               <th scope="col" className="rating-header">
