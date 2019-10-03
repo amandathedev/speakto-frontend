@@ -39,7 +39,10 @@ class TeacherProfile extends Component {
         <div className="col-md-9 col-lg-12 teacher-stats">
           <div className="row mb-3">
             <div className="col-xl-3 col-lg-6">
-              <div className="card" onClick={this.handleLessonsRedirect}>
+              <div
+                className="card lesson-card"
+                onClick={this.handleLessonsRedirect}
+              >
                 <div className="card-block ">
                   <div className="rotate">
                     <i className="fas fa-chalkboard-teacher fa-5x"></i>

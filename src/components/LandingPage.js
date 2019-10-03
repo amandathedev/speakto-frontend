@@ -125,6 +125,7 @@ export default class LandingPage extends Component {
                   <LessonsList
                     {...props}
                     current_user={this.props.current_user}
+                    user_type={this.props.user_type}
                     // lessons={this.state.lessons}
                   />
                 )}

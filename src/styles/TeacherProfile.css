@@ -165,3 +165,7 @@
 .card {
   box-shadow: 1px 13px 16px lightgray;
 }
+
+.lesson-card {
+  cursor: pointer;
+}

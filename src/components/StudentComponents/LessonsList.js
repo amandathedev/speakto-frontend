@@ -101,7 +101,11 @@ export default class LessonsList extends Component {
         return (
           <tr id={`row${lesson.id}`}>
             <th scope="row">{lesson.id}</th>
-            <td>{lesson.teacher.name}</td>
+            {this.props.user_type === "teacher" ? (
+              <td>{lesson.student.name}</td>
+            ) : (
+              <td>{lesson.teacher.name}</td>
+            )}
             <td>
               {lesson.timeslot.month_name} {lesson.timeslot.date}
             </td>
@@ -109,69 +113,75 @@ export default class LessonsList extends Component {
             {lesson.timeslot.realdate < this.state.current_time ? (
               <td>
                 {!lesson.rating ? (
-                  <div className="star-rating">
-                    <input
-                      type="radio"
-                      id={`star5${lesson.id}`}
-                      name="rating"
-                      value="5"
-                      onClick={event => this.leaveRating(event, lesson.id)}
-                    />
-                    <label
-                      className="full"
-                      htmlFor={`star5${lesson.id}`}
-                      title="5 stars"
-                    ></label>
-                    <input
-                      type="radio"
-                      id={`star4${lesson.id}`}
-                      name="rating"
-                      value="4"
-                      onClick={event => this.leaveRating(event, lesson.id)}
-                    />
-                    <label
-                      className="full"
-                      htmlFor={`star4${lesson.id}`}
-                      title="4 stars"
-                    ></label>
-                    <input
-                      type="radio"
-                      id={`star3${lesson.id}`}
-                      name="rating"
-                      value="3"
-                      onClick={event => this.leaveRating(event, lesson.id)}
-                    />
-                    <label
-                      className="full"
-                      htmlFor="star3"
-                      htmlFor={`star3${lesson.id}`}
-                      title="3 stars"
-                    ></label>
-                    <input
-                      type="radio"
-                      id={`star2${lesson.id}`}
-                      name="rating"
-                      value="2"
-                      onClick={event => this.leaveRating(event, lesson.id)}
-                    />
-                    <label
-                      className="full"
-                      htmlFor={`star2${lesson.id}`}
-                      title="2 stars"
-                    ></label>
-                    <input
-                      type="radio"
-                      id={`star1${lesson.id}`}
-                      name="rating"
-                      value="1"
-                      onClick={event => this.leaveRating(event, lesson.id)}
-                    />
-                    <label
-                      className="full"
-                      htmlFor="star1"
-                      htmlFor={`star1${lesson.id}`}
-                      title="1 star"
-                    ></label>
+                  <div>
+                    {this.props.user_type === "student" ? (
+                      <div className="star-rating">
+                        <input
+                          type="radio"
+                          id={`star5${lesson.id}`}
+                          name="rating"
+                          value="5"
+                          onClick={event => this.leaveRating(event, lesson.id)}
+                        />
+                        <label
+                          className="full"
+                          htmlFor={`star5${lesson.id}`}
+                          title="5 stars"
+                        ></label>
+                        <input
+                          type="radio"
+                          id={`star4${lesson.id}`}
+                          name="rating"
+                          value="4"
+                          onClick={event => this.leaveRating(event, lesson.id)}
+                        />
+                        <label
+                          className="full"
+                          htmlFor={`star4${lesson.id}`}
+                          title="4 stars"
+                        ></label>
+                        <input
+                          type="radio"
+                          id={`star3${lesson.id}`}
+                          name="rating"
+                          value="3"
+                          onClick={event => this.leaveRating(event, lesson.id)}
+                        />
+                        <label
+                          className="full"
+                          htmlFor="star3"
+                          htmlFor={`star3${lesson.id}`}
+                          title="3 stars"
+                        ></label>
+                        <input
+                          type="radio"
+                          id={`star2${lesson.id}`}
+                          name="rating"
+                          value="2"
+                          onClick={event => this.leaveRating(event, lesson.id)}
+                        />
+                        <label
+                          className="full"
+                          htmlFor={`star2${lesson.id}`}
+                          title="2 stars"
+                        ></label>
+                        <input
+                          type="radio"
+                          id={`star1${lesson.id}`}
+                          name="rating"
+                          value="1"
+                          onClick={event => this.leaveRating(event, lesson.id)}
+                        />
+                        <label
+                          className="full"
+                          htmlFor="star1"
+                          htmlFor={`star1${lesson.id}`}
+                          title="1 star"
+                        ></label>
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 ) : (
                   // <h6 className="rating-h6">{lesson.rating.rating}/5</h6>
