@@ -145,13 +145,55 @@ a.quicklink {
   margin-top: 1.5em;
 }
 
-.lesson-button {
-}
-
 .no-lessons {
   font-size: 1.5em;
   margin-left: 20%;
   margin-top: 3em;
   color: red;
 }
+
+.rating-h6 {
+  margin-left: 3em;
+}
 /* End tables */
+
+/* Rating stars */
+
+.star-rating {
+  border: none;
+  float: left;
+}
+
+.full {
+  cursor: pointer;
+}
+
+.star-rating > input {
+  display: none;
+}
+.star-rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.star-rating > label {
+  color: #ddd;
+  float: right;
+}
+
+.star-rating > input:checked ~ label,
+.star-rating:not(:checked) > label:hover,
+.star-rating:not(:checked) > label:hover ~ label {
+  color: #ffd700;
+}
+
+.star-rating > input:checked + label:hover,
+.star-rating > input:checked ~ label:hover,
+.star-rating > label:hover ~ input:checked ~ label,
+.star-rating > input:checked ~ label:hover ~ label {
+  color: #ffed85;
+}
+/* End stars */

@@ -120,7 +120,7 @@ export default class LoginForm extends Component {
             </label>
             <button
               onClick={event => this.handleSubmit(event)}
-              className="login__submit"
+              className="login__submit no-box"
             >
               Sign in
             </button>

@@ -22,11 +22,12 @@
   cursor: pointer;
 } */
 
-.main {
+.teacher-stats {
   align-content: center;
   padding-left: 5em;
-  padding-right: 5em;
+  /* padding-right: 5em; */
   margin-bottom: 5em;
+  margin-left: 10vw;
 }
 
 .card-block {

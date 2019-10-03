@@ -57,6 +57,10 @@ export default class LessonsList extends Component {
     });
   };
 
+  leaveRating = (event, id) => {
+    console.log(event.target.value, id);
+  };
+
   renderTableData = () => {
     return this.state.lessons.length ? (
       this.sortDates().map(lesson => {
@@ -71,12 +75,70 @@ export default class LessonsList extends Component {
             {lesson.timeslot.realdate < this.state.current_time ? (
               <td>
                 {!lesson.rating ? (
-                  <button className="lesson-button btn btn-sm btn-success">
-                    Leave a review
-                  </button>
+                  <div className="star-rating">
+                    <input
+                      type="radio"
+                      id="star5"
+                      name="rating"
+                      value="5"
+                      onClick={event => this.leaveRating(event, lesson.id)}
+                    />
+                    <label
+                      className="full"
+                      htmlFor="star5"
+                      title="5 stars"
+                    ></label>
+                    <input
+                      type="radio"
+                      id="star4"
+                      name="rating"
+                      value="4"
+                      onClick={event => this.leaveRating(event, lesson.id)}
+                    />
+                    <label
+                      className="full"
+                      htmlFor="star4"
+                      title="4 stars"
+                    ></label>
+                    <input
+                      type="radio"
+                      id="star3"
+                      name="rating"
+                      value="3"
+                      onClick={event => this.leaveRating(event, lesson.id)}
+                    />
+                    <label
+                      className="full"
+                      htmlFor="star3"
+                      title="3 stars"
+                    ></label>
+                    <input
+                      type="radio"
+                      id="star2"
+                      name="rating"
+                      value="2"
+                      onClick={event => this.leaveRating(event, lesson.id)}
+                    />
+                    <label
+                      className="full"
+                      htmlFor="star2"
+                      title="2 stars"
+                    ></label>
+                    <input
+                      type="radio"
+                      id="star1"
+                      name="rating"
+                      value="1"
+                      onClick={event => this.leaveRating(event, lesson.id)}
+                    />
+                    <label
+                      className="full"
+                      htmlFor="star1"
+                      title="1 star"
+                    ></label>
+                  </div>
                 ) : (
-                  <h6>{lesson.rating.rating}/5</h6>
-                  // ""
+                  <h6 className="rating-h6">{lesson.rating.rating}/5</h6>
                 )}
               </td>
             ) : (
@@ -104,6 +166,10 @@ export default class LessonsList extends Component {
     return (
       <div>
         <h1 className="lesson-h1">Lessons</h1>
+        <br></br>
+        <h5>
+          If you'd like to apply for free lessons, please send us an email!
+        </h5>
         <br></br>
         <div className="col-md-12 student-button-group"></div>
         <table className="table table-striped lesson-table">

@@ -4,7 +4,9 @@ import "../../styles/TeacherProfile.css";
 import "../../App.css";
 
 class TeacherProfile extends Component {
-  // componentDidMount = () => {};
+  componentDidMount = () => {
+    console.log(this.props.current_user.teacher);
+  };
 
   redirectTeacher = id => {
     this.props.history.push(`/viewteacher/${id}`);
@@ -31,7 +33,7 @@ class TeacherProfile extends Component {
         <h1>{!name ? "Welcome" : `Welcome, ${name}!`}</h1>
         {/* Inspiration https://codepen.io/botlab/pen/QvvNab */}
         {/* TODO students shouldn't see this at all */}
-        <div className="col-md-9 col-lg-12 main">
+        <div className="col-md-9 col-lg-12 teacher-stats">
           <div className="row mb-3">
             <div className="col-xl-3 col-lg-6">
               <div className="card">
@@ -55,7 +57,7 @@ class TeacherProfile extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-xl-3 col-lg-6">
+            {/* <div className="col-xl-3 col-lg-6">
               <div className="card">
                 <div className="card-block">
                   <div className="rotate">
@@ -65,7 +67,7 @@ class TeacherProfile extends Component {
                   <h1 className="display-1">10/15</h1>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="col-xl-3 col-lg-6">
               <div className="card">
                 <div className="card-block">

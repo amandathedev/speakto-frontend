@@ -36,7 +36,6 @@ export default class TeacherShow extends Component {
   }
 
   sortDates = () => {
-    console.log(this.state.timeslots);
     return this.state.timeslots.sort(function(a, b) {
       return new Date(b.realdate) - new Date(a.realdate);
     });
@@ -44,8 +43,7 @@ export default class TeacherShow extends Component {
 
   restructureData = () => {
     const organized = {};
-    this.sortDates();
-    this.state.timeslots.forEach(timeslot => {
+    this.sortDates().forEach(timeslot => {
       const { id, month_name, date, hour, available } = timeslot;
       if (organized[`${month_name} ${date}`]) {
         organized[`${month_name} ${date}`].push({
@@ -101,7 +99,8 @@ export default class TeacherShow extends Component {
             <ul className="events-detail">
               {newObject[date].map(timeslot => {
                 if (timeslot.available === false) {
-                  // console.log(timeslot);
+                  console.log(this.props.current_user.student.id);
+                  console.log(timeslot);
                   return (
                     <li key={timeslot.id} className="unavailable-event">
                       {this.props.user_type === "student" ? (
@@ -177,10 +176,6 @@ export default class TeacherShow extends Component {
   //   );
   //   return teacherImg ? teacherImg.photo_url : null;
   // };
-
-  sortDates = () => {
-    // return this.state.lessons
-  };
 
   render() {
     return (
