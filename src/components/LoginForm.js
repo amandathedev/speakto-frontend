@@ -27,9 +27,13 @@ export default class LoginForm extends Component {
 
   // TODO
   forgotPassword = () => {
-    toast("Password reset instructions have been sent to your email address.", {
-      autoClose: 5000
-    });
+    toast.success(
+      "Password reset instructions have been sent to your email address.",
+      {
+        autoClose: 5000,
+        pauseOnHover: false
+      }
+    );
   };
 
   handleSubmit = event => {
@@ -129,7 +133,11 @@ export default class LoginForm extends Component {
           <a className="login__forgot" onClick={this.forgotPassword}>
             Forgot Password?
           </a>
-          <ToastContainer pauseOnFocusLoss={false} closeButton={false} />
+          <ToastContainer
+            pauseOnFocusLoss={false}
+            closeOnClick
+            closeButton={false}
+          />
         </div>
       </div>
     );

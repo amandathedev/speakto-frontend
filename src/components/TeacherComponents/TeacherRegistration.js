@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+// https://fkhadra.github.io/react-toastify/
 import "../../styles/Registration.css";
 
 export default class Registration extends Component {
@@ -60,14 +61,17 @@ export default class Registration extends Component {
       .then(teacher => {
         console.log(teacher);
         teacher.error
-          ? toast(teacher.error, { autoclose: 5000 })
+          ? toast.success(teacher.error, {
+              autoclose: 5000,
+              pauseOnHover: false
+            })
           : this.loginTeacher(teacher);
       });
   };
 
   loginTeacher = teacher => {
     if (teacher.error) {
-      toast(teacher.error, { autoclose: 5000 });
+      toast.success(teacher.error, { autoclose: 5000, pauseOnHover: false });
     } else {
       localStorage.setItem("current_user", teacher["jwt"]);
       localStorage.setItem("user_type", "teacher");
@@ -195,7 +199,11 @@ export default class Registration extends Component {
             Sign up
           </button>
         </form>
-        <ToastContainer pauseOnFocusLoss={false} closeButton={false} />
+        <ToastContainer
+          pauseOnFocusLoss={false}
+          closeOnClick
+          closeButton={false}
+        />
       </div>
     );
   }

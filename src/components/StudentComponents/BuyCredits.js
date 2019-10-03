@@ -46,9 +46,13 @@ export default class BuyCredits extends Component {
     if (this.state.cardName.length > 3 && this.state.ccNum.length > 3) {
       this.handleCreditSubmit();
     } else {
-      toast("Invalid information. Please correct the form and try again.", {
-        autoClose: 5000
-      });
+      toast.success(
+        "Invalid information. Please correct the form and try again.",
+        {
+          autoClose: 5000,
+          pauseOnHover: false
+        }
+      );
     }
   };
 
@@ -246,7 +250,11 @@ export default class BuyCredits extends Component {
           </div>
         </div>
         {/* End credit card form */}
-        <ToastContainer pauseOnFocusLoss={false} closeButton={false} />
+        <ToastContainer
+          pauseOnFocusLoss={false}
+          closeOnClick
+          closeButton={false}
+        />
       </div>
     );
   }

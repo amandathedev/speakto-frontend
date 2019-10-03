@@ -63,8 +63,9 @@ class EditStudent extends Component {
   };
 
   editComplete = () => {
-    toast("Your profile has been edited successfully.", {
-      autoClose: 5000
+    toast.success("Your profile has been edited successfully.", {
+      autoClose: 5000,
+      pauseOnHover: false
     });
   };
 
@@ -155,7 +156,11 @@ class EditStudent extends Component {
             Submit
           </button>
         </form>
-        <ToastContainer pauseOnFocusLoss={false} closeButton={false} />
+        <ToastContainer
+          pauseOnFocusLoss={false}
+          closeOnClick
+          closeButton={false}
+        />
       </div>
     );
   }

@@ -59,7 +59,10 @@ export default class Registration extends Component {
       .then(student => {
         // console.log(student);
         student.error
-          ? toast(student.error, { autoclose: 5000 })
+          ? toast.success(student.error, {
+              autoclose: 5000,
+              pauseOnHover: false
+            })
           : this.loginStudent(student);
       });
   };
@@ -193,7 +196,11 @@ export default class Registration extends Component {
             Sign up
           </button>
         </form>
-        <ToastContainer pauseOnFocusLoss={false} closeButton={false} />
+        <ToastContainer
+          pauseOnFocusLoss={false}
+          closeOnClick
+          closeButton={false}
+        />
       </div>
     );
   }

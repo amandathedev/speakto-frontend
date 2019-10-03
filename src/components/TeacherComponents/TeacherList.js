@@ -27,10 +27,11 @@ class TeacherList extends Component {
   };
 
   noBookings = () => {
-    toast(
+    toast.success(
       "This teacher has no lesson times available. Please check back later.",
       {
-        autoClose: 5000
+        autoClose: 5000,
+        pauseOnHover: false
       }
     );
   };
@@ -179,7 +180,11 @@ class TeacherList extends Component {
               </table>
             </div>
           </div>
-          <ToastContainer pauseOnFocusLoss={false} closeButton={false} />
+          <ToastContainer
+            pauseOnFocusLoss={false}
+            closeOnClick
+            closeButton={false}
+          />
         </div>
       </div>
     );

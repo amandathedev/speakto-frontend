@@ -286,7 +286,11 @@ export default class LessonsList extends Component {
           </thead>
           <tbody>{this.renderTableData()}</tbody>
         </table>
-        <ToastContainer pauseOnFocusLoss={false} closeButton={false} />
+        <ToastContainer
+          pauseOnFocusLoss={false}
+          closeOnClick
+          closeButton={false}
+        />
       </div>
     );
   }
