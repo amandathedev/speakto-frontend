@@ -46,9 +46,10 @@ export default class LessonsList extends Component {
           document.getElementById("row" + id).remove();
         }
       });
-    toast("Lesson deleted.", {
-      autoClose: 10000
-    });
+
+    // toast("Lesson deleted.", {
+    //   autoClose: 3000
+    // });
   };
 
   sortDates = () => {
@@ -174,7 +175,7 @@ export default class LessonsList extends Component {
                   </div>
                 ) : (
                   // <h6 className="rating-h6">{lesson.rating.rating}/5</h6>
-                  <span className="rating-h6">
+                  <span className="rating-span">
                     {this.showStars(lesson.rating.rating)}
                   </span>
                 )}
@@ -182,11 +183,62 @@ export default class LessonsList extends Component {
             ) : (
               <td>
                 <button
+                  data-toggle="modal"
+                  data-target="#exampleModalCenter"
                   className="lesson-button btn btn-sm btn-danger"
-                  onClick={() => this.cancelBooking(lesson.id)}
+                  // onClick={() => this.cancelBooking(lesson.id)}
                 >
                   Cancel
                 </button>
+                <div
+                  class="modal fade confirm-modal"
+                  id="exampleModalCenter"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="exampleModalCenterTitle"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="modal-dialog modal-dialog-centered"
+                    role="document"
+                  >
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">
+                          Confirm cancellation
+                        </h5>
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body confirm-modal-body">
+                        Are you sure you'd like to cancel this lesson?
+                      </div>
+                      <div class="modal-footer confirm-modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary confirm-button"
+                          data-dismiss="modal"
+                        >
+                          No
+                        </button>
+                        <button
+                          type="button"
+                          data-dismiss="modal"
+                          onClick={() => this.cancelBooking(lesson.id)}
+                          class="btn btn-danger confirm-button"
+                        >
+                          Yes
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </td>
             )}
           </tr>
@@ -217,7 +269,9 @@ export default class LessonsList extends Component {
               <th scope="col">Teacher</th>
               <th scope="col">Date</th>
               <th scope="col">Time</th>
-              <th scope="col">Your Rating</th>
+              <th scope="col" className="rating-header">
+                Your Rating
+              </th>
             </tr>
           </thead>
           <tbody>{this.renderTableData()}</tbody>

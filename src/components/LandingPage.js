@@ -129,6 +129,16 @@ export default class LandingPage extends Component {
                   />
                 )}
               />
+              <Route
+                path="/login"
+                render={props => (
+                  <LandingContent
+                    {...props}
+                    // fetchLessons={this.props.fetchLessons}
+                    // setUser={this.props.setUser}
+                  />
+                )}
+              />
             </Switch>
           ) : (
             <Switch>

@@ -58,16 +58,16 @@ export default class Registration extends Component {
     })
       .then(resp => resp.json())
       .then(teacher => {
-        // console.log(teacher);
+        console.log(teacher);
         teacher.error
-          ? toast(teacher.error, { autoclose: 10000 })
+          ? toast(teacher.error, { autoclose: 5000 })
           : this.loginTeacher(teacher);
       });
   };
 
   loginTeacher = teacher => {
     if (teacher.error) {
-      alert(teacher.error);
+      toast(teacher.error, { autoclose: 5000 });
     } else {
       localStorage.setItem("current_user", teacher["jwt"]);
       localStorage.setItem("user_type", "teacher");

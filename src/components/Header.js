@@ -43,7 +43,7 @@ class Header extends Component {
               <a
                 onClick={this.logout}
                 href="#"
-                className="btn btn-danger btn-sm"
+                className="btn btn-danger logout-button btn-sm"
               >
                 <i className="fas fa-sign-out-alt"></i> Log out
               </a>

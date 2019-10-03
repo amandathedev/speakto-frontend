@@ -59,7 +59,7 @@ export default class Registration extends Component {
       .then(student => {
         // console.log(student);
         student.error
-          ? toast(student.error, { autoclose: 10000 })
+          ? toast(student.error, { autoclose: 5000 })
           : this.loginStudent(student);
       });
   };

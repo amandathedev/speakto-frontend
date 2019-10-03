@@ -64,7 +64,7 @@ class EditStudent extends Component {
 
   editComplete = () => {
     toast("Your profile has been edited successfully.", {
-      autoClose: 10000
+      autoClose: 5000
     });
   };
 

@@ -16,6 +16,10 @@ class TeacherProfile extends Component {
     this.props.history.push(`/editteacher/${id}`);
   };
 
+  handleLessonsRedirect = () => {
+    this.props.history.push("/lessons");
+  };
+
   render() {
     const {
       id,
@@ -35,13 +39,13 @@ class TeacherProfile extends Component {
         <div className="col-md-9 col-lg-12 teacher-stats">
           <div className="row mb-3">
             <div className="col-xl-3 col-lg-6">
-              <div className="card">
+              <div className="card" onClick={this.handleLessonsRedirect}>
                 <div className="card-block ">
                   <div className="rotate">
                     <i className="fas fa-chalkboard-teacher fa-5x"></i>
                   </div>
                   <h6 className="text-uppercase">Lessons Completed</h6>
-                  <h1 className="display-1">{lessons_completed}</h1>
+                  <h1 className="display-1">{lessons_completed || "0"}</h1>
                 </div>
               </div>
             </div>
@@ -52,7 +56,7 @@ class TeacherProfile extends Component {
                     <i className="fas fa-comment-dollar fa-5x"></i>
                   </div>
                   <h6 className="text-uppercase">Income Balance</h6>
-                  <h1 className="display-1">${income_balance}</h1>
+                  <h1 className="display-1">${income_balance || "0"}</h1>
                 </div>
               </div>
             </div>

@@ -28,7 +28,7 @@ export default class LoginForm extends Component {
   // TODO
   forgotPassword = () => {
     toast("Password reset instructions have been sent to your email address.", {
-      autoClose: 10000
+      autoClose: 5000
     });
   };
 

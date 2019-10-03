@@ -30,7 +30,7 @@ class TeacherList extends Component {
     toast(
       "This teacher has no lesson times available. Please check back later.",
       {
-        autoClose: 10000
+        autoClose: 5000
       }
     );
   };

@@ -157,3 +157,11 @@
   left: 50%;
   margin-top: 3em;
 }
+
+.lesson-button {
+  margin-left: 4em;
+}
+
+.card {
+  box-shadow: 1px 13px 16px lightgray;
+}

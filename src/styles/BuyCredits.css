@@ -178,3 +178,7 @@ input:focus {
   margin-right: 5px;
 }
 /* End credit card form */
+
+.total-credits-card {
+  box-shadow: 1px 3px 6px lightgray;
+}

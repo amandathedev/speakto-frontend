@@ -37,10 +37,6 @@ class App extends Component {
   componentDidMount() {
     this.findUser();
     // this.fetchLessons();
-    // console.log(this.state.current_date);
-    // console.log(this.state.current_month + 1);
-    // console.log(this.state.current_day);
-    // console.log(this.state.current_hour);
   }
 
   setUser = (user, type) => {

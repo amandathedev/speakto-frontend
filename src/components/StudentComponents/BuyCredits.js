@@ -4,15 +4,16 @@ import "react-toastify/dist/ReactToastify.css";
 import "../../styles/BuyCredits.css";
 
 export default class BuyCredits extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       newCredits: 10,
       cardName: "",
       ccNum: 0,
       expiration: 0,
-      secCode: 0
+      secCode: 0,
+      lesson_credits: props.current_user.student.lesson_credits
     };
   }
 
@@ -46,7 +47,7 @@ export default class BuyCredits extends Component {
       this.handleCreditSubmit();
     } else {
       toast("Invalid information. Please correct the form and try again.", {
-        autoClose: 10000
+        autoClose: 5000
       });
     }
   };
@@ -74,7 +75,12 @@ export default class BuyCredits extends Component {
             this.props.current_user.student.lesson_credits
         })
       }
-    ).then(document.location.reload(true));
+    ).then(
+      this.setState({
+        lesson_credits:
+          this.state.newCredits + this.props.current_user.student.lesson_credits
+      })
+    );
   };
 
   render() {
@@ -90,9 +96,7 @@ export default class BuyCredits extends Component {
               <i className="fab fa-cc-stripe fa-5x"></i>
             </div>
             <h6 className="text-uppercase">Credits Available</h6>
-            <h1 className="display-1">
-              {this.props.current_user.student.lesson_credits}
-            </h1>
+            <h1 className="display-1">{this.state.lesson_credits}</h1>
           </div>
         </div>
         {/* Credit card form */}

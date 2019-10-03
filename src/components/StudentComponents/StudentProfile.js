@@ -58,7 +58,9 @@ class StudentProfile extends Component {
     return (
       <div>
         <br></br>
-        <h1>{!studentName ? "Welcome" : `Welcome, ${studentName}!`}</h1>
+        <h1 className="welcome-text">
+          {!studentName ? "Welcome" : `Welcome, ${studentName}!`}
+        </h1>
         <br></br>
         {/* Buttons */}
         <div id="home_quicklinks">
