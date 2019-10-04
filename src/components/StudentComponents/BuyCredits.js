@@ -79,12 +79,20 @@ export default class BuyCredits extends Component {
             this.props.current_user.student.lesson_credits
         })
       }
-    ).then(
-      this.setState({
-        lesson_credits:
-          this.state.newCredits + this.props.current_user.student.lesson_credits
-      })
-    );
+    )
+      .then(
+        this.setState({
+          lesson_credits:
+            this.state.newCredits +
+            this.props.current_user.student.lesson_credits
+        })
+      )
+      .then(
+        toast.success("Credit purchase successful.", {
+          autoClose: 5000,
+          pauseOnHover: false
+        })
+      );
   };
 
   render() {

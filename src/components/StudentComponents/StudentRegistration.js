@@ -186,7 +186,7 @@ export default class Registration extends Component {
             </div>
           </div>
           <button
-            type="submit"
+            type="button"
             className="btn btn-secondary"
             onClick={this.handleHomeClick}
           >
