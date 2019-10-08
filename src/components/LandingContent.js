@@ -25,10 +25,10 @@ export default class LandingContent extends Component {
   render() {
     return (
       <div>
-        <h1 className="h1-title">NativeSpeak</h1>
+        <h1 className="h1-title">SpeakTo</h1>
         <br></br>
         <h5 className="h5-intro">
-          Chat with native speakers and learn to speak like a native speaker.
+          Speak with native speakers and learn to speak like a native speaker.
         </h5>
         {/* Buttons */}
         <div id="home_quicklinks">
@@ -139,10 +139,9 @@ export default class LandingContent extends Component {
                       </div>
                       <p className="testimonial">
                         I achieved 108 points on the TOEFL test, thanks to the
-                        NativeSpeak lessons! I recommended NativeSpeak to my
-                        peers who are also trying to get into business school,
-                        though I was reluctant to recommend it to my
-                        competition.
+                        SpeakTo lessons! I recommended SpeakTo to my peers who
+                        are also trying to get into business school, though I
+                        was reluctant to recommend it to my competition.
                       </p>
                       <p className="overview">
                         <b>Michael Holz</b>, Media Analyst
@@ -157,9 +156,8 @@ export default class LandingContent extends Component {
                       </div>
                       <p className="testimonial">
                         I have regular business meetings with native English
-                        speakers. Through practice on NativeSpeak, I am now able
-                        to speak with them confidently, which was not easy
-                        before.
+                        speakers. Through practice on SpeakTo, I am now able to
+                        speak with them confidently, which was not easy before.
                       </p>
                       <p className="overview">
                         <b>Anita Moreno</b>, Web Developer

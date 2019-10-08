@@ -37,7 +37,7 @@ class Header extends Component {
                 className="header-icon"
                 alt="Company Logo"
               />
-              <strong className="site-title"> NativeSpeak</strong>
+              <strong className="site-title"> SpeakTo</strong>
             </a>
             {this.props.logged_in && (
               <a
