@@ -23,7 +23,7 @@ export default class Registration extends Component {
   }
 
   // rootUrl = "http://localhost:3000/api/v1/";
-  rootUrl = "http://speakto-io-backend.herokuapp.com/api/v1/";
+  rootUrl = "https://speakto-io-backend.herokuapp.com/api/v1/";
   studentsUrl = `${this.rootUrl}students`;
 
   handleChange = event => {

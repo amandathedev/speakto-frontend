@@ -38,7 +38,7 @@ class EditStudent extends Component {
     let token = localStorage.getItem("current_user");
     fetch(
       // `http://localhost:3000/api/v1/students/${this.props.current_user.student.id}`,
-      `http://speakto-io-backend.herokuapp.com/api/v1/students/${this.props.current_user.student.id}`,
+      `https://speakto-io-backend.herokuapp.com/api/v1/students/${this.props.current_user.student.id}`,
       {
         method: "PATCH",
         headers: {

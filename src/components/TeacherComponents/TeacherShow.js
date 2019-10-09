@@ -17,7 +17,7 @@ export default class TeacherShow extends Component {
     // console.log(this.props.match);
     fetch(
       // `http://localhost:3000/api/v1/timeslots/${this.props.match.params.id}`,
-      `http://speakto-io-backend.herokuapp.com/api/v1/timeslots/${this.props.match.params.id}`,
+      `https://speakto-io-backend.herokuapp.com/api/v1/timeslots/${this.props.match.params.id}`,
       {
         method: "GET",
         headers: {
@@ -152,7 +152,7 @@ export default class TeacherShow extends Component {
   bookLesson = () => {
     let token = localStorage.getItem("current_user");
     // fetch(`http://localhost:3000/api/v1/lessons`, {
-    fetch(`http://speakto-io-backend.herokuapp.com/api/v1/lessons`, {
+    fetch(`https://speakto-io-backend.herokuapp.com/api/v1/lessons`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
