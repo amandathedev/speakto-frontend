@@ -13,7 +13,8 @@ export default class LessonsList extends Component {
 
   componentDidMount() {
     const token = localStorage.getItem("current_user");
-    fetch("http://localhost:3000/api/v1/lessons/", {
+    // fetch("http://localhost:3000/api/v1/lessons/", {
+    fetch("http://speakto-io-backend.herokuapp.com/api/v1/lessons/", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`
@@ -33,7 +34,8 @@ export default class LessonsList extends Component {
 
   cancelBooking = id => {
     const token = localStorage.getItem("current_user");
-    fetch(`http://localhost:3000/api/v1/lessons/${id}`, {
+    // fetch(`http://localhost:3000/api/v1/lessons/${id}`, {
+    fetch(`http://speakto-io-backend.herokuapp.com/api/v1/lessons/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -62,7 +64,8 @@ export default class LessonsList extends Component {
     // console.log(id);
     event.preventDefault();
     let token = localStorage.getItem("current_user");
-    fetch("http://localhost:3000/api/v1/ratings", {
+    // fetch("http://localhost:3000/api/v1/ratings", {
+    fetch("http://speakto-io-backend.herokuapp.com/api/v1/ratings", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,

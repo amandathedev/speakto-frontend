@@ -33,7 +33,8 @@ export default class EditTeacher extends Component {
   handleSubmit = event => {
     let token = localStorage.getItem("current_user");
     fetch(
-      `http://localhost:3000/api/v1/teachers/${this.props.current_user.teacher.id}`,
+      // `http://localhost:3000/api/v1/teachers/${this.props.current_user.teacher.id}`,
+      `http://speakto-io-backend.herokuapp.com/api/v1/teachers/${this.props.current_user.teacher.id}`,
       {
         method: "PATCH",
         headers: {

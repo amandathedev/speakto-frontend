@@ -13,7 +13,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LandingPage from "./components/LandingPage";
 
-const rootUrl = "http://localhost:3000/api/v1/";
+// const rootUrl = "http://localhost:3000/api/v1/";
+const rootUrl = "http://speakto-io-backend.herokuapp.com/api/v1/";
 
 class App extends Component {
   constructor() {
@@ -82,12 +83,16 @@ class App extends Component {
     let token = localStorage.getItem("current_user");
     let identity = localStorage.getItem("user_type");
     if (token) {
-      fetch(`http://localhost:3000/api/v1/${identity}profile`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`
+      // fetch(`http://localhost:3000/api/v1/${identity}profile`, {
+      fetch(
+        `http://speakto-io-backend.herokuapp.com/api/v1/${identity}profile`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
         }
-      })
+      )
         .then(resp => resp.json())
         .then(data => {
           this.setState(
