@@ -35,7 +35,7 @@ class TeacherProfile extends Component {
       <div>
         <br></br>
         <h1>{!name ? "Welcome" : `Welcome, ${name}!`}</h1>
-        {/* Inspiration https://codepen.io/botlab/pen/QvvNab */}}
+        {/* Inspiration https://codepen.io/botlab/pen/QvvNab */}
         <div className="col-md-9 col-lg-12 teacher-stats">
           <div className="row mb-3">
             <div className="col-xl-3 col-lg-6">
