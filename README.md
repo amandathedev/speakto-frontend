@@ -14,7 +14,7 @@ Clone this repository to your system and run:
 npm install
 ```
 
-Then open the backend repository at https://github.com/amandathedev/speakto-backend and follow the instructions in that ReadME.
+Then open the backend repository at https://github.com/amandathedev/speakto-backend and follow the instructions in the associated README.
 
 ## Usage
 
@@ -26,6 +26,8 @@ Feel free to create new user accounts. Teacher and student accounts have differe
 ## Contributing
 
 Pull requests are welcome. If you discover any bugs, I'd love to hear about it. For major changes, please open an issue first to discuss what you would like to change.
+
+Made by Amanda Treutler
 
 ## License
 

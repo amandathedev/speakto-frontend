@@ -32,6 +32,7 @@ const Footer = props => {
           <i className="fa fa-skype"></i>
         </a>
       </div>
+      <h6 className="copyright">Made by Amanda Treutler</h6>
     </footer>
   );
 };
