@@ -31,4 +31,5 @@ Made by Amanda Treutler
 
 ## License
 
+Created by [Amanda Treutler](http://www.amandatreutler.com)
 [MIT](https://choosealicense.com/licenses/mit/)
