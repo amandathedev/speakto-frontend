@@ -258,10 +258,10 @@ export default class LessonsList extends Component {
         );
       })
     ) : (
-      <h6 className="no-lessons">
+      <p className="no-lessons">
         No lessons found. Please check out our list of teachers if you'd like to
         book a lesson!
-      </h6>
+      </p>
     );
   };
 

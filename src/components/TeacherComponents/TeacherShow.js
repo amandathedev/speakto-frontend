@@ -39,16 +39,21 @@ export default class TeacherShow extends Component {
   }
 
   sortDates = () => {
-    return this.state.timeslots
-      .filter(timeslot => new Date(timeslot.realdate) > this.state.current_time)
-      .sort(function(a, b) {
-        return new Date(a.realdate) - new Date(b.realdate);
-      });
+    console.log(this.state.timeslots);
+    return (
+      this.state.timeslots
+        // .filter(timeslot => new Date(timeslot.realdate) > this.state.current_time)
+        .sort(function(a, b) {
+          return new Date(a.realdate) - new Date(b.realdate);
+        })
+    );
   };
 
   restructureData = () => {
     const organized = {};
-    this.sortDates().forEach(timeslot => {
+    const foo = this.sortDates();
+    console.log("foo", foo);
+    foo.forEach(timeslot => {
       const { id, month_name, date, hour, available, realdate } = timeslot;
 
       if (organized[`${month_name} ${date}`]) {
@@ -92,6 +97,7 @@ export default class TeacherShow extends Component {
 
   betterRenderTimeslots = () => {
     const newObject = this.restructureData();
+
     let allDays = [];
     for (let date in newObject) {
       let onThisDay = (
