@@ -6,6 +6,8 @@ A live demo is available at http://www.speakto.io
 
 SpeakTo is a way for teachers and students to connect. Students can browse teachers, book lessons, and leave feedback. Teachers can view their schedule, earnings, and ratings.
 
+![Demo Image](speakto.png)
+
 ## Installation
 
 Clone this repository to your system and run:
